@@ -1,0 +1,23 @@
+<form [formGroup]="form" (ngSubmit)="createAndEmitTeacher()">
+  <label>
+    Nom:
+    <input type="text" formControlName="name">
+  </label>
+  <label>
+    Prenom:
+    <input type="text" formControlName="firstname">
+  </label>
+  <label>
+    Datenaiss:
+    <input type="date" formControlName="birthdate">
+  </label>
+  <label>
+    Mail:
+    <input type="text" formControlName="mail">
+  </label>
+  <label>
+    password:
+    <input type="password" formControlName="password">
+  </label>
+  <input type="submit" [disabled]="form.invalid">
+</form>

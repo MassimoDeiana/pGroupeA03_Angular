@@ -1,0 +1,26 @@
+<div *ngIf="teachers.length===0">
+  <b>Il n'y a actuellement pas de professeurs</b>
+</div>
+<div *ngIf="teachers.length">
+  <table>
+    <thead>
+    <tr>
+      <th>id</th>
+      <th>prenom</th>
+      <th>nom</th>
+      <th>mail</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let teacher of teachers;let i=index">
+      <td>{{teacher.idTeacher}}</td>
+      <td>{{teacher.firstname}}</td>
+      <td>{{teacher.name}}</td>
+      <td>{{teacher.mail}}</td>
+      <td>
+        <button (click)="emitDeleteTeacher(teacher,i);">X</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
