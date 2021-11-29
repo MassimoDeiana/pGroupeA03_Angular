@@ -15,6 +15,9 @@ import {LoginComponent} from "./login/login.component";
 import {HomeComponent} from "./home/home.component";
 import {RouterModule} from "@angular/router";
 import {AuthGuard, ErrorInterceptor, JwtInterceptor} from "./_helpers";
+import { SchoolclassContainerComponent } from './schoolclass-container/schoolclass-container.component';
+import { SchoolclassFormComponent } from './schoolclass-container/schoolclass-form/schoolclass-form.component';
+import { SchoolclassListComponent } from './schoolclass-container/schoolclass-list/schoolclass-list.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import {AuthGuard, ErrorInterceptor, JwtInterceptor} from "./_helpers";
     StudentListComponent,
     StudentFormComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    SchoolclassContainerComponent,
+    SchoolclassFormComponent,
+    SchoolclassListComponent
 
   ],
   imports: [
@@ -38,6 +44,7 @@ import {AuthGuard, ErrorInterceptor, JwtInterceptor} from "./_helpers";
       { path: '', component: HomeComponent, canActivate: [AuthGuard] },
       { path: 'login', component: LoginComponent },
       { path: 'teacher', component: TeacherContainerComponent, canActivate:[AuthGuard]},
+      { path: 'schoolclass', component: SchoolclassContainerComponent },
 
       // otherwise redirect to home
       { path: '**', redirectTo: '' }

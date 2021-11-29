@@ -1,0 +1,2 @@
+<app-schoolclass-form (schoolclassCreated)="send($event)"></app-schoolclass-form>
+<app-schoolclass-list [schoolclasses]="schoolclasses" (schoolclassToDelete)="delete($event)" (schoolclassChanged)="update($event)"></app-schoolclass-list>

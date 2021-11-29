@@ -1,0 +1,15 @@
+<form [formGroup]="form" (ngSubmit)="createAndEmitSchoolclass()">
+  <label>
+    Nom :
+    <input type="text" formControlName="name">
+  </label>
+  <label>
+    Année :
+    <input type="number" formControlName="year">
+  </label>
+  <label>
+    Nombre d'étudiants :
+    <input type="number" formControlName="nbStudents">
+  </label>
+  <input type="submit" [disabled]="form.invalid">
+</form>
