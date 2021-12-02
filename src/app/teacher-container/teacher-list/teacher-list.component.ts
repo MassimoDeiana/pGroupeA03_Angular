@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import {Teacher} from "../../teacher";
-import {EntityToDelete} from "../../entity-to-delete";
+import {Teacher} from "../../_model/teacher";
+import {EntityToDelete} from "../../_model/entity-to-delete";
 
 @Component({
   selector: 'app-teacher-list',

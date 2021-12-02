@@ -1,4 +1,4 @@
-import {EntityToDelete} from "./entity-to-delete";
+import {EntityToDelete} from "./_model/entity-to-delete";
 
 export interface IContainer<T> {
   send(t:T):void;

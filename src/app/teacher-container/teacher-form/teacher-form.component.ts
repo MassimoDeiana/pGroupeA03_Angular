@@ -1,7 +1,7 @@
 import { Output } from '@angular/core';
 import { Component, EventEmitter, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {Teacher} from "../../teacher";
+import {Teacher} from "../../_model/teacher";
 
 @Component({
   selector: 'app-teacher-form',

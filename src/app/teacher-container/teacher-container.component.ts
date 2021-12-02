@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {TeacherService} from "../teacher.service";
-import {Teacher} from "../teacher";
-import {EntityToDelete} from "../entity-to-delete";
-import {Ientityservice} from "../ientityservice";
-import {EntityService} from "../entity.service";
-import {EntityContainerComponent} from "../entity-container/entity-container.component";
+import {TeacherService} from "../_services/_teacher/teacher.service";
+import {Teacher} from "../_model/teacher";
+import {EntityToDelete} from "../_model/entity-to-delete";
+import {Ientityservice} from "../_services/ientityservice";
+import {EntityService} from "../_services/entity.service";
 import {TeacherListComponent} from "./teacher-list/teacher-list.component";
 
 @Component({
@@ -19,7 +18,6 @@ export class TeacherContainerComponent implements OnInit {
   teachers:Teacher[]=[];
 
   constructor(private teacherService:TeacherService) {
-
   }
 
   ngOnInit(): void {

@@ -1,6 +1,6 @@
 import {Component, OnInit} from "@angular/core";
-import {Teacher} from "../teacher";
-import {TeacherService} from "../teacher.service";
+import {Teacher} from "../_model/teacher";
+import {TeacherService} from "../_services/_teacher/teacher.service";
 import {first} from "rxjs/operators";
 
 

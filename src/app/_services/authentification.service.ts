@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {BehaviorSubject, Observable} from "rxjs";
-import {Teacher} from "../teacher";
+import {Teacher} from "../_model/teacher";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {map} from "rxjs/operators";
@@ -10,7 +10,7 @@ import {map} from "rxjs/operators";
 export class AuthenticationService {
   private currentUserSubject: BehaviorSubject<Teacher>;
   public currentUser: Observable<Teacher>;
-  
+
 
   constructor(private http: HttpClient) {
     this.currentUserSubject = new BehaviorSubject<Teacher>(JSON.parse(<string>localStorage.getItem('currentUser')));

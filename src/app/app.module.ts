@@ -10,11 +10,12 @@ import { TeacherListComponent } from './teacher-container/teacher-list/teacher-l
 import { StudentContainerComponent } from './student-container/student-container.component';
 import { StudentListComponent } from './student-container/student-list/student-list.component';
 import { StudentFormComponent } from './student-container/student-form/student-form.component';
-import { EntityContainerComponent } from './entity-container/entity-container.component';
 import {LoginComponent} from "./login/login.component";
 import {HomeComponent} from "./home/home.component";
 import {RouterModule} from "@angular/router";
 import {AuthGuard, ErrorInterceptor, JwtInterceptor} from "./_helpers";
+import {ScheduleModule,RecurrenceEditorModule,DayService,WeekService,WorkWeekService,MonthService,MonthAgendaService} from "@syncfusion/ej2-angular-schedule";
+import { SchedulerComponent } from './scheduler/scheduler.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {AuthGuard, ErrorInterceptor, JwtInterceptor} from "./_helpers";
     StudentListComponent,
     StudentFormComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    SchedulerComponent,
 
   ],
   imports: [
@@ -34,10 +36,12 @@ import {AuthGuard, ErrorInterceptor, JwtInterceptor} from "./_helpers";
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
+    ScheduleModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, canActivate: [AuthGuard] },
       { path: 'login', component: LoginComponent },
       { path: 'teacher', component: TeacherContainerComponent, canActivate:[AuthGuard]},
+      { path: 'scheduler', component:SchedulerComponent},
 
       // otherwise redirect to home
       { path: '**', redirectTo: '' }
@@ -45,7 +49,9 @@ import {AuthGuard, ErrorInterceptor, JwtInterceptor} from "./_helpers";
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }],
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    DayService,WeekService,WorkWeekService,MonthService,MonthAgendaService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
