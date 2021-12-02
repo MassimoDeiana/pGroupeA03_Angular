@@ -1,0 +1,26 @@
+<div *ngIf="schoolclasses.length===0">
+  <b>Il n'y a pas encore de classe</b>
+</div>
+<div *ngIf="schoolclasses.length">
+  <table>
+    <thead>
+    <tr>
+      <th>id</th>
+      <th>Nom</th>
+      <th>Année</th>
+      <th>Nbr. d'étudiants</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let schoolclass of schoolclasses;let i=index">
+      <td>{{schoolclass.id}}</td>
+      <td>{{schoolclass.name}}</td>
+      <td>{{schoolclass.year}}</td>
+      <td>{{schoolclass.nbStudents}}</td>
+      <td>
+        <button (click)="emitDeleteSchoolclass(schoolclass,i);">X</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

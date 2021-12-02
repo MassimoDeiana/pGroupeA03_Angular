@@ -14,11 +14,14 @@ import {LoginComponent} from "./login/login.component";
 import {HomeComponent} from "./home/home.component";
 import {RouterModule} from "@angular/router";
 import {AuthGuard, ErrorInterceptor, JwtInterceptor} from "./_helpers";
+<<<<<<< HEAD
 import {ScheduleModule,RecurrenceEditorModule,DayService,WeekService,WorkWeekService,MonthService,MonthAgendaService} from "@syncfusion/ej2-angular-schedule";
 import { SchedulerComponent } from './scheduler/scheduler.component';
+=======
 import { SchoolclassContainerComponent } from './schoolclass-container/schoolclass-container.component';
 import { SchoolclassFormComponent } from './schoolclass-container/schoolclass-form/schoolclass-form.component';
 import { SchoolclassListComponent } from './schoolclass-container/schoolclass-list/schoolclass-list.component';
+>>>>>>> f42f24c5691a5c5c30f237d3553aaa576e6392f6
 
 @NgModule({
   declarations: [
@@ -31,10 +34,13 @@ import { SchoolclassListComponent } from './schoolclass-container/schoolclass-li
     StudentFormComponent,
     LoginComponent,
     HomeComponent,
+<<<<<<< HEAD
     SchedulerComponent,
+=======
     SchoolclassContainerComponent,
     SchoolclassFormComponent,
     SchoolclassListComponent
+>>>>>>> f42f24c5691a5c5c30f237d3553aaa576e6392f6
 
   ],
   imports: [
@@ -47,8 +53,11 @@ import { SchoolclassListComponent } from './schoolclass-container/schoolclass-li
       { path: '', component: HomeComponent, canActivate: [AuthGuard] },
       { path: 'login', component: LoginComponent },
       { path: 'teacher', component: TeacherContainerComponent, canActivate:[AuthGuard]},
+<<<<<<< HEAD
       { path: 'scheduler', component:SchedulerComponent},
+=======
       { path: 'schoolclass', component: SchoolclassContainerComponent },
+>>>>>>> f42f24c5691a5c5c30f237d3553aaa576e6392f6
 
       // otherwise redirect to home
       { path: '**', redirectTo: '' }
