@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Schoolclass} from "../schoolclass";
-import {Teacher} from "../teacher";
-import {EntityToDelete} from "../entity-to-delete";
 import {SchoolclassService} from "../schoolclass.service";
+import {EntityToDelete} from "../_model/entity-to-delete";
 
 @Component({
   selector: 'app-schoolclass-container',
