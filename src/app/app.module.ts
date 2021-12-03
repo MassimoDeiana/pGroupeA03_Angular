@@ -1,5 +1,5 @@
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import {ErrorHandler, NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -19,6 +19,8 @@ import { SchedulerComponent } from './scheduler/scheduler.component';
 import { SchoolclassContainerComponent } from './schoolclass-container/schoolclass-container.component';
 import { SchoolclassFormComponent } from './schoolclass-container/schoolclass-form/schoolclass-form.component';
 import { SchoolclassListComponent } from './schoolclass-container/schoolclass-list/schoolclass-list.component';
+import {HttpErrorInterceptor} from "./exception/http-error.interceptor";
+import {AppRoutingModule} from "./app-routing/app-routing.module";
 
 @NgModule({
   declarations: [
@@ -43,20 +45,12 @@ import { SchoolclassListComponent } from './schoolclass-container/schoolclass-li
     HttpClientModule,
     FormsModule,
     ScheduleModule,
-    RouterModule.forRoot([
-      { path: '', component: HomeComponent, canActivate: [AuthGuard] },
-      { path: 'login', component: LoginComponent },
-      { path: 'teacher', component: TeacherContainerComponent, canActivate:[AuthGuard]},
-      { path: 'scheduler', component:SchedulerComponent},
-      { path: 'schoolclass', component: SchoolclassContainerComponent },
-
-      // otherwise redirect to home
-      { path: '**', redirectTo: '' }
-    ])
+    AppRoutingModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+   // { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true},
     DayService,WeekService,WorkWeekService,MonthService,MonthAgendaService
   ],
   bootstrap: [AppComponent]
