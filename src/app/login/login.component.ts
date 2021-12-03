@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
       .subscribe({
         next: () => {
           // get return url from route parameters or default to '/'
-          const returnUrl =  '/teacher';
+          const returnUrl =  '/meeting';
           this.router.navigate([returnUrl]);
         },
         error: error => {

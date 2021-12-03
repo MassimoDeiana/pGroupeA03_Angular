@@ -19,6 +19,7 @@ import { SchedulerComponent } from './scheduler/scheduler.component';
 import { SchoolclassContainerComponent } from './schoolclass-container/schoolclass-container.component';
 import { SchoolclassFormComponent } from './schoolclass-container/schoolclass-form/schoolclass-form.component';
 import { SchoolclassListComponent } from './schoolclass-container/schoolclass-list/schoolclass-list.component';
+import { MeetingContainerComponent } from './meeting-container/meeting-container.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { SchoolclassListComponent } from './schoolclass-container/schoolclass-li
     SchedulerComponent,
     SchoolclassContainerComponent,
     SchoolclassFormComponent,
-    SchoolclassListComponent
+    SchoolclassListComponent,
+    MeetingContainerComponent
 
   ],
   imports: [
@@ -47,7 +49,7 @@ import { SchoolclassListComponent } from './schoolclass-container/schoolclass-li
       { path: '', component: HomeComponent, canActivate: [AuthGuard] },
       { path: 'login', component: LoginComponent },
       { path: 'teacher', component: TeacherContainerComponent, canActivate:[AuthGuard]},
-      { path: 'scheduler', component:SchedulerComponent},
+      { path: 'meeting', component:MeetingContainerComponent},
       { path: 'schoolclass', component: SchoolclassContainerComponent },
 
       // otherwise redirect to home
