@@ -1,5 +1,5 @@
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import {ErrorHandler, NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -20,6 +20,8 @@ import { SchoolclassContainerComponent } from './schoolclass-container/schoolcla
 import { SchoolclassFormComponent } from './schoolclass-container/schoolclass-form/schoolclass-form.component';
 import { SchoolclassListComponent } from './schoolclass-container/schoolclass-list/schoolclass-list.component';
 import { MeetingContainerComponent } from './meeting-container/meeting-container.component';
+import {HttpErrorInterceptor} from "./exception/http-error.interceptor";
+import {AppRoutingModule} from "./app-routing/app-routing.module";
 
 @NgModule({
   declarations: [
@@ -54,11 +56,13 @@ import { MeetingContainerComponent } from './meeting-container/meeting-container
 
       // otherwise redirect to home
       { path: '**', redirectTo: '' }
-    ])
+    ]),
+    AppRoutingModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+   // { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true},
     DayService,WeekService,WorkWeekService,MonthService,MonthAgendaService
   ],
   bootstrap: [AppComponent]

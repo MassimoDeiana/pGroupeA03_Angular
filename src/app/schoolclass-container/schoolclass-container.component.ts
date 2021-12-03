@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Schoolclass} from "../schoolclass";
 import {SchoolclassService} from "../schoolclass.service";
 import {EntityToDelete} from "../_model/entity-to-delete";
+import {ej} from "@syncfusion/ej2-data/dist/global";
+import data = ej.data;
 
 @Component({
   selector: 'app-schoolclass-container',
@@ -27,9 +29,10 @@ export class SchoolclassContainerComponent implements OnInit {
     const schoolclass: Schoolclass = this.schoolclasses[entityToDelete.index];
 
     this.schoolclassService.delete( schoolclass.id||-1)
-      .subscribe(()=>{
-        this.schoolclasses.splice(entityToDelete.index,1)
-      });
+      .subscribe(
+        data => this.schoolclasses.splice(entityToDelete.index,1),
+        error => window.alert("At least one student remains in the class.")
+      );
   }
 
   getAll(){
