@@ -19,6 +19,7 @@ export class SchoolclassFormComponent implements OnInit {
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
+
   }
 
   createAndEmitSchoolclass(){

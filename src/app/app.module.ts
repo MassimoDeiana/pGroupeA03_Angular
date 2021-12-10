@@ -24,6 +24,7 @@ import {HttpErrorInterceptor} from "./exception/http-error.interceptor";
 import {AppRoutingModule} from "./app-routing/app-routing.module";
 import { NoteContainerComponent } from './note-container/note-container.component';
 import { NoteFormComponent } from './note-container/note-form/note-form.component';
+import { NoteListComponent } from './note-container/note-list/note-list.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { NoteFormComponent } from './note-container/note-form/note-form.componen
     SchoolclassListComponent,
     MeetingContainerComponent,
     NoteContainerComponent,
-    NoteFormComponent
+    NoteFormComponent,
+    NoteListComponent
 
   ],
   imports: [

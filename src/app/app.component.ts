@@ -15,7 +15,7 @@ export class AppComponent {
   constructor(
     private router: Router,
     private authenticationService: AuthenticationService
-  ) {
+  ){
     this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
   }
 
@@ -23,4 +23,5 @@ export class AppComponent {
     this.authenticationService.logout();
     this.router.navigate(['/login']);
   }
+
 }
