@@ -16,6 +16,7 @@ const routes: Routes = [
   { path: 'meeting', component: MeetingContainerComponent},
   { path: 'scheduler', component:SchedulerComponent},
   { path: 'schoolclass', component: SchoolclassContainerComponent },
+  { path: 'note',component : NoteContainerComponent},
   { path: 'addnote', component: NoteContainerComponent, canActivate:[AuthGuard]},
 
   // otherwise redirect to home
@@ -26,4 +27,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }
