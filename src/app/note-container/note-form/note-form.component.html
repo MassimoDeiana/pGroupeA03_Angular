@@ -1,1 +1,23 @@
-<p>note-form works!</p>
+<form [formGroup]="form" (ngSubmit)="createAndEmitNote()" (dblclick)="autoComplete()">
+  <label>
+    Student :
+    <select formControlName="idStudent">
+      <option *ngFor="let student of students" [value]="student.idStudent">
+        {{student.name + ' '+ student.firstname}}
+      </option>
+    </select>
+  </label>
+  <label>
+    Date :
+    <input type="date" formControlName="dateNote">
+  </label>
+  <label>
+    Result :
+    <input type="text" formControlName="result">
+  </label>
+  <label>
+    Message :
+    <input type="text" formControlName="message">
+  </label>
+  <input type="submit" [disabled]="form.invalid">
+</form>

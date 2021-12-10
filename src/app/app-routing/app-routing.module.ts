@@ -7,6 +7,7 @@ import {TeacherContainerComponent} from "../teacher-container";
 import {SchedulerComponent} from "../scheduler/scheduler.component";
 import {SchoolclassContainerComponent} from "../schoolclass-container/schoolclass-container.component";
 import {MeetingContainerComponent} from "../meeting-container/meeting-container.component";
+import {NoteContainerComponent} from "../note-container/note-container.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'meeting', component: MeetingContainerComponent},
   { path: 'scheduler', component:SchedulerComponent},
   { path: 'schoolclass', component: SchoolclassContainerComponent },
+  { path: 'addnote', component: NoteContainerComponent, canActivate:[AuthGuard]},
 
   // otherwise redirect to home
   { path: '**', redirectTo: '' }

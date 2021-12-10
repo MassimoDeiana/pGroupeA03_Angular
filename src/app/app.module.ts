@@ -51,17 +51,6 @@ import { NoteFormComponent } from './note-container/note-form/note-form.componen
     HttpClientModule,
     FormsModule,
     ScheduleModule,
-    RouterModule.forRoot([
-      { path: '', component: HomeComponent, canActivate: [AuthGuard] },
-      { path: 'login', component: LoginComponent },
-      { path: 'teacher', component: TeacherContainerComponent, canActivate:[AuthGuard]},
-      { path: 'meeting', component:MeetingContainerComponent},
-      { path: 'schoolclass', component: SchoolclassContainerComponent },
-      { path: 'student', component: StudentContainerComponent},
-
-      // otherwise redirect to home
-      { path: '**', redirectTo: '' }
-    ]),
     AppRoutingModule
   ],
   providers: [
