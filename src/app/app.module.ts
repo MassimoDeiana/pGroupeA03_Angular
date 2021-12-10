@@ -22,6 +22,8 @@ import { SchoolclassListComponent } from './schoolclass-container/schoolclass-li
 import { MeetingContainerComponent } from './meeting-container/meeting-container.component';
 import {HttpErrorInterceptor} from "./exception/http-error.interceptor";
 import {AppRoutingModule} from "./app-routing/app-routing.module";
+import { NoteContainerComponent } from './note-container/note-container.component';
+import { NoteFormComponent } from './note-container/note-form/note-form.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import {AppRoutingModule} from "./app-routing/app-routing.module";
     SchoolclassContainerComponent,
     SchoolclassFormComponent,
     SchoolclassListComponent,
-    MeetingContainerComponent
+    MeetingContainerComponent,
+    NoteContainerComponent,
+    NoteFormComponent
 
   ],
   imports: [
@@ -53,6 +57,7 @@ import {AppRoutingModule} from "./app-routing/app-routing.module";
       { path: 'teacher', component: TeacherContainerComponent, canActivate:[AuthGuard]},
       { path: 'meeting', component:MeetingContainerComponent},
       { path: 'schoolclass', component: SchoolclassContainerComponent },
+      { path: 'student', component: StudentContainerComponent},
 
       // otherwise redirect to home
       { path: '**', redirectTo: '' }

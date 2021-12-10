@@ -1,11 +1,18 @@
-import {Component, Injectable, Input, OnChanges, OnInit, SimpleChanges, ViewChild} from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Injectable,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+  ViewChild
+} from '@angular/core';
 import {EventSettingsModel, Schedule, ScheduleComponent, View} from "@syncfusion/ej2-angular-schedule";
-import { Ajax } from "@syncfusion/ej2-base"
+
 import {Meeting} from "../_model/meeting";
-import {MeetingService} from "../_services/_meeting/meeting.service";
-import {Teacher} from "../_model/teacher";
-import {Subject} from "rxjs";
-import {DataManager, ODataV4Adaptor} from "@syncfusion/ej2-data";
+
 
 @Component({
   selector: 'app-scheduler',
@@ -18,17 +25,47 @@ export class SchedulerComponent implements OnChanges{
   datasource:Object[]=[];
   public eventSettings:EventSettingsModel = {};
 
+  @Output() meetingCreated:EventEmitter<Meeting> = new EventEmitter<Meeting>()
+
   ngOnChanges(): void {
-    this.meetings.forEach(meeting=>{
-      this.datasource.push({
+    this.setup();
+
+
+
+  }
+
+  setup()
+  {
+    this.eventSettings={dataSource:this.toDatasource(this.meetings)}
+    console.log(this.eventSettings.dataSource);
+  }
+
+  toDatasource(meetings:Meeting[])
+  {
+    var obj:Object[]=[];
+    meetings.forEach(meeting=>{
+      obj.push({
         Id:meeting.idMeeting,
         Subject:meeting.subject,
         StartTime: new Date(meeting.startTime),
-        EndTime: new Date(meeting.endTime)
+        EndTime : new Date(meeting.endTime)
       })
-      this.eventSettings={dataSource:this.datasource}
-      console.log(this.eventSettings);
     })
+    return obj;
   }
 
+
+
+/*
+  createAndEmitMeeting(){
+    this.meetingCreated.next({
+
+      idMeeting:this.form.value.name,
+      subject:this.form.value.firstname,
+      startTime:this.form.value.birthdate,
+      endTime:this.form.value.mail,
+
+    });
+  }
+*/
 }

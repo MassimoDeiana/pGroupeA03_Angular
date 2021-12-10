@@ -6,11 +6,13 @@ import {NgModule} from "@angular/core";
 import {TeacherContainerComponent} from "../teacher-container";
 import {SchedulerComponent} from "../scheduler/scheduler.component";
 import {SchoolclassContainerComponent} from "../schoolclass-container/schoolclass-container.component";
+import {MeetingContainerComponent} from "../meeting-container/meeting-container.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'teacher', component: TeacherContainerComponent, canActivate:[AuthGuard]},
+  { path: 'meeting', component: MeetingContainerComponent},
   { path: 'scheduler', component:SchedulerComponent},
   { path: 'schoolclass', component: SchoolclassContainerComponent },
 
