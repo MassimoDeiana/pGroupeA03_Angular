@@ -1,16 +1,26 @@
 <form [formGroup]="form" (ngSubmit)="createAndEmitNote()" (dblclick)="autoComplete()">
-  <label>
-    Student :
-    <select formControlName="idStudent">
-      <option *ngFor="let student of students" [value]="student.idStudent">
-        {{student.name + ' '+ student.firstname}}
-      </option>
-    </select>
+
+  <label>Interro
+  <select formControlName="idInterro">
+    <option *ngFor="let interro of interros" [value]="interro.idInterro">
+      {{interro.subject}}
+    </option>
+  </select>
   </label>
+
   <label>
     Date :
     <input type="date" formControlName="dateNote">
   </label>
+
+  <br><br>
+  <div class="form" *ngFor="let student of students; let i=index; trackBy:itemIdentity">
+
+  <label>
+    {{student.name + " " + student.firstname}}
+  </label>
+
+
   <label>
     Result :
     <input type="text" formControlName="result">
@@ -19,5 +29,8 @@
     Message :
     <input type="text" formControlName="message">
   </label>
+
+</div>
   <input type="submit" [disabled]="form.invalid">
+
 </form>

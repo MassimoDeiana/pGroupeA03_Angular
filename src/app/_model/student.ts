@@ -6,4 +6,5 @@ export interface Student extends IEntity{
   firstname:String;
   birthdate:Date;
   mail:String;
+  idClass:number;
 }
