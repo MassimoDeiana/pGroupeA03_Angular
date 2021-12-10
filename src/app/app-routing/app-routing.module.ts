@@ -17,6 +17,7 @@ const routes: Routes = [
   { path: 'scheduler', component:SchedulerComponent},
   { path: 'schoolclass', component: SchoolclassContainerComponent },
   { path: 'note',component : NoteContainerComponent},
+  { path: 'addnote', component: NoteContainerComponent, canActivate:[AuthGuard]},
 
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
