@@ -1,0 +1,16 @@
+<input type="text" [(ngModel)]="idStudent">
+<button (click)="get(idStudent)">
+  Random this!
+</button>
+<table>
+  <tr>
+    <th>date</th>
+    <th>result</th>
+    <th>message</th>
+  </tr>
+  <tr *ngFor="let note of notes;let i=index">
+    <td>{{note.dateNote}}</td>
+    <td>{{note.result}}</td>
+    <td>{{note.message}}</td>
+  </tr>
+</table>

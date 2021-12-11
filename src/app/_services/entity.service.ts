@@ -17,8 +17,8 @@ export abstract class EntityService<T> implements Ientityservice<T>{
     return this.httpClient.get<T[]>(this.API_URL);
   }
 
-  get(id:number):Observable<T>{
-    return this.httpClient.get<T>(this.API_URL+"/"+id);
+  get(id:number):Observable<T[]>{
+    return this.httpClient.get<T[]>(this.API_URL+"/"+id);
   }
 
   create(t:T):Observable<T>{

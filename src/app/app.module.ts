@@ -25,6 +25,8 @@ import {AppRoutingModule} from "./app-routing/app-routing.module";
 import { NoteContainerComponent } from './note-container/note-container.component';
 import { NoteFormComponent } from './note-container/note-form/note-form.component';
 import { NoteListComponent } from './note-container/note-list/note-list.component';
+import { NoteGetComponent } from './note-get/note-get.component';
+
 
 @NgModule({
   declarations: [
@@ -44,7 +46,8 @@ import { NoteListComponent } from './note-container/note-list/note-list.componen
     MeetingContainerComponent,
     NoteContainerComponent,
     NoteFormComponent,
-    NoteListComponent
+    NoteListComponent,
+    NoteGetComponent
 
   ],
   imports: [

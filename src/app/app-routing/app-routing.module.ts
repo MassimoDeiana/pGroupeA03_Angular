@@ -8,6 +8,7 @@ import {SchedulerComponent} from "../scheduler/scheduler.component";
 import {SchoolclassContainerComponent} from "../schoolclass-container/schoolclass-container.component";
 import {MeetingContainerComponent} from "../meeting-container/meeting-container.component";
 import {NoteContainerComponent} from "../note-container/note-container.component";
+import {NoteGetComponent} from "../note-get/note-get.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
@@ -16,7 +17,7 @@ const routes: Routes = [
   { path: 'meeting', component: MeetingContainerComponent},
   { path: 'scheduler', component:SchedulerComponent},
   { path: 'schoolclass', component: SchoolclassContainerComponent },
-  { path: 'note',component : NoteContainerComponent},
+  { path: 'note',component : NoteGetComponent},
   { path: 'addnote', component: NoteContainerComponent, canActivate:[AuthGuard]},
 
   // otherwise redirect to home
