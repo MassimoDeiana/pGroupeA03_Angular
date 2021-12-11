@@ -47,7 +47,8 @@ import { NoteGetComponent } from './note-get/note-get.component';
     NoteContainerComponent,
     NoteFormComponent,
     NoteListComponent,
-    NoteGetComponent
+    NoteGetComponent,
+
 
   ],
   imports: [
@@ -56,7 +57,7 @@ import { NoteGetComponent } from './note-get/note-get.component';
     HttpClientModule,
     FormsModule,
     ScheduleModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
