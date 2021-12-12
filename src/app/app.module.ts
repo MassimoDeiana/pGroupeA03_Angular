@@ -28,6 +28,11 @@ import { NoteListComponent } from './note-container/note-list/note-list.componen
 import { NoteGetComponent } from './note-get/note-get.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import {MDBBootstrapModule} from "angular-bootstrap-md";
+import { InterroContainerComponent } from './interro-container/interro-container.component';
+import { InterroFormComponent } from './interro-container/interro-form/interro-form.component';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatSelectModule} from "@angular/material/select";
+import {MatIconModule} from "@angular/material/icon";
 
 
 @NgModule({
@@ -51,6 +56,8 @@ import {MDBBootstrapModule} from "angular-bootstrap-md";
     NoteListComponent,
     NoteGetComponent,
     NavbarComponent,
+    InterroContainerComponent,
+    InterroFormComponent,
 
 
   ],
@@ -61,7 +68,10 @@ import {MDBBootstrapModule} from "angular-bootstrap-md";
     FormsModule,
     ScheduleModule,
     AppRoutingModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    MatFormFieldModule,
+    MatSelectModule,
+    MatIconModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

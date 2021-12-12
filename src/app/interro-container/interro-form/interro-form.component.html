@@ -1,0 +1,35 @@
+<div>
+  <form [formGroup]="form" (submit)="createAndEmitInterro()">
+    <table>
+      <tr>
+        <td>
+          <b>Course</b>
+        </td>
+        <td>
+          <select formControlName="idCourse">
+            <option *ngFor="let course of courses" [value]="course.idCourse">
+              {{course.subject}}
+            </option>
+          </select>
+        </td>
+      </tr>
+
+    </table>
+    <br/>
+    <table>
+      <tr formArrayName="lessons" *ngFor="let cd of lessonsControls ;let i=index;">
+        <td formGroupName={{i}}>
+
+          <input  type="text" formControlName="subject" placeholder="subject" />
+          <input  type="text" formControlName="total" placeholder="total" />
+        </td><button (click)="deleteLesson(i)">delete</button>
+      </tr>
+      <tr>
+        <td>
+          <input type="submit" value="Click Me" />
+        </td>
+      </tr>
+    </table>
+  </form>
+  <button (click)="addLesson()">Add new interro</button>
+</div>

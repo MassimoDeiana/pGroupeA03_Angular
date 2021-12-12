@@ -9,6 +9,8 @@ import {SchoolclassContainerComponent} from "../schoolclass-container/schoolclas
 import {MeetingContainerComponent} from "../meeting-container/meeting-container.component";
 import {NoteContainerComponent} from "../note-container/note-container.component";
 import {NoteGetComponent} from "../note-get/note-get.component";
+import {InterroFormComponent} from "../interro-container/interro-form/interro-form.component";
+import {InterroContainerComponent} from "../interro-container/interro-container.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
@@ -19,7 +21,7 @@ const routes: Routes = [
   { path: 'schoolclass', component: SchoolclassContainerComponent },
   { path: 'note',component : NoteGetComponent},
   { path: 'addnote', component: NoteContainerComponent, canActivate:[AuthGuard]},
-
+  { path: 'addinterro', component: InterroContainerComponent, canActivate:[AuthGuard]},
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
 ];
