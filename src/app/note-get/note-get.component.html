@@ -1,7 +1,7 @@
 <input type="text" [(ngModel)]="idStudent">
-<button (click)="get(idStudent)">
-  Random this!
-</button>
+<button (click)="get(idStudent);getResult(idStudent)">Chercher</button>
+<button (click)="moy()">Moy</button>
+
 <table>
   <tr>
     <th>date</th>
@@ -14,3 +14,7 @@
     <td>{{note.message}}</td>
   </tr>
 </table>
+
+<label>{{sum}}</label>
+
+

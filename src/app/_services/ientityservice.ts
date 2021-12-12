@@ -8,7 +8,9 @@ export interface Ientityservice<T> {
 
   getAll():Observable<T[]>;
 
-  get(id:number):Observable<T[]>;
+  getList(id:number):Observable<T[]>;
+
+  get(id:number):Observable<T>;
 
   create(t:T):Observable<T>;
 
