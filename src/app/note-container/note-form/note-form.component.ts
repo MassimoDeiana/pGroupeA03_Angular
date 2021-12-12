@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Note} from "../../_model/note";
 import {Student} from "../../_model/student";
 import {StudentService} from "../../_services/_student/student.service";
@@ -20,41 +20,76 @@ export class NoteFormComponent implements OnInit {
   students : Student[] = [];
   interros : Interrogation[] = [];
 
+  form : FormGroup;
 
-
-  form:FormGroup = this.fb.group({
-    idInterro:['',Validators.required],
-    dateNote:['',Validators.required],
-    idStudent:['',Validators.required],
-    result:['',Validators.required],
-    message:['',Validators.required]
-  })
 
   constructor(private fb:FormBuilder, private studentService : StudentService, private interroService : InterrogationService,private authService:AuthenticationService) { }
 
   ngOnInit(): void {
     this.getAllStudent();
     this.getAllInterros();
+    this.createform();
+  }
+
+  get controlsMachin() {
+    return (this.form.get('ClassDetails') as FormArray).controls;
+  }
+
+  createform()
+  {
+    let arr=[];
+    for(let i=0;i< this.students.length;i++)
+    {
+      console.log(i)
+      arr.push(this.BuildFormDynamic(this.students[i]))
+
+    }
+    this.form =  this.fb.group({
+      idInterro : [''],
+      dateNote : [''],
+      ClassDetails:this.fb.array(arr)
+    })
+  }
+
+  BuildFormDynamic(student:Student):FormGroup{
+    return this.fb.group({
+      idStudent:[student.idStudent],
+      result:[''],
+      message:['']
+    })
+  }
+
+  SaveData()
+  {
+    console.log(this.form.value);
+    //pass this data to service and api node/webapi
+
   }
 
   createAndEmitNote()
   {
-    console.log(this.authService.currentUserValue.idTeacher);
-    console.log(this.form.value.idInterro);
-    console.log(this.form.value.idStudent);
-    console.log(this.form.value.dateNote);
-    console.log(this.form.value.result);
-    console.log(this.form.value.message);
+    for(let i=0;i< this.students.length;i++)
+    {
+      console.log(this.form.value)
+      console.log("ce qu'on cherche : " + this.form.value.ClassDetails[i].idStudent)
+      console.log("id teacher : " + this.authService.currentUserValue.idTeacher);
+      console.log("id idInterro : " +this.form.value.idInterro);
+      console.log("id idStudent : " +this.form.value.ClassDetails[i].idStudent);
+      console.log("date note : " +this.form.value.dateNote);
+      console.log("resultat : " +this.form.value.ClassDetails[i].result);
+      console.log("message : " +this.form.value.ClassDetails[i].message);
+
+
 
     this.noteCreated.next({
       idTeacher:this.authService.currentUserValue.idTeacher,
-      idStudent:this.form.value.idStudent,
+      idStudent:this.form.value.ClassDetails[i].idStudent,
       idInterro:this.form.value.idInterro,
       dateNote:this.form.value.dateNote,
-      result:this.form.value.result,
-      message:this.form.value.message
+      result:this.form.value.ClassDetails[i].result,
+      message:this.form.value.ClassDetails[i].message
     })
-  }
+  }}
 
   getAllStudent()
   {
@@ -70,8 +105,6 @@ export class NoteFormComponent implements OnInit {
       .subscribe(i=>this.interros=i);
   }
 
-
-
   autoComplete() {
     if (environment.production)
       return;
@@ -85,9 +118,8 @@ export class NoteFormComponent implements OnInit {
     });
   }
 
-  itemIdentity(index:number, student:Student) {
-    console.log("index:{i}, item:{s}", index, student)
-    this.createAndEmitNote;
-    return index;
-  }
+
+
+
+
 }

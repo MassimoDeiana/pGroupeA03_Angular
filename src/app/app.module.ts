@@ -26,6 +26,8 @@ import { NoteContainerComponent } from './note-container/note-container.componen
 import { NoteFormComponent } from './note-container/note-form/note-form.component';
 import { NoteListComponent } from './note-container/note-list/note-list.component';
 import { NoteGetComponent } from './note-get/note-get.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import {MDBBootstrapModule} from "angular-bootstrap-md";
 
 
 @NgModule({
@@ -47,7 +49,9 @@ import { NoteGetComponent } from './note-get/note-get.component';
     NoteContainerComponent,
     NoteFormComponent,
     NoteListComponent,
-    NoteGetComponent
+    NoteGetComponent,
+    NavbarComponent,
+
 
   ],
   imports: [
@@ -56,7 +60,8 @@ import { NoteGetComponent } from './note-get/note-get.component';
     HttpClientModule,
     FormsModule,
     ScheduleModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MDBBootstrapModule.forRoot()
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
