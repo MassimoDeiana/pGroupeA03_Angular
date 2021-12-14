@@ -20,6 +20,8 @@
     "@angular/platform-browser": "~12.2.0",
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
+    "@material/form-field": "^13.0.0",
+    "@material/select": "^13.0.0",
     "@syncfusion/ej2-angular-schedule": "^17.1.42",
     "@syncfusion/ej2-data": "^19.3.53",
     "@syncfusion/ej2-material-theme": "~17.1.41",
