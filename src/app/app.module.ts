@@ -26,13 +26,19 @@ import { NoteContainerComponent } from './note-container/note-container.componen
 import { NoteFormComponent } from './note-container/note-form/note-form.component';
 import { NoteListComponent } from './note-container/note-list/note-list.component';
 import { NoteGetComponent } from './note-get/note-get.component';
-import { NavbarComponent } from './navbar/navbar.component';
 import {MDBBootstrapModule} from "angular-bootstrap-md";
 import { InterroContainerComponent } from './interro-container/interro-container.component';
 import { InterroFormComponent } from './interro-container/interro-form/interro-form.component';
+import { NavbarTeacherComponent } from './navbar-teacher/navbar-teacher.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatSelectModule} from "@angular/material/select";
 import {MatIconModule} from "@angular/material/icon";
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatButtonModule} from "@angular/material/button";
+import { NavbarStudentComponent } from './navbar-student/navbar-student.component';
+import { NavbarAdminComponent } from './navbar-admin/navbar-admin.component';
 
 
 @NgModule({
@@ -55,9 +61,11 @@ import {MatIconModule} from "@angular/material/icon";
     NoteFormComponent,
     NoteListComponent,
     NoteGetComponent,
-    NavbarComponent,
     InterroContainerComponent,
     InterroFormComponent,
+    NavbarTeacherComponent,
+    NavbarStudentComponent,
+    NavbarAdminComponent,
 
 
   ],
@@ -71,7 +79,10 @@ import {MatIconModule} from "@angular/material/icon";
     MDBBootstrapModule.forRoot(),
     MatFormFieldModule,
     MatSelectModule,
-    MatIconModule
+    MatIconModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatButtonModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

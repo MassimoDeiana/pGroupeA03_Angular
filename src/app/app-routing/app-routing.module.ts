@@ -11,6 +11,10 @@ import {NoteContainerComponent} from "../note-container/note-container.component
 import {NoteGetComponent} from "../note-get/note-get.component";
 import {InterroFormComponent} from "../interro-container/interro-form/interro-form.component";
 import {InterroContainerComponent} from "../interro-container/interro-container.component";
+import {NavbarComponent} from "angular-bootstrap-md";
+import {NavbarTeacherComponent} from "../navbar-teacher/navbar-teacher.component";
+import {NavbarStudentComponent} from "../navbar-student/navbar-student.component";
+import {NavbarAdminComponent} from "../navbar-admin/navbar-admin.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
@@ -22,6 +26,9 @@ const routes: Routes = [
   { path: 'note',component : NoteGetComponent},
   { path: 'addnote', component: NoteContainerComponent, canActivate:[AuthGuard]},
   { path: 'addinterro', component: InterroContainerComponent, canActivate:[AuthGuard]},
+  { path: 'navbarTeacher', component: NavbarTeacherComponent},
+  { path: 'navbarStudent', component: NavbarStudentComponent},
+  { path: 'navbarAdmin', component: NavbarAdminComponent},
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
 ];
