@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import {Schoolclass} from "./schoolclass";
-import {environment} from "../environments/environment";
+import {environment} from "../../environments/environment";
 import {HttpClient} from "@angular/common/http";
-import {EntityService} from "./_services/entity.service";
+import {EntityService} from "./entity.service";
+import {Schoolclass} from "../_model/schoolclass";
 
 @Injectable({
   providedIn: 'root'

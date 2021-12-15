@@ -4,7 +4,7 @@ import {Note} from "../../_model/note";
 import {Student} from "../../_model/student";
 import {StudentService} from "../../_services/_student/student.service";
 import {firstDateOfMonth} from "@syncfusion/ej2-angular-schedule";
-import {AuthenticationService} from "../../_services/authentification.service";
+import {AuthenticationTeacherService} from "../../_services/_Authentification/authentificationTeacher.service";
 import {environment} from "../../../environments/environment";
 import {Interrogation} from "../../_model/interrogation";
 import {InterrogationService} from "../../_services/_interrogation/interrogation.service";
@@ -23,7 +23,7 @@ export class NoteFormComponent implements OnInit {
   form : FormGroup;
 
 
-  constructor(private fb:FormBuilder, private studentService : StudentService, private interroService : InterrogationService,private authService:AuthenticationService) { }
+  constructor(private fb:FormBuilder, private studentService : StudentService, private interroService : InterrogationService,private authService:AuthenticationTeacherService) { }
 
   ngOnInit(): void {
     this.getAllStudent();

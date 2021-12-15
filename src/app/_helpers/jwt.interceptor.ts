@@ -1,13 +1,14 @@
-import { Injectable } from '@angular/core';
+import {Inject, Injectable} from '@angular/core';
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {AuthenticationService} from "../_services/authentification.service";
+import {AuthenticationTeacherService} from "../_services/_Authentification/authentificationTeacher.service";
 import {environment} from "../../environments/environment";
+import {AbstractAuthentificationService} from "../_services/_Authentification/abstract-authentification.service";
 
 
 @Injectable()
-export class JwtInterceptor implements HttpInterceptor {
-  constructor(private authenticationService: AuthenticationService) { }
+export abstract class JwtInterceptor<T extends {token?:string}> implements HttpInterceptor {
+  protected constructor(@Inject(AbstractAuthentificationService) private authenticationService: AbstractAuthentificationService<T>) { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // add auth header with jwt if user is logged in and request is to the api url

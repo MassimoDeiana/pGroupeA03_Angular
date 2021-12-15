@@ -11,7 +11,7 @@ import {Ientityservice} from "./ientityservice";
 export abstract class EntityService<T> implements Ientityservice<T>{
   abstract API_URL: string;
 
-  protected constructor(private httpClient:HttpClient) { }
+  protected constructor(protected httpClient:HttpClient) { }
 
   getAll():Observable<T[]>{
     return this.httpClient.get<T[]>(this.API_URL);

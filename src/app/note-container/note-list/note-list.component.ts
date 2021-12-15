@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Interrogation} from "../../_model/interrogation";
+import {InterrogationService} from "../../_services/_interrogation/interrogation.service";
 
 @Component({
   selector: 'app-note-list',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NoteListComponent implements OnInit {
 
-  constructor() { }
+  interros: Interrogation[]=[];
+
+  constructor(private interroService:InterrogationService) { }
 
   ngOnInit(): void {
+    this.getAllInterro();
+  }
+
+  getAllInterro(){
+    this.interroService
+      .getAll()
+      .subscribe(i=>this.interros=i);
   }
 
 }

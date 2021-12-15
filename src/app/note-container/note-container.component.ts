@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Note} from "../_model/note";
 import {NoteService} from "../_services/_note/note.service";
 import {EntityToDelete} from "../_model/entity-to-delete";
+import {Student} from "../_model/student";
 
 @Component({
   selector: 'app-note-container',
@@ -10,14 +11,13 @@ import {EntityToDelete} from "../_model/entity-to-delete";
 })
 export class NoteContainerComponent implements OnInit {
 
-
   notes:Note[]=[];
 
   constructor(private noteService:NoteService) {
   }
 
   ngOnInit(): void {
-    this.getAll();
+    this.getAllNote();
   }
 
 
@@ -35,11 +35,13 @@ export class NoteContainerComponent implements OnInit {
       });
   }
 
-  getAll(){
+  getAllNote(){
     this.noteService
       .getAll()
       .subscribe(t=>this.notes=t);
   }
+
+
 
 /*
   update(e:Note){

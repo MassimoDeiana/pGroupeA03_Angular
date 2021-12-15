@@ -33,6 +33,19 @@ import { InterroFormComponent } from './interro-container/interro-form/interro-f
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatSelectModule} from "@angular/material/select";
 import {MatIconModule} from "@angular/material/icon";
+import { MeetingFormComponent } from './meeting-container/meeting-form/meeting-form.component';
+import {MatTableModule} from "@angular/material/table";
+import {NgMultiSelectDropDownModule} from "ng-multiselect-dropdown";
+import { MeetingListComponent } from './meeting-container/meeting-list/meeting-list.component';
+import { LoginTeacherComponent } from './login/login-teacher/login-teacher.component';
+import { LoginStudentComponent } from './login/login-student/login-student.component';
+import { LoginAdminComponent } from './login/login-admin/login-admin.component';
+import {JwtTeacherInterceptor} from "./_helpers/jwtTeacher.interceptor";
+import {ErrorTeacherInterceptor} from "./_helpers/errorTeacher.interceptor";
+import {JwtStudentInterceptor} from "./_helpers/jwtStudent.interceptor";
+import {ErrorStudentInterceptor} from "./_helpers/errorStudent.interceptor";
+import {JwtAdminInterceptor} from "./_helpers/jwtAdmin.interceptor";
+import {ErrorAdminInterceptor} from "./_helpers/errorAdmin.interceptor";
 
 
 @NgModule({
@@ -58,6 +71,11 @@ import {MatIconModule} from "@angular/material/icon";
     NavbarComponent,
     InterroContainerComponent,
     InterroFormComponent,
+    MeetingFormComponent,
+    MeetingListComponent,
+    LoginTeacherComponent,
+    LoginStudentComponent,
+    LoginAdminComponent,
 
 
   ],
@@ -71,11 +89,18 @@ import {MatIconModule} from "@angular/material/icon";
     MDBBootstrapModule.forRoot(),
     MatFormFieldModule,
     MatSelectModule,
-    MatIconModule
+    MatIconModule,
+    MatTableModule,
+    NgMultiSelectDropDownModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtTeacherInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorTeacherInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtStudentInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorStudentInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtAdminInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorAdminInterceptor, multi: true },
+
    // { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true},
     DayService,WeekService,WorkWeekService,MonthService,MonthAgendaService
   ],

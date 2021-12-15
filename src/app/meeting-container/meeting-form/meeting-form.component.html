@@ -1,0 +1,28 @@
+<div>
+
+  <form [formGroup]="form" (submit)="createAndEmitMeeting()">
+    <table>
+    </table>
+    <br/>
+    <table>
+      <tr formArrayName="meetings" *ngFor="let cd of meetingsControls ;let i=index;">
+        <td formGroupName={{i}}>
+
+          <input  type="text" formControlName="subject" placeholder="subject" />
+          <input  type="datetime-local" formControlName="startTime"/>
+          <input  type="datetime-local" formControlName="endTime"/>
+
+
+
+        </td><button (click)="deleteMeeting(i)">delete</button>
+      </tr>
+      <tr>
+        <td>
+          <button (click)="addMeetings()">Add new meeting</button>
+          <input type="submit" value="Validate" />
+
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>

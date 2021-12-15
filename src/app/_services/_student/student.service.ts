@@ -16,4 +16,8 @@ export class StudentService extends EntityService<Student>{
     super(httpClient)
   }
 
+  getByClass(id:number):Observable<Student[]>{
+    return this.httpClient.get<Student[]>(this.API_URL+"/class"+id);
+  }
+
 }

@@ -36,7 +36,9 @@ export class TeacherContainerComponent implements OnInit {
     this.teacherService.delete( teacher.idTeacher||-1)
       .subscribe(()=>{
         this.teachers.splice(entityToDelete.index,1)
-      });
+      },
+        error => window.alert("At least one student remains in the class.")
+      );
   }
 
   getAll(){
