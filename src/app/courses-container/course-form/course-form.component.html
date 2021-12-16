@@ -3,12 +3,12 @@
     <table>
       <tr>
         <td>
-          <b>Course</b>
+          <b>Class</b>
         </td>
         <td>
-          <select formControlName="idLesson">
-            <option *ngFor="let lesson of lessons" [value]="lesson.idLesson">
-              {{lesson.subject}}
+          <select formControlName="idClass">
+            <option *ngFor="let schoolClass of schoolClasses" [value]="schoolClass.id">
+              {{schoolClass.name}}
             </option>
           </select>
         </td>
@@ -17,11 +17,12 @@
     </table>
     <br/>
     <table>
-      <tr formArrayName="info" *ngFor="let cd of infoControls ;let i=index;">
+      <tr formArrayName="lessons" *ngFor="let cd of infoControls ;let i=index;">
         <td formGroupName={{i}}>
 
+          <input  type="datetime-local" formControlName="startTime" placeholder="starTime" />
+          <input  type="datetime-local" formControlName="endTime" placeholder="endTime" />
           <input  type="text" formControlName="subject" placeholder="subject" />
-          <input  type="text" formControlName="total" placeholder="total" />
         </td><button (click)="deleteInfo(i)">delete</button>
       </tr>
       <tr>
@@ -31,5 +32,5 @@
       </tr>
     </table>
   </form>
-  <button (click)="addInfo()">Add new interro</button>
+  <button (click)="addInfo()">Add new course</button>
 </div>

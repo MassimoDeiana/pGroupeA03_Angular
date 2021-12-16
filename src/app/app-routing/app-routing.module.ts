@@ -15,6 +15,8 @@ import {StudentContainerComponent} from "../student-container/student-container.
 import {AuthAdminGuard} from "../_helpers/auth-admin.guard";
 import {AuthStudentGuard} from "../_helpers/auth-student.guard";
 import {AuthTeacherGuard} from "../_helpers/auth-teacher.guard";
+import {CoursesContainerComponent} from "../courses-container/courses-container.component";
+import {LessonContainerComponent} from "../lesson-container/lesson-container.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -22,11 +24,13 @@ const routes: Routes = [
   { path: 'teacher', component: TeacherContainerComponent, canActivate:[AuthGuard]},
   { path: 'student', component: StudentContainerComponent, canActivate:[AuthGuard]},
   { path: 'schoolclass', component: SchoolclassContainerComponent, canActivate:[AuthGuard] },
+  { path: 'lesson', component:LessonContainerComponent, canActivate:[AuthGuard]},
   { path: 'meeting', component: MeetingContainerComponent, canActivate:[AuthGuard]},
   { path: 'scheduler', component:SchedulerComponent, canActivate:[AuthGuard]},
   { path: 'note',component : NoteGetComponent, canActivate:[AuthGuard]},
   { path: 'addnote', component: NoteContainerComponent, canActivate:[AuthGuard]},
   { path: 'addinterro', component: InterroContainerComponent, canActivate:[AuthGuard]},
+  { path: 'addcourse', component: CoursesContainerComponent, canActivate:[AuthGuard]},
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
 ];

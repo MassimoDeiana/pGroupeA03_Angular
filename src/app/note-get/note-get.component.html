@@ -1,17 +1,25 @@
-<input type="text" [(ngModel)]="idStudent">
-<button (click)="get(idStudent);getResult(idStudent)">Chercher</button>
-<button (click)="moy()">Moy</button>
+<form [formGroup]="form" (submit)="getResult();moy()">
+  <select formControlName="idLesson">
+    <option *ngFor="let lesson of lessons" [value]="lesson.idLesson">
+      {{lesson.subject}}
+    </option>
+  </select>
+  <input type="submit" value="Search result" />
+</form>
 
+<button (click)="moy()">Moy</button>
 <table>
   <tr>
-    <th>date</th>
+    <th>idInterro</th>
     <th>result</th>
+    <th>total</th>
     <th>message</th>
   </tr>
-  <tr *ngFor="let note of notes;let i=index">
-    <td>{{note.dateNote}}</td>
-    <td>{{note.result}}</td>
-    <td>{{note.message}}</td>
+  <tr *ngFor="let result of results;let i=index">
+    <td>{{result.idInterro}}</td>
+    <td>{{result.result}}</td>
+    <td>{{result.total}}</td>
+    <td>{{result.message}}</td>
   </tr>
 </table>
 

@@ -6,6 +6,9 @@ import {InterrogationService} from "../_services/_interrogation/interrogation.se
 import {Interrogation} from "../_model/interrogation";
 import {ResultService} from "../_services/_result/result.service";
 import {Result} from "../_model/result";
+import {AuthenticationStudentService} from "../_services/_Authentification/authentificationStudent.service";
+import {Lesson} from "../_model/lesson";
+import {LessonService} from "../_services/_lesson/lesson.service";
 
 @Component({
   selector: 'app-note-get',
@@ -14,31 +17,45 @@ import {Result} from "../_model/result";
 })
 export class NoteGetComponent implements OnInit {
 
-  idStudent: number;
   sum:number=0;
-  notes:Note[]=[];
+
   results:Result[]=[];
+  lessons:Lesson[]=[];
 
 
   form:FormGroup = this.fb.group({
-    idStudent:['',Validators.required]
+    idLesson:['',Validators.required]
   })
 
-  constructor(private fb:FormBuilder,private resultService:ResultService,private noteService:NoteService) { }
+  constructor(private fb:FormBuilder,
+              private resultService:ResultService,
+              private lessonService:LessonService,
+              private authService:AuthenticationStudentService) { }
 
   ngOnInit(): void {
+    this.getLessons()
   }
 
-  getResult(idStudent:number){
-    this.resultService.getList(idStudent).subscribe(r=>this.results=r);
+  getResult(){
+    this.results=[];
+      this.resultService.getList(this.authService.currentUserValue.idStudent!).subscribe(r=>{
+        r.forEach(result=>{
+          if(result.idLesson==this.form.value.idLesson)
+            this.results.push(result);
+        })
+      });
+  console.log("dans result " + this.results)
+    this.moy()
   }
 
-  get(idStudent:number){
-    this.noteService.getList(idStudent).subscribe(n=>this.notes=n);
+
+  getLessons(){
+    this.lessonService.getAll().subscribe(l=>this.lessons=l);
   }
+
+
 
   public moy(){
-    console.log(this.results);
     this.sum=0;
     this.results.forEach(result=>{
       console.log(result.result);

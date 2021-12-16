@@ -1,11 +1,11 @@
 import {IEntity} from "./IEntity";
 
 export interface Course extends IEntity{
-  idCourse?:number
+  idCourse?:number;
+  idLesson:number;
   startTime:Date;
   endTime:Date;
-  subject:string;
-  idTeacher:number;
+  idTeacher?:number;
   idClass:number;
 
 }
