@@ -13,11 +13,6 @@ import {AuthenticationAdminService} from "../_services/_Authentification/authent
 })
 export class LoginComponent implements OnInit {
 
-  showAdmin:boolean=false;
-  showStudent:boolean=false;
-  showTeacher:boolean=false;
-
-
   constructor() {
 
   }
@@ -27,21 +22,4 @@ export class LoginComponent implements OnInit {
   }
 
 
-  loginAdmin() {
-    this.showAdmin=true;
-    this.showStudent=false;
-    this.showTeacher=false;
-  }
-
-  loginTeacher() {
-    this.showAdmin=false;
-    this.showStudent=false;
-    this.showTeacher=true;
-  }
-
-  loginStudent() {
-    this.showAdmin=false;
-    this.showStudent=true;
-    this.showTeacher=false;
-  }
 }

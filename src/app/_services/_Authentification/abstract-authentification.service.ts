@@ -16,9 +16,11 @@ export abstract class AbstractAuthentificationService<T> implements IAuthentific
 
 
   protected constructor(private http: HttpClient) {
-    this.currentUserSubject = new BehaviorSubject<T>(JSON.parse(<string>localStorage.getItem('currentUser')));
+    this.currentUserSubject = new BehaviorSubject<T>(JSON.parse(<string>sessionStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
   }
+
+
 
   public get currentUserValue(): T {
     return this.currentUserSubject.value;
@@ -32,7 +34,7 @@ export abstract class AbstractAuthentificationService<T> implements IAuthentific
     return this.http.post<any>(`${environment.apiUrl+this.urlLogin}`, {mail, password})
       .pipe(map(user => {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
-        localStorage.setItem('currentUser', JSON.stringify(user));
+        sessionStorage.setItem('currentUser', JSON.stringify(user));
         this.currentUserSubject.next(user);
         return user;
       }));
@@ -40,7 +42,7 @@ export abstract class AbstractAuthentificationService<T> implements IAuthentific
 
   logout() {
     // remove user from local storage to log user out
-    localStorage.removeItem('currentUser');
+    sessionStorage.removeItem('currentUser');
     this.currentUserSubject.next(null!);
   }
 }

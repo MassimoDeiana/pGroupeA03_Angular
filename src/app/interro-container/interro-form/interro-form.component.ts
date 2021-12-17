@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {InterrogationService} from "../../_services/_interrogation/interrogation.service";
 import {Teacher} from "../../_model/teacher";
@@ -15,6 +15,10 @@ import {LessonService} from "../../_services/_lesson/lesson.service";
 })
 export class InterroFormComponent implements OnInit {
 
+  succeedMessage:boolean=false;
+
+  @Input() message:string='';
+
   @Output() interroCreated:EventEmitter<Interrogation> = new EventEmitter<Interrogation>()
 
   lessons:Lesson[]=[];
@@ -29,6 +33,8 @@ export class InterroFormComponent implements OnInit {
   ngOnInit(): void {
     this.getAllLesson();
   }
+
+
 
   getAllLesson() {
     this.lessonService.getAll().subscribe(c=>this.lessons=c);
@@ -48,8 +54,8 @@ export class InterroFormComponent implements OnInit {
 
   addInfo() {
     const lessonForm = this.fb.group({
-      subject:['',Validators.required],
-      total:['',Validators.required]
+      subject:['',[Validators.required, Validators.maxLength(50),Validators.pattern('^[A-Za-z0-9ñÑáéíóúÁÉÍÓÚ ]+$')]],
+      total:['',[Validators.required, Validators.max(100), Validators.pattern("^[0-9]*$")]]
     })
     this.info.push(lessonForm);
   }
@@ -75,5 +81,14 @@ export class InterroFormComponent implements OnInit {
         total:this.form.value.info[i].total
       })
     }}
+
+  numberOnly(event:any): boolean {
+    const charCode = (event.which) ? event.which : event.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+      return false;
+    }
+    return true;
+
+  }
 
 }

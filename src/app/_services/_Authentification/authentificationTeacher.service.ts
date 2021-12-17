@@ -13,7 +13,6 @@ export class AuthenticationTeacherService extends AbstractAuthentificationServic
   urlLogin = "/Teacher/Authenticate";
 
 
-
   constructor(httpClient:HttpClient) {
     super(httpClient);
   }

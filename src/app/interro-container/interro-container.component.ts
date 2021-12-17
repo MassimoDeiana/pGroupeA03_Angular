@@ -12,6 +12,7 @@ import {Interrogation} from "../_model/interrogation";
 export class InterroContainerComponent implements OnInit {
 
   interros:Interrogation[]=[];
+  message:string="interro(s) added";
 
   constructor(private interroService:InterrogationService) { }
 
@@ -19,8 +20,10 @@ export class InterroContainerComponent implements OnInit {
   }
 
   send(interro:Interrogation){
+    this.message="interro(s) added";
     this.interroService.create(interro)
-      .subscribe(interro=>this.interros.push(interro));
+      .subscribe(interro=>this.interros.push(interro),
+        error => this.message="Fail to add interro(s)");
     console.log(this.interros)
   }
 

@@ -1,15 +1,4 @@
-<button (click)="loginAdmin()">Admin</button>
-<button (click)="loginTeacher()">Teacher</button>
-<button (click)="loginStudent()">Student</button>
+<button routerLink="/loginAdmin" >Admin</button>
+<button routerLink="/loginTeacher" >Teacher</button>
+<button routerLink="/loginStudent" >Student</button>
 
-<div *ngIf="showTeacher">
-  <app-login-teacher></app-login-teacher>
-</div>
-
-<div *ngIf="showStudent">
-  <app-login-student></app-login-student>
-</div>
-
-<div *ngIf="showAdmin">
-  <app-login-admin></app-login-admin>
-</div>

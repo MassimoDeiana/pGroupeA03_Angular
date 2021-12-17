@@ -1,9 +1,9 @@
 <mat-toolbar color="primary" class="mat-elevation-z8">
-  <span>Student</span>
+  <span routerLink="/studenthome">Student</span>
   <div class="spacer"></div>
 
-  <a mat-button>Notes</a>
-  <a mat-button>Schedule</a>
-  <a mat-raised-button color="accent">Logout</a>
+  <a routerLink="/note" mat-button>Notes</a>
+  <a routerLink="/scheduler" mat-button>Schedule</a>
+  <a routerLink="/login" mat-raised-button color="accent" (click)="logout()">Logout</a>
 
 </mat-toolbar>

@@ -12,6 +12,7 @@ import {Note} from "../_model/note";
 export class CoursesContainerComponent implements OnInit {
 
   courses:Course[]=[];
+  message:string="Course(s) added";
 
   constructor(private courseService:CourseService) { }
 
@@ -19,8 +20,10 @@ export class CoursesContainerComponent implements OnInit {
   }
 
   send(course:Course){
+    this.message="Course(s) added"
     this.courseService.create(course)
-      .subscribe(course=>this.courses.push(course));
+      .subscribe(course=>this.courses.push(course),
+        error => this.message="Fail to add course(s)");
     console.log(this.courses)
   }
 

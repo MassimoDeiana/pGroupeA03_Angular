@@ -1,15 +1,15 @@
 <form [formGroup]="form" (ngSubmit)="createAndEmitSchoolclass()">
   <label>
     Nom :
-    <input type="text" formControlName="name">
+    <input type="text" formControlName="name" placeholder="name">
   </label>
   <label>
     Année :
-    <input type="number" formControlName="year">
+    <input (keypress)="numberOnly($event)" type="number" formControlName="year" placeholder="(max: 7)">
   </label>
   <label>
     Nombre d'étudiants :
-    <input type="number" formControlName="nbStudents">
+    <input (keypress)="numberOnly($event)" type="number" formControlName="nbStudents" placeholder="(max: 30)">
   </label>
   <input type="submit" [disabled]="form.invalid">
 </form>
