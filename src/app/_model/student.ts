@@ -6,5 +6,7 @@ export interface Student extends IEntity{
   firstname:String;
   birthdate:Date;
   mail:String;
+  password:String;
   idClass:number;
+  token?:string;
 }

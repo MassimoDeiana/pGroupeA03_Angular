@@ -1,1 +1,28 @@
-<p>student-list works!</p>
+<div *ngIf="students.length===0">
+  <b>Il n'y a actuellement pas de professeurs</b>
+</div>
+<div *ngIf="students.length">
+  <table>
+    <thead>
+    <tr>
+      <th>id</th>
+      <th>prenom</th>
+      <th>nom</th>
+      <th>mail</th>
+      <th>idClass</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let student of students;let i=index">
+      <td>{{student.idStudent}}</td>
+      <td>{{student.firstname}}</td>
+      <td>{{student.name}}</td>
+      <td>{{student.mail}}</td>
+      <td>{{student.idClass}}</td>
+      <td>
+        <button (click)="emitDeleteStudent(student,i);">X</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

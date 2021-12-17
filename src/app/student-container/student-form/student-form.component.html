@@ -1,1 +1,35 @@
-<p>student-form works!</p>
+<form [formGroup]="form" (ngSubmit)="createAndEmitStudent()">
+  <label>
+    Nom:
+    <input type="text" formControlName="name">
+  </label>
+  <label>
+    Prenom:
+    <input type="text" formControlName="firstname">
+  </label>
+  <label>
+    Datenaiss:
+    <input type="date" formControlName="birthdate">
+  </label>
+  <label>
+    Mail:
+    <input type="text" formControlName="mail">
+  </label>
+  <label>
+    mot de passe:
+    <input type="text" formControlName="password">
+  </label>
+
+  <label>
+    idClass:
+    <select formControlName="idClass">
+      <option *ngFor="let schoolclass of schoolClasses" [value]="schoolclass.id">
+        {{schoolclass.name}}
+      </option>
+    </select>
+  </label>
+
+
+
+  <input type="submit" [disabled]="form.invalid">
+</form>

@@ -1,1 +1,2 @@
-<p>student-container works!</p>
+<app-student-form [schoolClasses]="schoolClasses" (studentCreated)="send($event);"></app-student-form>
+<app-student-list [students]="students" (studentToDelete)="delete($event)" (studentChanged)="update($event)"></app-student-list>

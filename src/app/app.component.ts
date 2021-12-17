@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {Router} from "@angular/router";
-import {AuthenticationService} from "./_services/authentification.service";
+import {AuthenticationTeacherService} from "./_services/_Authentification/authentificationTeacher.service";
 import {Teacher} from "./_model/teacher";
 
 @Component({
@@ -14,7 +14,7 @@ export class AppComponent {
 
   constructor(
     private router: Router,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationTeacherService
   ){
     this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
   }

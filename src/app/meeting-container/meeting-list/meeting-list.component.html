@@ -1,0 +1,23 @@
+<div *ngIf="meetings.length">
+  <table>
+    <thead>
+    <tr>
+      <th>id</th>
+      <th>sujet</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let meeting of meetings;let i=index">
+      <td>{{meeting.idMeeting}}</td>
+      <td>{{meeting.subject}}</td>
+
+      <td style="width:40%">
+        <ng-multiselect-dropdown [settings]="dropdownSettings" [data]="teachers"></ng-multiselect-dropdown>
+      </td>
+      <td>
+        <button (click)="createAndEmitParticipation()">ajouter des participants</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
