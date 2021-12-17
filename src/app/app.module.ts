@@ -57,6 +57,9 @@ import { CourseFormComponent } from './courses-container/course-form/course-form
 import { LessonContainerComponent } from './lesson-container/lesson-container.component';
 import { LessonFormComponent } from './lesson-container/lesson-form/lesson-form.component';
 import { LessonListComponent } from './lesson-container/lesson-list/lesson-list.component';
+import { TeacherHomeComponent } from './teacher-home/teacher-home.component';
+import { StudentHomeComponent } from './student-home/student-home.component';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
 
 
 @NgModule({
@@ -94,6 +97,9 @@ import { LessonListComponent } from './lesson-container/lesson-list/lesson-list.
     LessonContainerComponent,
     LessonFormComponent,
     LessonListComponent,
+    TeacherHomeComponent,
+    StudentHomeComponent,
+    AdminHomeComponent,
 
 
   ],

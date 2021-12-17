@@ -1,10 +1,10 @@
 <mat-toolbar color="primary" class="mat-elevation-z8">
-  <span>Admin</span>
+  <span routerLink="/adminhome">Admin</span>
   <div class="spacer"></div>
 
-  <a mat-button>Teacher</a>
-  <a mat-button>Student</a>
-  <a mat-button>Class</a>
-  <a mat-raised-button color="accent">Logout</a>
+  <a routerLink="/teacher" mat-button>Teacher</a>
+  <a routerLink="/student" mat-button>Student</a>
+  <a routerLink="/schoolclass" mat-button>Class</a>
+  <a routerLink="/login" mat-raised-button color="accent" (click)="logout()">Logout</a>
 
 </mat-toolbar>

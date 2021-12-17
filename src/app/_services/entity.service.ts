@@ -14,6 +14,7 @@ export abstract class EntityService<T> implements Ientityservice<T>{
   protected constructor(protected httpClient:HttpClient) { }
 
   getAll():Observable<T[]>{
+    console.log(this.API_URL)
     return this.httpClient.get<T[]>(this.API_URL);
   }
 

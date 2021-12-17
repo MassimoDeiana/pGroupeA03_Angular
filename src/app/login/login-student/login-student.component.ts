@@ -29,7 +29,7 @@ export class LoginStudentComponent implements OnInit {
   ) {
     // redirect to home if already logged in
     if (this.authenticationService.currentUserValue) {
-      this.router.navigate(['/']);
+      this.router.navigate(['/studenthome']);
     }
   }
 
@@ -56,7 +56,7 @@ export class LoginStudentComponent implements OnInit {
       .subscribe({
         next: () => {
           // get return url from route parameters or default to '/'
-          const returnUrl =  '/note';
+          const returnUrl =  '/studenthome';
           this.router.navigate([returnUrl]);
         },
         error: error => {

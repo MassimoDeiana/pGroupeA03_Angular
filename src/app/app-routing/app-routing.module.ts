@@ -18,20 +18,31 @@ import {AuthStudentGuard} from "../_helpers/auth-student.guard";
 import {AuthTeacherGuard} from "../_helpers/auth-teacher.guard";
 import {CoursesContainerComponent} from "../courses-container/courses-container.component";
 import {LessonContainerComponent} from "../lesson-container/lesson-container.component";
+import {LoginTeacherComponent} from "../login/login-teacher/login-teacher.component";
+import {LoginStudentComponent} from "../login/login-student/login-student.component";
+import {LoginAdminComponent} from "../login/login-admin/login-admin.component";
+import {TeacherHomeComponent} from "../teacher-home/teacher-home.component";
+import {StudentHomeComponent} from "../student-home/student-home.component";
+import {AdminHomeComponent} from "../admin-home/admin-home.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'teacher', component: TeacherContainerComponent, canActivate:[AuthGuard]},
-  { path: 'student', component: StudentContainerComponent, canActivate:[AuthGuard]},
-  { path: 'schoolclass', component: SchoolclassContainerComponent, canActivate:[AuthGuard] },
-  { path: 'lesson', component:LessonContainerComponent, canActivate:[AuthGuard]},
-  { path: 'meeting', component: MeetingContainerComponent, canActivate:[AuthGuard]},
-  { path: 'scheduler', component:SchedulerComponent, canActivate:[AuthGuard]},
-  { path: 'note',component : NoteGetComponent, canActivate:[AuthGuard]},
-  { path: 'addnote', component: NoteContainerComponent, canActivate:[AuthGuard]},
-  { path: 'addinterro', component: InterroContainerComponent, canActivate:[AuthGuard]},
-  { path: 'addcourse', component: CoursesContainerComponent, canActivate:[AuthGuard]},
+  { path: 'teacherhome', component: TeacherHomeComponent, canActivate:[AuthTeacherGuard]},
+  { path: 'studenthome', component: StudentHomeComponent, canActivate:[AuthStudentGuard]},
+  { path: 'adminhome', component: AdminHomeComponent, canActivate:[AuthAdminGuard]},
+  { path: 'teacher', component: TeacherContainerComponent, canActivate:[AuthAdminGuard]},
+  { path: 'student', component: StudentContainerComponent, canActivate:[AuthAdminGuard]},
+  { path: 'schoolclass', component: SchoolclassContainerComponent, canActivate:[AuthAdminGuard] },
+  { path: 'lesson', component:LessonContainerComponent, canActivate:[AuthTeacherGuard]},
+  { path: 'meeting', component: MeetingContainerComponent, canActivate:[AuthTeacherGuard]},
+  { path: 'scheduler', component:SchedulerComponent, canActivate:[AuthTeacherGuard,AuthStudentGuard]},
+  { path: 'note',component : NoteGetComponent, canActivate:[AuthStudentGuard]},
+  { path: 'addnote', component: NoteContainerComponent, canActivate:[AuthTeacherGuard]},
+  { path: 'addinterro', component: InterroContainerComponent, canActivate:[AuthTeacherGuard]},
+  { path: 'addcourse', component: CoursesContainerComponent, canActivate:[AuthTeacherGuard]},
+  { path: 'loginTeacher', component: LoginTeacherComponent},
+  { path: 'loginStudent', component: LoginStudentComponent},
+  { path: 'loginAdmin', component: LoginAdminComponent},
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
 ];

@@ -28,7 +28,7 @@ export class LoginTeacherComponent implements OnInit {
   ) {
     // redirect to home if already logged in
     if (this.authenticationService.currentUserValue) {
-      this.router.navigate(['/']);
+      this.router.navigate(['/teacherhome']);
     }
   }
 
@@ -40,6 +40,8 @@ export class LoginTeacherComponent implements OnInit {
   get f() { return this.loginForm.controls; }
 
   onSubmit() {
+    console.log(this.authenticationService.currentUserValue)
+
     this.submitted = true;
 
     // stop here if form is invalid
@@ -55,7 +57,7 @@ export class LoginTeacherComponent implements OnInit {
       .subscribe({
         next: () => {
           // get return url from route parameters or default to '/'
-          const returnUrl =  '/meeting';
+          const returnUrl =  '/teacherhome';
           this.router.navigate([returnUrl]);
         },
         error: error => {

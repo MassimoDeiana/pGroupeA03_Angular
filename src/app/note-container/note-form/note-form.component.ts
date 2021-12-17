@@ -67,8 +67,8 @@ export class NoteFormComponent implements OnInit {
       }
     }
     this.form =  this.fb.group({
-      idInterro : [''],
-      dateNote : [''],
+      idInterro : ['',Validators.required],
+      dateNote : ['',Validators.required],
       ClassDetails:this.fb.array(arr)
     })
   }
@@ -77,8 +77,8 @@ export class NoteFormComponent implements OnInit {
     console.log(student.idStudent);
     return this.fb.group({
       idStudent:[student.idStudent],
-      result:[''],
-      message:['']
+      result:['',[Validators.required,Validators.max(100),Validators.pattern("^[0-9]*$")]],
+      message:['',[Validators.required, Validators.maxLength(80),Validators.pattern('^[A-Za-z0-9ñÑáéíóúÁÉÍÓÚ ]+$')]]
     })
   }
 
@@ -139,6 +139,14 @@ export class NoteFormComponent implements OnInit {
     });
   }
 
+  numberOnly(event:any): boolean {
+    const charCode = (event.which) ? event.which : event.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+      return false;
+    }
+    return true;
+
+  }
 
 
 

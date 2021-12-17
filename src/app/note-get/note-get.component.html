@@ -1,3 +1,4 @@
+<app-navbar-student></app-navbar-student>
 <form [formGroup]="form" (submit)="getResult();moy()">
   <select formControlName="idLesson">
     <option *ngFor="let lesson of lessons" [value]="lesson.idLesson">

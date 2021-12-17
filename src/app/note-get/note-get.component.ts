@@ -7,8 +7,8 @@ import {Interrogation} from "../_model/interrogation";
 import {ResultService} from "../_services/_result/result.service";
 import {Result} from "../_model/result";
 import {AuthenticationStudentService} from "../_services/_Authentification/authentificationStudent.service";
-import {Lesson} from "../_model/lesson";
 import {LessonService} from "../_services/_lesson/lesson.service";
+import {Lesson} from "../_model/lesson";
 
 @Component({
   selector: 'app-note-get',
@@ -68,3 +68,4 @@ export class NoteGetComponent implements OnInit {
   }
 
 }
+

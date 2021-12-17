@@ -1,7 +1,7 @@
 <form [formGroup]="form" (ngSubmit)="createAndEmitTeacher()">
   <label>
     Subject:
-    <input type="text" formControlName="subject">
+    <input [maxlength]="50" type="text" formControlName="subject">
   </label>
 
   <input type="submit" [disabled]="form.invalid">

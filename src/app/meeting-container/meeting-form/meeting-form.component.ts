@@ -42,7 +42,7 @@ export class MeetingFormComponent implements OnInit {
 
   addMeetings() {
     const meetingForm = this.fb.group({
-      subject: ['', Validators.required],
+      subject: ['', [Validators.required, Validators.maxLength(50),Validators.pattern('^[A-Za-z0-9ñÑáéíóúÁÉÍÓÚ ]+$')]],
       startTime: ['', Validators.required],
       endTime: ['', Validators.required],
     })

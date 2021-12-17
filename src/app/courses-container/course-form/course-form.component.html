@@ -1,5 +1,6 @@
+<app-navbar-teacher></app-navbar-teacher>
 <div>
-  <form [formGroup]="form" (submit)="createAndEmitInterro()">
+  <form [formGroup]="form" (submit)="createAndEmitInterro();succeedMessage=true">
     <table>
       <tr>
         <td>
@@ -17,20 +18,27 @@
     </table>
     <br/>
     <table>
-      <tr formArrayName="lessons" *ngFor="let cd of infoControls ;let i=index;">
+      <tr formArrayName="info" *ngFor="let cd of infoControls ;let i=index;">
         <td formGroupName={{i}}>
+          <select formControlName="idLesson">
+            <option *ngFor="let lesson of lessons" [value]="lesson.idLesson">
+              {{lesson.subject}}
+            </option>
+          </select>
 
           <input  type="datetime-local" formControlName="startTime" placeholder="starTime" />
           <input  type="datetime-local" formControlName="endTime" placeholder="endTime" />
-          <input  type="text" formControlName="subject" placeholder="subject" />
         </td><button (click)="deleteInfo(i)">delete</button>
       </tr>
       <tr>
         <td>
-          <input type="submit" value="Click Me" />
+          <input type="submit" value="Click Me" [disabled]="form.invalid"/>
         </td>
       </tr>
     </table>
   </form>
   <button (click)="addInfo()">Add new course</button>
+</div>
+<div *ngIf="succeedMessage">
+  {{message}}
 </div>

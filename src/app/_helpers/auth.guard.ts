@@ -9,12 +9,14 @@ export abstract class AuthGuard<T> implements CanActivate {
   constructor(
     private router: Router,
     @Inject(AbstractAuthentificationService) private authenticationService: AbstractAuthentificationService<T>
-  ) { }
+  ) {
+  }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     const currentUser = this.authenticationService.currentUserValue;
     if (currentUser) {
       // logged in so return true
+      console.log(currentUser)
       return true;
     }
 

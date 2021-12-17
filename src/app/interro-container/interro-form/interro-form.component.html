@@ -1,5 +1,6 @@
 <div>
-  <form [formGroup]="form" (submit)="createAndEmitInterro()">
+  <button (click)="addInfo();succeedMessage=false">Add new interro</button>
+  <form [formGroup]="form" (submit)="createAndEmitInterro();succeedMessage=true">
     <table>
       <tr>
         <td>
@@ -20,16 +21,18 @@
       <tr formArrayName="info" *ngFor="let cd of infoControls ;let i=index;">
         <td formGroupName={{i}}>
 
-          <input  type="text" formControlName="subject" placeholder="subject" />
-          <input  type="text" formControlName="total" placeholder="total" />
-        </td><button (click)="deleteInfo(i)">delete</button>
+          <input [maxlength]="50" type="text" formControlName="subject" placeholder="subject" />
+          <input  (keypress)="numberOnly($event)" type="text" formControlName="total" placeholder="total (max: 100)" />
+        </td><button (click)="deleteInfo(i);succeedMessage=false">delete</button>
       </tr>
       <tr>
         <td>
-          <input type="submit" value="Click Me" />
+          <input type="submit" value="Submit" [disabled]="form.invalid"/>
         </td>
       </tr>
     </table>
   </form>
-  <button (click)="addInfo()">Add new interro</button>
+  <div *ngIf="succeedMessage">
+    {{message}}
+  </div>
 </div>

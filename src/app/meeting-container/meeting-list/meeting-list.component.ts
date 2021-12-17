@@ -19,6 +19,7 @@ export class MeetingListComponent implements OnInit {
 
 
   dropdownSettings:IDropdownSettings={};
+  participants: Teacher[]=[];
 
   constructor(private teacherService:TeacherService) { }
 

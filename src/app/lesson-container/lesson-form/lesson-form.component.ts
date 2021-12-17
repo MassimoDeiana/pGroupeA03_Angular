@@ -12,7 +12,7 @@ export class LessonFormComponent implements OnInit {
 
   @Output() lessonCreated:EventEmitter<Lesson> = new EventEmitter<Lesson>()
   form : FormGroup = this.fb.group({
-    subject:['',Validators.required]
+    subject:['',[Validators.required, Validators.maxLength(50),Validators.pattern('^[A-Za-z0-9ñÑáéíóúÁÉÍÓÚ ]+$')]]
   })
 
   constructor(private fb:FormBuilder){ }

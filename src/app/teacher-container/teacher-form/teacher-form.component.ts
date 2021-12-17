@@ -12,11 +12,11 @@ export class TeacherFormComponent implements OnInit {
 
   @Output() teacherCreated:EventEmitter<Teacher> = new EventEmitter<Teacher>()
   form : FormGroup = this.fb.group({
-    name:['',Validators.required],
-    firstname:['',Validators.required],
+    name:['',[Validators.required, Validators.maxLength(50),Validators.pattern('^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$')]],
+    firstname:['',[Validators.required, Validators.maxLength(50),Validators.pattern('^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$')]],
     birthdate:['',Validators.required],
-    mail:['',Validators.required],
-    password:['',Validators.required]
+    mail:['',[Validators.required,Validators.maxLength(50)]],
+    password:['',[Validators.required,Validators.maxLength(50)]]
   })
 
   constructor(private fb:FormBuilder){ }
