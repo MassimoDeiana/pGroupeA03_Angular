@@ -5,6 +5,8 @@ import {Teacher} from "../../_model/teacher";
 import {Interrogation} from "../../_model/interrogation";
 import {CourseService} from "../../_services/_course/course.service";
 import {Course} from "../../_model/course";
+import {Lesson} from "../../_model/lesson";
+import {LessonService} from "../../_services/_lesson/lesson.service";
 
 @Component({
   selector: 'app-interro-form',
@@ -15,62 +17,62 @@ export class InterroFormComponent implements OnInit {
 
   @Output() interroCreated:EventEmitter<Interrogation> = new EventEmitter<Interrogation>()
 
-  courses:Course[]=[];
+  lessons:Lesson[]=[];
 
   form : FormGroup = this.fb.group({
-    idCourse:['',Validators.required],
-    lessons:this.fb.array([])
+    idLesson:['',Validators.required],
+    info:this.fb.array([])
   })
 
-  constructor(private fb:FormBuilder, private interroService:InterrogationService,private courseService:CourseService) { }
+  constructor(private fb:FormBuilder, private interroService:InterrogationService,private lessonService:LessonService) { }
 
   ngOnInit(): void {
-    this.getAllCourse();
+    this.getAllLesson();
   }
 
-  getAllCourse() {
-    this.courseService.getAll().subscribe(c=>this.courses=c);
+  getAllLesson() {
+    this.lessonService.getAll().subscribe(c=>this.lessons=c);
   }
 
-  get lessons()
+  get info()
   {
-    return (this.form.get('lessons') as FormArray);
+    return (this.form.get('info') as FormArray);
   }
 
-  get lessonsControls()
+  get infoControls()
   {
-    return this.lessons.controls;
+    return this.info.controls;
   }
 
 
 
-  addLesson() {
+  addInfo() {
     const lessonForm = this.fb.group({
       subject:['',Validators.required],
       total:['',Validators.required]
     })
-    this.lessons.push(lessonForm);
+    this.info.push(lessonForm);
   }
 
-  deleteLesson(lessonIndex:number){
-    this.lessons.removeAt(lessonIndex);
+  deleteInfo(lessonIndex:number){
+    this.info.removeAt(lessonIndex);
   }
 
 
   createAndEmitInterro()
   {
     console.log(this.form.value);
-    console.log(this.lessons.length);
+    console.log(this.info.length);
 
-    for(let i=0; i<this.lessons.length;i++)
+    for(let i=0; i<this.info.length; i++)
     {
-      console.log(this.form.value.idCourse);
-      console.log(this.form.value.lessons[i].subject);
-      console.log(this.form.value.lessons[i].total);
+      console.log(this.form.value.idLesson);
+      console.log(this.form.value.info[i].subject);
+      console.log(this.form.value.info[i].total);
       this.interroCreated.next({
-        idCourse:this.form.value.idCourse,
-        subject:this.form.value.lessons[i].subject,
-        total:this.form.value.lessons[i].total
+        idLesson:this.form.value.idLesson,
+        subject:this.form.value.info[i].subject,
+        total:this.form.value.info[i].total
       })
     }}
 

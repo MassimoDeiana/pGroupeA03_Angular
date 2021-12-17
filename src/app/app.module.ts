@@ -52,6 +52,11 @@ import {JwtStudentInterceptor} from "./_helpers/jwtStudent.interceptor";
 import {ErrorStudentInterceptor} from "./_helpers/errorStudent.interceptor";
 import {JwtAdminInterceptor} from "./_helpers/jwtAdmin.interceptor";
 import {ErrorAdminInterceptor} from "./_helpers/errorAdmin.interceptor";
+import { CoursesContainerComponent } from './courses-container/courses-container.component';
+import { CourseFormComponent } from './courses-container/course-form/course-form.component';
+import { LessonContainerComponent } from './lesson-container/lesson-container.component';
+import { LessonFormComponent } from './lesson-container/lesson-form/lesson-form.component';
+import { LessonListComponent } from './lesson-container/lesson-list/lesson-list.component';
 
 
 @NgModule({
@@ -84,6 +89,11 @@ import {ErrorAdminInterceptor} from "./_helpers/errorAdmin.interceptor";
     LoginTeacherComponent,
     LoginStudentComponent,
     LoginAdminComponent,
+    CoursesContainerComponent,
+    CourseFormComponent,
+    LessonContainerComponent,
+    LessonFormComponent,
+    LessonListComponent,
 
 
   ],

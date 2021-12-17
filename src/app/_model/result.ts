@@ -5,5 +5,6 @@ export interface Result extends IEntity{
   idInterro?:number;
   result :number;
   total:number;
-
+  idLesson:number;
+  message:string;
 }
