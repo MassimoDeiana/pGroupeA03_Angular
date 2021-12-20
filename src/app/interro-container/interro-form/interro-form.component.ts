@@ -7,6 +7,7 @@ import {CourseService} from "../../_services/_course/course.service";
 import {Course} from "../../_model/course";
 import {Lesson} from "../../_model/lesson";
 import {LessonService} from "../../_services/_lesson/lesson.service";
+import {AuthenticationTeacherService} from "../../_services/_Authentification/authentificationTeacher.service";
 
 @Component({
   selector: 'app-interro-form',
@@ -28,7 +29,10 @@ export class InterroFormComponent implements OnInit {
     info:this.fb.array([])
   })
 
-  constructor(private fb:FormBuilder, private interroService:InterrogationService,private lessonService:LessonService) { }
+  constructor(private fb:FormBuilder,
+              private interroService:InterrogationService,
+              private lessonService:LessonService,
+              private authService:AuthenticationTeacherService) { }
 
   ngOnInit(): void {
     this.getAllLesson();
@@ -77,6 +81,7 @@ export class InterroFormComponent implements OnInit {
       console.log(this.form.value.info[i].total);
       this.interroCreated.next({
         idLesson:this.form.value.idLesson,
+        idTeacher:this.authService.currentUserValue.idTeacher!,
         subject:this.form.value.info[i].subject,
         total:this.form.value.info[i].total
       })
