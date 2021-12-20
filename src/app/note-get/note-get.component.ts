@@ -23,7 +23,7 @@ export class NoteGetComponent implements OnInit {
   lessons:Lesson[]=[];
   interros:Interrogation[]=[];
 
-
+  alertNotes:string ='';
 
   form:FormGroup = this.fb.group({
     idLesson:['',Validators.required]
@@ -51,6 +51,12 @@ export class NoteGetComponent implements OnInit {
         }
       })
     });
+    if(this.results.length==0) {
+      this.alertNotes = "this student doesn't have notes";
+    }else{
+      this.alertNotes = "";
+
+    }
     console.log("dans result " + this.results)
     this.moy()
   }

@@ -26,7 +26,7 @@ export class LoginStudentComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private authenticationService: AuthenticationStudentService
-  ) {
+  ){
     // redirect to home if already logged in
     if (this.authenticationService.currentUserValue) {
       this.router.navigate(['/studenthome']);
@@ -74,5 +74,10 @@ export class LoginStudentComponent implements OnInit {
       username: "AllanLixon@gmail.com",
       password: "password2"
     });
+  }
+
+  back() {
+    const returnUrl =  '';
+    this.router.navigate([returnUrl]);
   }
 }

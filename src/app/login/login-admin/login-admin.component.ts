@@ -74,4 +74,9 @@ export class LoginAdminComponent implements OnInit {
       password: "password1"
     });
   }
+
+  back() {
+    const returnUrl =  '';
+    this.router.navigate([returnUrl]);
+  }
 }

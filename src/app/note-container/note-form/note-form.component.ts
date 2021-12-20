@@ -23,6 +23,8 @@ export class NoteFormComponent implements OnInit {
   schoolClasses : Schoolclass[]=[];
   studentToDisplay: Student[]=[];
 
+  alertMessage:String='';
+
   form : FormGroup;
 
   filter : FormGroup = this.fb.group({
@@ -99,8 +101,6 @@ export class NoteFormComponent implements OnInit {
       console.log("resultat : " +this.form.value.ClassDetails[i].result);
       console.log("message : " +this.form.value.ClassDetails[i].message);
 
-
-
     this.noteCreated.next({
       idTeacher:this.authService.currentUserValue.idTeacher,
       idStudent:this.form.value.ClassDetails[i].idStudent,
@@ -109,6 +109,7 @@ export class NoteFormComponent implements OnInit {
       result:this.form.value.ClassDetails[i].result,
       message:this.form.value.ClassDetails[i].message
     })
+
   }}
 
   getAllStudent()
