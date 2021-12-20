@@ -1,0 +1,70 @@
+.col-md-6 {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(45deg, #ec8c69, #ed6ea0);
+  font-family: "Montserrat", sans-serif;
+}
+.card {
+  position: relative;
+  padding: 50px 50px;
+  background: #fff;
+  border-radius: 10px;
+}
+.card h4 {
+  font-size: 2em;
+  border-left: 5px solid dodgerblue;
+  padding: 10px;
+  color: #000;
+  letter-spacing: 5px;
+  margin-bottom: 60px;
+  font-weight: bold;
+  padding-left: 10px;
+}
+.card .form-group {
+  position: relative;
+  width: 300px;
+  height: 50px;
+  margin-bottom: 50px;
+}
+.card .form-group input,button{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border: 2px solid #000;
+  outline: none;
+  background: none;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1.2em;
+}
+.card .form-group:last-child {
+  margin-bottom: 0;
+}
+.card .form-group span {
+  position: absolute;
+  top: 14px;
+  left: 20px;
+  font-size: 1em;
+  transition: 0.6s;
+  font-family: sans-serif;
+}
+.card .form-group input:focus ~ span,
+.card .form-group input:valid ~ span {
+  transform: translateX(-13px) translateY(-35px);
+  font-size: 1em;
+}
+.card .form-group button {
+  width: 50%;
+  background: dodgerblue;
+  color: #fff;
+  border: #fff;
+}
+.card .form-group button:hover {
+  background: linear-gradient(45deg, #ec8c69, #ed6ea0);
+}

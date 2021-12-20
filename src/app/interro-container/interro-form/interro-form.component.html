@@ -1,10 +1,11 @@
 <div>
-  <button (click)="addInfo();succeedMessage=false">Add new interro</button>
+
   <form [formGroup]="form" (submit)="createAndEmitInterro();succeedMessage=true">
+    <button (click)="addInfo();succeedMessage=false">Add new interro</button>
     <table>
       <tr>
         <td>
-          <b>Course</b>
+          <b>Course : </b>
         </td>
         <td>
           <select formControlName="idLesson">
@@ -13,16 +14,17 @@
             </option>
           </select>
         </td>
+
+
       </tr>
 
     </table>
-    <br/>
     <table>
       <tr formArrayName="info" *ngFor="let cd of infoControls ;let i=index;">
         <td formGroupName={{i}}>
 
-          <input [maxlength]="50" type="text" formControlName="subject" placeholder="subject" />
-          <input  (keypress)="numberOnly($event)" type="text" formControlName="total" placeholder="total (max: 100)" />
+          <input [maxlength]="50" type="text" class="text" formControlName="subject" placeholder="subject" />
+          <input  (keypress)="numberOnly($event)" class="text" type="text" formControlName="total" placeholder="total (max: 100)" />
         </td><button (click)="deleteInfo(i);succeedMessage=false">delete</button>
       </tr>
       <tr>

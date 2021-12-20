@@ -3,7 +3,9 @@
     <thead>
     <tr>
       <th>id</th>
-      <th>sujet</th>
+      <th>subject</th>
+      <th>participant</th>
+      <th></th>
     </tr>
     </thead>
     <tbody>
@@ -11,10 +13,10 @@
       <td>{{meeting.idMeeting}}</td>
       <td>{{meeting.subject}}</td>
 
-      <td style="width:40%">
+      <td style="width:30%">
         <ng-multiselect-dropdown [settings]="dropdownSettings" [data]="teachers" [(ngModel)]="participants" ></ng-multiselect-dropdown>
       </td>
-      <td>
+      <td class="btn_add">
         <button (click)="createAndEmitParticipation()">ajouter des participants</button>
       </td>
     </tr>

@@ -1,0 +1,9 @@
+input,button{
+  width: 100px;
+  height: 45px;
+  border-radius: 30px;
+  background:linear-gradient(45deg,#ec8c69, #ed6ea0);
+  color: white;
+  border: none;
+
+}

@@ -1,4 +1,3 @@
 <app-navbar-teacher></app-navbar-teacher>
-<app-scheduler [meetings]="meetings" ></app-scheduler>
 <app-meeting-list [meetings]="meetings" (participateMeetingCreated)="sendParticipate($event)"></app-meeting-list>
 <app-meeting-form (meetingCreated)="sendMeeting($event); "></app-meeting-form>

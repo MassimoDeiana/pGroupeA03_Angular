@@ -1,0 +1,17 @@
+form{
+  font-family: "Montserrat", sans-serif;
+}
+input{
+  margin: 5px;
+  width: 100px;
+  height: 35px;
+  background:linear-gradient(45deg,#ec8c69, #ed6ea0);
+  color: white;
+  border: none;
+}
+::placeholder{
+  color: white;
+}
+.btn{
+  border-radius: 50px;
+}

@@ -16,7 +16,6 @@
       </tr>
 
     </table>
-    <br/>
     <table>
       <tr formArrayName="info" *ngFor="let cd of infoControls ;let i=index;">
         <td formGroupName={{i}}>
@@ -26,18 +25,18 @@
             </option>
           </select>
 
-          <input  type="datetime-local" formControlName="startTime" placeholder="starTime" />
-          <input  type="datetime-local" formControlName="endTime" placeholder="endTime" />
-        </td><button (click)="deleteInfo(i)">delete</button>
-      </tr>
-      <tr>
-        <td>
-          <input type="submit" value="Click Me" [disabled]="form.invalid"/>
+          <input  type="datetime-local" class="date" formControlName="startTime" placeholder="starTime" />
+          <input  type="datetime-local" class="date" formControlName="endTime" placeholder="endTime" />
+          <button (click)="deleteInfo(i)">delete</button>
         </td>
       </tr>
+      <tr>
+        <input type="submit"  value="Click Me" [disabled]="form.invalid"/>
+        <button (click)="addInfo()" class="btn" >Add new course</button>
+      </tr>
     </table>
+
   </form>
-  <button (click)="addInfo()">Add new course</button>
 </div>
 <div *ngIf="succeedMessage">
   {{message}}

@@ -1,9 +1,8 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {Component, EventEmitter, OnInit, Output, ViewEncapsulation} from '@angular/core';
+import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Note} from "../../_model/note";
 import {Student} from "../../_model/student";
 import {StudentService} from "../../_services/_student/student.service";
-import {firstDateOfMonth} from "@syncfusion/ej2-angular-schedule";
 import {AuthenticationTeacherService} from "../../_services/_Authentification/authentificationTeacher.service";
 import {environment} from "../../../environments/environment";
 import {Interrogation} from "../../_model/interrogation";

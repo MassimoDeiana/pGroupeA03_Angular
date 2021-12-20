@@ -1,51 +1,56 @@
 <div>
   <form [formGroup]="filter" (submit)="createform()">
-  <select formControlName="idClass">
-    <option *ngFor="let schoolclass of schoolClasses" [value]="schoolclass.id">
-      {{schoolclass.name}}
-    </option>
-  </select>
-    <input type="submit" value="Filter" [disabled]="filter.invalid" />
+    <div class="box">
+      <select formControlName="idClass">
+        <option *ngFor="let schoolclass of schoolClasses" [value]="schoolclass.id">
+          {{schoolclass.name}}
+        </option>
+      </select>
+      <input type="submit" value="Filter" class="styled" [disabled]="filter.invalid" />
+    </div>
   </form>
-
 
   <form [formGroup]="form" (submit)="createAndEmitNote()">
-    <table>
-      <tr>
-        <td>
-          <b>Interro</b>
-        </td>
-        <td>
-          <select formControlName="idInterro">
-            <option *ngFor="let interro of interros" [value]="interro.idInterro">
-              {{interro.subject}}
-            </option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <b>Date</b>
-        </td>
-        <td>
-          <input  type="date" formControlName="dateNote" />
-        </td>
-      </tr>
-    </table>
-    <br/>
-    <table>
-      <tr formArrayName="ClassDetails" *ngFor="let cd of controlsMachin ;let i=index;">
-        <td formGroupName={{i}}>
-          {{studentToDisplay[i].name + " " + studentToDisplay[i].firstname}}
-          <input (keypress)="numberOnly($event)" type="text" formControlName="result" placeholder="result" />
-          <input [maxlength]="80" type="text" formControlName="message" placeholder="message" />
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <input type="submit" value="Submit" [disabled]="form.invalid"/>
-        </td>
-      </tr>
-    </table>
-  </form>
+    <div class="box">
+      <table>
+        <tr>
+          <td>
+            <b>Interro</b>
+          </td>
+          <td>
+            <select formControlName="idInterro">
+              <option *ngFor="let interro of interros" [value]="interro.idInterro">
+                {{interro.subject}}
+              </option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <b>Date</b>
+          </td>
+          <td>
+            <input  type="date" class="input_date styled" formControlName="dateNote" />
+          </td>
+        </tr>
+      </table>
+    </div>
+      <br/>
+      <table>
+        <tr formArrayName="ClassDetails" *ngFor="let cd of controlsMachin ;let i=index;">
+          <td formGroupName={{i}}>
+            {{studentToDisplay[i].name + " " + studentToDisplay[i].firstname}}
+            <input (keypress)="numberOnly($event)" type="text" formControlName="result" placeholder="result" />
+            <input [maxlength]="80" type="text" formControlName="message" placeholder="message" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="submit" value="Submit" class="styled" [disabled]="form.invalid"/>
+          </td>
+        </tr>
+      </table>
+
+    </form>
+
 </div>

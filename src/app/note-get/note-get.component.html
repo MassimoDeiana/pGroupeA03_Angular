@@ -1,29 +1,32 @@
 <app-navbar-student></app-navbar-student>
+<div class="main">
 <form [formGroup]="form" (submit)="getResult();moy()">
-  <select formControlName="idLesson">
-    <option *ngFor="let lesson of lessons" [value]="lesson.idLesson">
-      {{lesson.subject}}
-    </option>
-  </select>
-  <input type="submit" value="Search result" />
+  <div class="box" >
+    <select formControlName="idLesson">
+      <option *ngFor="let lesson of lessons" [value]="lesson.idLesson">
+        {{lesson.subject}}
+      </option>
+    </select>
+    <input type="submit" class="inline" value="Search result" />
+  </div>
 </form>
+  <button (click)="moy()" class="inline">Moyenne</button>
 
-<button (click)="moy()">Moy</button>
 <table>
   <tr>
-    <th>idInterro</th>
+    <th>interro</th>
     <th>result</th>
     <th>total</th>
     <th>message</th>
   </tr>
   <tr *ngFor="let result of results;let i=index">
-    <td>{{result.idInterro}}</td>
+    <td>{{interros[i].subject}}</td>
     <td>{{result.result}}</td>
     <td>{{result.total}}</td>
     <td>{{result.message}}</td>
   </tr>
 </table>
 
-<label>{{sum.toFixed(2)}}</label>
-
+<label *ngIf="sum >= 0">Moyenne : {{sum.toFixed(2)}}</label>
+</div>
 

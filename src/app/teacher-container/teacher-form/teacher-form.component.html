@@ -9,7 +9,7 @@
   </label>
   <label>
     Datenaiss:
-    <input type="date" formControlName="birthdate">
+    <input type="date" class="date" formControlName="birthdate">
   </label>
   <label>
     Mail:
@@ -19,5 +19,5 @@
     password:
     <input type="password" formControlName="password">
   </label>
-  <input type="submit" [disabled]="form.invalid">
+  <input type="submit" class="btn" [disabled]="form.invalid">
 </form>

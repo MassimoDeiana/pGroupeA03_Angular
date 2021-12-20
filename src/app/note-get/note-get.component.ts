@@ -21,6 +21,8 @@ export class NoteGetComponent implements OnInit {
 
   results:Result[]=[];
   lessons:Lesson[]=[];
+  interros:Interrogation[]=[];
+
 
 
   form:FormGroup = this.fb.group({
@@ -28,6 +30,7 @@ export class NoteGetComponent implements OnInit {
   })
 
   constructor(private fb:FormBuilder,
+              private interroService:InterrogationService,
               private resultService:ResultService,
               private lessonService:LessonService,
               private authService:AuthenticationStudentService) { }
@@ -38,16 +41,23 @@ export class NoteGetComponent implements OnInit {
 
   getResult(){
     this.results=[];
-      this.resultService.getList(this.authService.currentUserValue.idStudent!).subscribe(r=>{
-        r.forEach(result=>{
-          if(result.idLesson==this.form.value.idLesson)
-            this.results.push(result);
-        })
-      });
-  console.log("dans result " + this.results)
+    this.interros=[];
+    this.resultService.getList(this.authService.currentUserValue.idStudent!).subscribe(r=>{
+      r.forEach(result=>{
+        if(result.idLesson==this.form.value.idLesson) {
+          console.log(result.idInterro)
+          this.results.push(result);
+          this.getInterroById(result.idInterro!);
+        }
+      })
+    });
+    console.log("dans result " + this.results)
     this.moy()
   }
 
+  getInterroById(id:number){
+    this.interroService.get(id).subscribe(i=>this.interros.push(i));
+  }
 
   getLessons(){
     this.lessonService.getAll().subscribe(l=>this.lessons=l);

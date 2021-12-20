@@ -1,30 +1,29 @@
 <div class="col-md-6 offset-md-3 mt-5">
-  <div class="alert alert-info">
-    double click : auto complete
-  </div>
   <div class="card">
-    <h4 class="card-header">Angular 10 JWT Login Example</h4>
+    <h4 class="card-header">Login student</h4>
     <div class="card-body">
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" (dblclick)="autoComplete()">
         <div class="form-group">
-          <label for="username">Username</label>
-          <input type="text" placeholder="student" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+          <input type="text"  formControlName="username" class="form-control in" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+          <span>Email</span>
           <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-            <div *ngIf="f.username.errors.required">Username is required</div>
+            <br/><div *ngIf="f.username.errors.required">Username is required</div>
           </div>
         </div>
         <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" placeholder="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+          <input type="password"  formControlName="password" class="form-control in" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+          <span>Password</span>
           <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-            <div *ngIf="f.password.errors.required">Password is required</div>
+            <br/> <div *ngIf="f.password.errors.required">Password is required</div>
           </div>
         </div>
-        <button [disabled]="loading" class="btn btn-primary">
-          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-          Login
-        </button>
-        <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+        <div class="form-group">
+          <button [disabled]="loading" class="btn btn-primary in">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Login
+          </button>
+          <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+        </div>
       </form>
     </div>
   </div>

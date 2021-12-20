@@ -1,0 +1,39 @@
+
+table {
+
+  font-family: 'Montserrat',sans-serif;
+  border: 1px solid #eee;
+}
+td{
+  text-align: center;
+}
+tr:hover {
+  background: #f4f4f4;
+}
+td:hover {
+  color: #555;
+}
+th, td {
+  color: #484848;
+  border: 1px solid #282828;
+  padding: 12px 35px;
+  border-collapse: collapse;
+}
+th {
+  background: linear-gradient(45deg, #545454, #000000);
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+th.last {
+  border-right: none;
+}
+input,button{
+  width: 25px;
+  height: 25px;
+  border-radius: 150px;
+  background:linear-gradient(45deg,#ec8c69, #ed6ea0);
+  color: white;
+  border: none;
+
+}

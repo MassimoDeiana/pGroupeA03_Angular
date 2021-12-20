@@ -1,0 +1,36 @@
+div{
+  font-family: "Montserrat", sans-serif;
+}
+input,button{
+  width: 100px;
+  height: 45px;
+  border-radius: 30px;
+  background:linear-gradient(45deg,#ec8c69, #ed6ea0);
+  color: white;
+  border: none;
+  margin: 5px;
+}
+
+.text{
+  border-radius: 0px;
+}
+
+
+option{
+  color:black;
+}
+select {
+  margin: 15px;
+  background:linear-gradient(45deg,#ec8c69, #ed6ea0);
+  color: white;
+  padding: 12px;
+  width: 100px;
+  border: none;
+  font-size: 14px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  -webkit-appearance: button;
+  outline: none;
+}
+select option {
+  padding: 30px;
+}
