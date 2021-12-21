@@ -52,7 +52,7 @@ export class LoginTeacherComponent implements OnInit {
     this.loading = true;
     console.log(this.f.username.value);
     console.log(this.f.password.value);
-    this.authenticationService.login(this.f.username.value, this.f.password.value)
+    this.authenticationService.login(this.f.username.value.trim(), this.f.password.value)
       .pipe(first())
       .subscribe({
         next: () => {

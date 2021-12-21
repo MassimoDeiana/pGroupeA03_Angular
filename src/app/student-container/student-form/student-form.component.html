@@ -3,7 +3,7 @@
   <table>
     <tr>
       <td>
-        Nom:
+        Name:
       </td>
       <td>
         <input type="text" formControlName="name">
@@ -11,7 +11,7 @@
     </tr>
     <tr>
       <td>
-        Prenom:
+        First name:
       </td>
       <td>
         <input type="text" formControlName="firstname">
@@ -19,7 +19,7 @@
     </tr>
     <tr>
       <td>
-        Datenaiss:
+        Birthdate:
       </td>
       <td>
         <input type="date" class="date" formControlName="birthdate">
@@ -34,25 +34,17 @@
       </td>
     </tr>
     <tr>
-      <td>
-        mot de passe:
-      </td>
-      <td>
-        <input type="text" formControlName="password">
-      </td>
+      Password:
+      <input type="text" formControlName="password">
     </tr>
 
     <tr>
-      <td>
-        idClass:
-      </td>
-      <td>
-        <select formControlName="idClass">
-          <option *ngFor="let schoolclass of schoolClasses" [value]="schoolclass.id">
-            {{schoolclass.name}}
-          </option>
-        </select>
-      </td>
+      Class:
+      <select formControlName="idClass">
+        <option *ngFor="let schoolclass of schoolClasses" [value]="schoolclass.id">
+          {{schoolclass.name}}
+        </option>
+      </select>
     </tr>
     <input type="submit" class="btn" [disabled]="form.invalid">
   </table>

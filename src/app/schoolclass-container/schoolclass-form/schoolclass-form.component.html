@@ -3,7 +3,7 @@
   <table>
     <tr>
       <td>
-        Nom :
+        Name :
       </td>
       <td>
         <input type="text" formControlName="name" placeholder="name">
@@ -11,7 +11,7 @@
     </tr>
     <tr>
       <td>
-        Année :
+        Year :
       </td>
       <td>
         <input (keypress)="numberOnly($event)" type="number" formControlName="year" placeholder="(max: 7)">
@@ -19,7 +19,7 @@
     </tr>
     <tr>
       <td>
-        Nombre d'étudiants :
+        Amount of student :
       </td>
       <td>
         <input (keypress)="numberOnly($event)" type="number" formControlName="nbStudents" placeholder="(max: 30)">
@@ -27,4 +27,5 @@
     </tr>
     <input type="submit" [disabled]="form.invalid">
   </table>
+
 </form>

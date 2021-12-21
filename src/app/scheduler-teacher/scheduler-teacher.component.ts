@@ -12,26 +12,29 @@ import {
 import {EventSettingsModel, Schedule, ScheduleComponent, View} from "@syncfusion/ej2-angular-schedule";
 
 import {Meeting} from "../_model/meeting";
+import {LessonService} from "../_services/_lesson/lesson.service";
 
 
 @Component({
   selector: 'app-scheduler',
-  templateUrl: './scheduler.component.html',
-  styleUrls: ['./scheduler.component.css']
+  templateUrl: './scheduler-teacher.component.html',
+  styleUrls: ['./scheduler-teacher.component.css']
 })
-export class SchedulerComponent implements OnChanges{
+export class SchedulerTeacherComponent implements OnChanges{
 
   @Input() meetings:Meeting[]=[];
+
+
   datasource:Object[]=[];
   public eventSettings:EventSettingsModel = {};
 
   @Output() meetingCreated:EventEmitter<Meeting> = new EventEmitter<Meeting>()
 
+  constructor(private lessonService:LessonService) {
+  }
+
   ngOnChanges(): void {
     this.setup();
-
-
-
   }
 
   setup()
@@ -51,10 +54,16 @@ export class SchedulerComponent implements OnChanges{
         EndTime : new Date(meeting.endTime)
       })
     })
+
+
+
+
     return obj;
   }
 
-
+  getLesson(id:number){
+    this.lessonService.get(id).subscribe();
+  }
 
 /*
   createAndEmitMeeting(){

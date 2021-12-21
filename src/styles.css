@@ -2,10 +2,11 @@
 
 /* You can add global styles to this file, and also import other style files */
 
+/*
 .mat-toolbar.mat-primary{
   background: #44b64b;
 }
-
+*/
 .mat-raised-button.mat-accent{
   background: #8c0000;
 }
@@ -16,4 +17,9 @@
 
 body{
   margin:0px;
+}
+
+input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }

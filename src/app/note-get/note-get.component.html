@@ -8,7 +8,7 @@
         {{lesson.subject}}
       </option>
     </select>
-    <input type="submit" class="inline" value="Search result" />
+    <input type="submit" class="inline" value="Search result" [disabled]="form.invalid" />
   </div>
 </form>
   <button (click)="moy()" class="inline">Moyenne</button><br/><br/>

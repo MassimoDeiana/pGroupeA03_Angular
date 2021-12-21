@@ -51,3 +51,8 @@ table{
 td{
   padding-bottom: 5px;
 }
+
+form  { display: table;      }
+tr    { display: table-row;  }
+label    { display: table-cell; }
+input  { display: table-cell; }

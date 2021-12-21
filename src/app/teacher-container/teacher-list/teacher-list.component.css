@@ -27,3 +27,13 @@ th {
 th.last {
   border-right: none;
 }
+
+button{
+  width: 25px;
+  height: 25px;
+  border-radius: 150px;
+  background:linear-gradient(45deg,#ec8c69, #ed6ea0);
+  color: white;
+  border: none;
+
+}

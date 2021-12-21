@@ -16,7 +16,7 @@ import {RouterModule} from "@angular/router";
 import {AuthGuard, ErrorInterceptor, JwtInterceptor} from "./_helpers";
 <<<<<<< HEAD
 import {ScheduleModule,RecurrenceEditorModule,DayService,WeekService,WorkWeekService,MonthService,MonthAgendaService} from "@syncfusion/ej2-angular-schedule";
-import { SchedulerComponent } from './scheduler/scheduler.component';
+import { SchedulerTeacherComponent } from './scheduler/scheduler.component';
 =======
 import { SchoolclassContainerComponent } from './schoolclass-container/schoolclass-container.component';
 import { SchoolclassFormComponent } from './schoolclass-container/schoolclass-form/schoolclass-form.component';
@@ -35,7 +35,7 @@ import { SchoolclassListComponent } from './schoolclass-container/schoolclass-li
     LoginComponent,
     HomeComponent,
 <<<<<<< HEAD
-    SchedulerComponent,
+    SchedulerTeacherComponent,
 =======
     SchoolclassContainerComponent,
     SchoolclassFormComponent,
@@ -54,7 +54,7 @@ import { SchoolclassListComponent } from './schoolclass-container/schoolclass-li
       { path: 'login', component: LoginComponent },
       { path: 'teacher', component: TeacherContainerComponent, canActivate:[AuthGuard]},
 <<<<<<< HEAD
-      { path: 'scheduler', component:SchedulerComponent},
+      { path: 'scheduler', component:SchedulerTeacherComponent},
 =======
       { path: 'schoolclass', component: SchoolclassContainerComponent },
 >>>>>>> f42f24c5691a5c5c30f237d3553aaa576e6392f6
