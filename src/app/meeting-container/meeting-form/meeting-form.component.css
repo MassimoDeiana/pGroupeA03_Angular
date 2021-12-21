@@ -3,13 +3,24 @@ h2{
   float: right;
   margin-right: 50%;
 }
-
-input,button{
+form{
+  float: left;
+  margin-top: 3%;
+}
+input{
+  margin: 5px;
+  width: 180px;
+  height: 35px;
+  color: black;
+}
+.btn{
   width: 100px;
   height: 45px;
   border-radius: 30px;
   background:linear-gradient(45deg,#ec8c69, #ed6ea0);
   color: white;
   border: none;
-
+}
+.text{
+ width: 100px;
 }

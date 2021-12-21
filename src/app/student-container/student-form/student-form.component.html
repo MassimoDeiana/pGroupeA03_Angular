@@ -29,21 +29,30 @@
       <td>
         Mail:
       </td>
-      <td></td>
-      <input type="text" formControlName="mail">
+      <td>
+        <input type="text" formControlName="mail">
+      </td>
     </tr>
     <tr>
-      mot de passe:
-      <input type="text" formControlName="password">
+      <td>
+        mot de passe:
+      </td>
+      <td>
+        <input type="text" formControlName="password">
+      </td>
     </tr>
 
     <tr>
-      idClass:
-      <select formControlName="idClass">
-        <option *ngFor="let schoolclass of schoolClasses" [value]="schoolclass.id">
-          {{schoolclass.name}}
-        </option>
-      </select>
+      <td>
+        idClass:
+      </td>
+      <td>
+        <select formControlName="idClass">
+          <option *ngFor="let schoolclass of schoolClasses" [value]="schoolclass.id">
+            {{schoolclass.name}}
+          </option>
+        </select>
+      </td>
     </tr>
     <input type="submit" class="btn" [disabled]="form.invalid">
   </table>

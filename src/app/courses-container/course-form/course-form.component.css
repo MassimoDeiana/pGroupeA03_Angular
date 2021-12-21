@@ -3,6 +3,10 @@ h2{
   float: right;
   margin-right: 50%;
 }
+form{
+  margin-top: 3%;
+  float:left
+}
 .btn{
 transform: translate(0px,-6px);
 }
@@ -19,6 +23,9 @@ input,button{
   border: none;
 }
 .date{
+  border: 1px solid black;
+  background:white;
+  color: black;
   width: 170px;
 }
 select {

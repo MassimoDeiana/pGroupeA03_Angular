@@ -6,6 +6,10 @@ h2{
 div{
   font-family: "Montserrat", sans-serif;
 }
+form{
+  float:left;
+  margin-top: 3%;
+}
 
 input,button{
   width: 100px;
