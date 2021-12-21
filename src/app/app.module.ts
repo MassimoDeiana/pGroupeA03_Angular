@@ -12,7 +12,6 @@ import { StudentListComponent } from './student-container/student-list/student-l
 import { StudentFormComponent } from './student-container/student-form/student-form.component';
 import {LoginComponent} from "./login/login.component";
 import {HomeComponent} from "./home/home.component";
-import {RouterModule} from "@angular/router";
 import {AuthGuard, ErrorInterceptor, JwtInterceptor} from "./_helpers";
 import {ScheduleModule,RecurrenceEditorModule,DayService,WeekService,WorkWeekService,MonthService,MonthAgendaService} from "@syncfusion/ej2-angular-schedule";
 import { SchedulerTeacherComponent } from './scheduler-container-teacher/scheduler-teacher/scheduler-teacher.component';

@@ -2,15 +2,17 @@ h2{
   text-align: center;
   float: right;
   margin-right: 50%;
+  margin-bottom: 5px;
 }
 .main{
   font-family: "Montserrat", sans-serif;
 }
 form{
+  margin-top: 3%;
   float: left;
 }
 button{
-  margin-top: 15px;
+  margin-top: 4%;
   margin-left: 15px;
 }
 input,button{
@@ -27,7 +29,6 @@ input,button{
 }
 
 table,label{
-
  margin: 12px;
 
 }

@@ -4,6 +4,8 @@ h2{
   margin-right: 50%;
 }
 form{
+  margin-top: 3%;
+  float:left;
   font-family: "Montserrat", sans-serif;
 }
 input{

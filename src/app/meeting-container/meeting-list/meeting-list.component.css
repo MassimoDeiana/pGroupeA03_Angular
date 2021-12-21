@@ -8,6 +8,10 @@ input,button{
   border: none;
 
 }
+table{
+  float:right;
+  margin-right: 15px;
+}
 table,td,th {
 
   font-family: 'Montserrat',sans-serif;

@@ -6,6 +6,7 @@ h2{
 
 }
 form{
+  float:left;
   margin-top: 5%;
   font-family: "Montserrat", sans-serif;
 }

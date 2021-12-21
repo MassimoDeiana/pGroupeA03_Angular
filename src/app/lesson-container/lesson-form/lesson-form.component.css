@@ -11,10 +11,11 @@ input{
   margin: 5px;
   width: 100px;
   height: 35px;
-  color: white;
+  color: black;
 }
 .btn{
   border-radius: 50px;
   background:linear-gradient(45deg,#ec8c69, #ed6ea0);
+  color: white;
 
 }

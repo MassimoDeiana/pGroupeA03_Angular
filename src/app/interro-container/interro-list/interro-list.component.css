@@ -1,5 +1,9 @@
+div{
+  margin-top: 5%;
+}
 table {
-
+  float:right;
+  margin-right: 15px;
   font-family: 'Montserrat',sans-serif;
   border: 1px solid #eee;
 }
