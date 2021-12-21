@@ -15,7 +15,7 @@ import {HomeComponent} from "./home/home.component";
 import {RouterModule} from "@angular/router";
 import {AuthGuard, ErrorInterceptor, JwtInterceptor} from "./_helpers";
 import {ScheduleModule,RecurrenceEditorModule,DayService,WeekService,WorkWeekService,MonthService,MonthAgendaService} from "@syncfusion/ej2-angular-schedule";
-import { SchedulerComponent } from './scheduler/scheduler.component';
+import { SchedulerTeacherComponent } from './scheduler-teacher/scheduler-teacher.component';
 import { SchoolclassContainerComponent } from './schoolclass-container/schoolclass-container.component';
 import { SchoolclassFormComponent } from './schoolclass-container/schoolclass-form/schoolclass-form.component';
 import { SchoolclassListComponent } from './schoolclass-container/schoolclass-list/schoolclass-list.component';
@@ -60,6 +60,7 @@ import { LessonListComponent } from './lesson-container/lesson-list/lesson-list.
 import { TeacherHomeComponent } from './teacher-home/teacher-home.component';
 import { StudentHomeComponent } from './student-home/student-home.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { SchedulerStudentComponent } from './scheduler-student/scheduler-student.component';
 
 
 @NgModule({
@@ -73,7 +74,7 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
     StudentFormComponent,
     LoginComponent,
     HomeComponent,
-    SchedulerComponent,
+    SchedulerTeacherComponent,
     SchoolclassContainerComponent,
     SchoolclassFormComponent,
     SchoolclassListComponent,
@@ -100,6 +101,7 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
     TeacherHomeComponent,
     StudentHomeComponent,
     AdminHomeComponent,
+    SchedulerStudentComponent,
 
 
   ],

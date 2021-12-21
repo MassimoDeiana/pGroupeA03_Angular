@@ -1,6 +1,7 @@
 <div>
   <form [formGroup]="filter" (submit)="createform()">
     <div class="box">
+
       <select formControlName="idClass">
         <option *ngFor="let schoolclass of schoolClasses" [value]="schoolclass.id">
           {{schoolclass.name}}
@@ -39,14 +40,14 @@
       <table>
         <tr formArrayName="ClassDetails" *ngFor="let cd of controlsMachin ;let i=index;">
           <td formGroupName={{i}}>
-            {{studentToDisplay[i].name + " " + studentToDisplay[i].firstname}}
+            <label>{{studentToDisplay[i].name + " " + studentToDisplay[i].firstname}}</label>
             <input (keypress)="numberOnly($event)" type="text" formControlName="result" placeholder="result" />
             <input [maxlength]="80" type="text" formControlName="message" placeholder="message" />
           </td>
         </tr>
         <tr>
           <td>
-            <input type="submit" value="Submit" class="styled" [disabled]="form.invalid"/>
+            <input type="submit" value="Validate" class="styled" [disabled]="form.invalid"/>
           </td>
         </tr>
       </table>

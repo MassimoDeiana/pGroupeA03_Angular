@@ -1,27 +1,27 @@
 <form [formGroup]="form" (ngSubmit)="createAndEmitStudent()">
   <label>
-    Nom:
+    <b>Name:</b>
     <input type="text" formControlName="name">
   </label>
   <label>
-    Prenom:
+    <b>First name:</b>
     <input type="text" formControlName="firstname">
   </label>
   <label>
-    Datenaiss:
+    <b>Birthdate:</b>
     <input type="date" class="date" formControlName="birthdate">
   </label>
   <label>
-    Mail:
+    <b>Mail:</b>
     <input type="text" formControlName="mail">
   </label>
   <label>
-    mot de passe:
+    <b>Password:</b>
     <input type="text" formControlName="password">
   </label>
 
   <label>
-    idClass:
+    <b>Class:</b>
     <select formControlName="idClass">
       <option *ngFor="let schoolclass of schoolClasses" [value]="schoolclass.id">
         {{schoolclass.name}}
@@ -31,5 +31,5 @@
 
 
 
-  <input type="submit" class="btn" [disabled]="form.invalid">
+  <input type="submit" class="btn" [disabled]="form.invalid" value="Validate">
 </form>

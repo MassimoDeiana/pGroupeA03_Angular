@@ -1,7 +1,6 @@
 <div>
 
   <form [formGroup]="form" (submit)="createAndEmitInterro();succeedMessage=true">
-    <button (click)="addInfo();succeedMessage=false">Add new interro</button>
     <table>
       <tr>
         <td>
@@ -29,6 +28,7 @@
       </tr>
       <tr>
         <td>
+          <button type="button" (click)="addInfo();succeedMessage=false">Add new interro</button>
           <input type="submit" value="Submit" [disabled]="form.invalid"/>
         </td>
       </tr>
