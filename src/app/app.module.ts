@@ -60,6 +60,8 @@ import { LessonListComponent } from './lesson-container/lesson-list/lesson-list.
 import { TeacherHomeComponent } from './teacher-home/teacher-home.component';
 import { StudentHomeComponent } from './student-home/student-home.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { InterroListComponent } from './interro-container/interro-list/interro-list.component';
+import { CourseListComponent } from './courses-container/course-list/course-list.component';
 
 
 @NgModule({
@@ -100,6 +102,8 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
     TeacherHomeComponent,
     StudentHomeComponent,
     AdminHomeComponent,
+    InterroListComponent,
+    CourseListComponent,
 
 
   ],

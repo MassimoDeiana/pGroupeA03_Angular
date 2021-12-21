@@ -1,5 +1,6 @@
 <app-navbar-student></app-navbar-student>
 <div class="main">
+  <h2>Notes</h2>
 <form [formGroup]="form" (submit)="getResult();moy()">
   <div class="box" >
     <select formControlName="idLesson">
@@ -10,9 +11,9 @@
     <input type="submit" class="inline" value="Search result" />
   </div>
 </form>
-  <button (click)="moy()" class="inline">Moyenne</button>
+  <button (click)="moy()" class="inline">Moyenne</button><br/><br/>
 
-<table>
+<table *ngIf="results.length!=0">
   <tr>
     <th>interro</th>
     <th>result</th>
@@ -26,7 +27,7 @@
     <td>{{result.message}}</td>
   </tr>
 </table>
-{{alertNotes}}
+<label *ngIf="results.length==0">This student doesn't have notes</label><br/>
 <label *ngIf="sum >= 0">Moyenne : {{sum.toFixed(2)}}</label>
 </div>
 

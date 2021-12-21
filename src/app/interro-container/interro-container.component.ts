@@ -3,6 +3,7 @@ import {InterrogationService} from "../_services/_interrogation/interrogation.se
 import {Note} from "../_model/note";
 import {EntityToDelete} from "../_model/entity-to-delete";
 import {Interrogation} from "../_model/interrogation";
+import {AuthenticationTeacherService} from "../_services/_Authentification/authentificationTeacher.service";
 
 @Component({
   selector: 'app-interro-container',
@@ -14,9 +15,11 @@ export class InterroContainerComponent implements OnInit {
   interros:Interrogation[]=[];
   message:string="interro(s) added";
 
-  constructor(private interroService:InterrogationService) { }
+  constructor(private interroService:InterrogationService,
+              private authService : AuthenticationTeacherService) { }
 
   ngOnInit(): void {
+    this.getByIdTeacher(this.authService.currentUserValue.idTeacher!);
   }
 
   send(interro:Interrogation){
@@ -27,7 +30,7 @@ export class InterroContainerComponent implements OnInit {
     console.log(this.interros)
   }
 
-  delete(entityToDelete:EntityToDelete<Note>){
+  delete(entityToDelete:EntityToDelete<Interrogation>){
     const interro:Interrogation = this.interros[entityToDelete.index];
 
     this.interroService.delete( interro.idInterro||-1)
@@ -36,9 +39,9 @@ export class InterroContainerComponent implements OnInit {
       });
   }
 
-  getAll(){
+  getByIdTeacher(id:number){
     this.interroService
-      .getAll()
+      .getByIdTeacher(id)
       .subscribe(t=>this.interros=t);
   }
 

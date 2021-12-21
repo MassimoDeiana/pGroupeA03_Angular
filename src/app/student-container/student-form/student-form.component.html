@@ -1,35 +1,50 @@
+<h2>Student management</h2>
 <form [formGroup]="form" (ngSubmit)="createAndEmitStudent()">
-  <label>
-    Nom:
-    <input type="text" formControlName="name">
-  </label>
-  <label>
-    Prenom:
-    <input type="text" formControlName="firstname">
-  </label>
-  <label>
-    Datenaiss:
-    <input type="date" class="date" formControlName="birthdate">
-  </label>
-  <label>
-    Mail:
-    <input type="text" formControlName="mail">
-  </label>
-  <label>
-    mot de passe:
-    <input type="text" formControlName="password">
-  </label>
+  <table>
+    <tr>
+      <td>
+        Nom:
+      </td>
+      <td>
+        <input type="text" formControlName="name">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Prenom:
+      </td>
+      <td>
+        <input type="text" formControlName="firstname">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Datenaiss:
+      </td>
+      <td>
+        <input type="date" class="date" formControlName="birthdate">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Mail:
+      </td>
+      <td></td>
+      <input type="text" formControlName="mail">
+    </tr>
+    <tr>
+      mot de passe:
+      <input type="text" formControlName="password">
+    </tr>
 
-  <label>
-    idClass:
-    <select formControlName="idClass">
-      <option *ngFor="let schoolclass of schoolClasses" [value]="schoolclass.id">
-        {{schoolclass.name}}
-      </option>
-    </select>
-  </label>
-
-
-
-  <input type="submit" class="btn" [disabled]="form.invalid">
+    <tr>
+      idClass:
+      <select formControlName="idClass">
+        <option *ngFor="let schoolclass of schoolClasses" [value]="schoolclass.id">
+          {{schoolclass.name}}
+        </option>
+      </select>
+    </tr>
+    <input type="submit" class="btn" [disabled]="form.invalid">
+  </table>
 </form>

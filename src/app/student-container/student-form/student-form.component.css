@@ -1,4 +1,12 @@
+h2{
+  text-align: center;
+  float: right;
+  margin-right: 43%;
+  font-family: "Montserrat", sans-serif;
+
+}
 form{
+  margin-top: 5%;
   font-family: "Montserrat", sans-serif;
 }
 input{

@@ -1,2 +1,3 @@
 <app-navbar-teacher></app-navbar-teacher>
 <app-interro-form [message]="message" (interroCreated)="send($event);"></app-interro-form>
+<app-interro-list [interrogations]="interros" (interroToDelete)="delete($event)"></app-interro-list>

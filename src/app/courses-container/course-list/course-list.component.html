@@ -1,0 +1,25 @@
+<div *ngIf="courses.length===0">
+  <b>Il n'y a actuellement pas de professeurs</b>
+</div>
+<div *ngIf="courses.length">
+  <table>
+    <thead>
+    <tr>
+      <th>lesson</th>
+      <th>start time</th>
+      <th>end time</th>
+      <th>delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let course of courses;let i=index">
+      <td>{{course.idTeacher}}</td>
+      <td>{{course.startTime}}</td>
+      <td>{{course.endTime}}</td>
+      <td>
+        <button (click)="emitDeleteCourse(course,i);">X</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

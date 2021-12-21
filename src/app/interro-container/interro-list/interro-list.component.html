@@ -1,0 +1,23 @@
+<div *ngIf="interrogations.length==0">
+  <b>There is no interrogation</b>
+</div>
+<div *ngIf="interrogations.length">
+  <table>
+    <thead>
+    <tr>
+      <th>subject</th>
+      <th>total</th>
+      <th>delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let interrogation of interrogations;let i=index">
+      <td>{{interrogation.subject}}</td>
+      <td>{{interrogation.total}}</td>
+      <td>
+        <button (click)="emitDeleteInterro(interrogation,i);">X</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

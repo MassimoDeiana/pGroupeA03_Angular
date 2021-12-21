@@ -23,7 +23,7 @@ export class NoteGetComponent implements OnInit {
   lessons:Lesson[]=[];
   interros:Interrogation[]=[];
 
-  alertNotes:string ='';
+  alertNotes:boolean=false;
 
   form:FormGroup = this.fb.group({
     idLesson:['',Validators.required]
@@ -48,15 +48,10 @@ export class NoteGetComponent implements OnInit {
           console.log(result.idInterro)
           this.results.push(result);
           this.getInterroById(result.idInterro!);
+
         }
       })
     });
-    if(this.results.length==0) {
-      this.alertNotes = "this student doesn't have notes";
-    }else{
-      this.alertNotes = "";
-
-    }
     console.log("dans result " + this.results)
     this.moy()
   }

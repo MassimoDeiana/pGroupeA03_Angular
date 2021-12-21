@@ -1,23 +1,46 @@
+<h2>Teacher management</h2>
 <form [formGroup]="form" (ngSubmit)="createAndEmitTeacher()">
-  <label>
-    Nom:
-    <input type="text" formControlName="name">
-  </label>
-  <label>
-    Prenom:
-    <input type="text" formControlName="firstname">
-  </label>
-  <label>
-    Datenaiss:
-    <input type="date" class="date" formControlName="birthdate">
-  </label>
-  <label>
-    Mail:
-    <input type="text" formControlName="mail">
-  </label>
-  <label>
-    password:
-    <input type="password" formControlName="password">
-  </label>
-  <input type="submit" class="btn" [disabled]="form.invalid">
+  <table>
+    <tr>
+      <td>
+        Nom:
+      </td>
+      <td>
+        <input type="text" formControlName="name">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Prenom:
+      </td>
+      <td>
+        <input type="text" formControlName="firstname">
+      </td>
+    </tr>
+    <tr>
+    <td>
+      Datenaiss:
+    </td>
+    <td>
+        <input type="date" class="date" formControlName="birthdate">
+    </td>
+    </tr>
+    <tr>
+    <td>
+      Mail:
+    </td>
+    <td>
+      <input type="text" formControlName="mail">
+    </td>
+    </tr>
+    <tr>
+    <td>
+      password:
+    </td>
+    <td>
+      <input type="password" formControlName="password">
+    </td>
+    </tr>
+    <input type="submit" class="btn" [disabled]="form.invalid">
+  </table>
 </form>

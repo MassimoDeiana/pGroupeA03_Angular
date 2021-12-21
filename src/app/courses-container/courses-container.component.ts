@@ -3,6 +3,7 @@ import {Course} from "../_model/course";
 import {CourseService} from "../_services/_course/course.service";
 import {EntityToDelete} from "../_model/entity-to-delete";
 import {Note} from "../_model/note";
+import {AuthenticationTeacherService} from "../_services/_Authentification/authentificationTeacher.service";
 
 @Component({
   selector: 'app-courses-container',
@@ -14,9 +15,11 @@ export class CoursesContainerComponent implements OnInit {
   courses:Course[]=[];
   message:string="Course(s) added";
 
-  constructor(private courseService:CourseService) { }
+  constructor(private courseService:CourseService,
+              private authService : AuthenticationTeacherService) { }
 
   ngOnInit(): void {
+    this.getByIdTeacher(this.authService.currentUserValue.idTeacher!);
   }
 
   send(course:Course){
@@ -27,7 +30,7 @@ export class CoursesContainerComponent implements OnInit {
     console.log(this.courses)
   }
 
-  delete(entityToDelete:EntityToDelete<Note>){
+  delete(entityToDelete:EntityToDelete<Course>){
     const course:Course = this.courses[entityToDelete.index];
 
     this.courseService.delete( course.idLesson||-1)
@@ -36,9 +39,9 @@ export class CoursesContainerComponent implements OnInit {
       });
   }
 
-  getAll(){
+  getByIdTeacher(id:number){
     this.courseService
-      .getAll()
+      .getByIdTeacher(id)
       .subscribe(t=>this.courses=t);
   }
 

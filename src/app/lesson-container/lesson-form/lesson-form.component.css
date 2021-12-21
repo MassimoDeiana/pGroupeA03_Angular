@@ -1,3 +1,9 @@
+h2{
+  text-align: center;
+  float: right;
+  margin-right: 50%;
+  font-family: "Montserrat", sans-serif;
+}
 label{
   font-family: "Montserrat", sans-serif;
 }

@@ -1,6 +1,12 @@
+h2{
+  text-align: center;
+  float: right;
+  margin-right: 47%;
+}
 div{
   font-family: "Montserrat", sans-serif;
 }
+
 input,button{
   width: 100px;
   height: 45px;
@@ -15,6 +21,7 @@ input,button{
   border-radius: 0px;
   border: solid 1px black;
   background :white;
+  color: black;
 
 }
 
