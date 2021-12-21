@@ -4,7 +4,7 @@ import {LoginComponent} from "../login/login.component";
 import {AuthGuard} from "../_helpers/auth.guard";
 import {NgModule} from "@angular/core";
 import {TeacherContainerComponent} from "../teacher-container";
-import {SchedulerTeacherComponent} from "../scheduler-teacher/scheduler-teacher.component";
+import {SchedulerTeacherComponent} from "../scheduler-container-teacher/scheduler-teacher/scheduler-teacher.component";
 import {SchoolclassContainerComponent} from "../schoolclass-container/schoolclass-container.component";
 import {MeetingContainerComponent} from "../meeting-container/meeting-container.component";
 import {NoteContainerComponent} from "../note-container/note-container.component";
@@ -24,7 +24,9 @@ import {LoginAdminComponent} from "../login/login-admin/login-admin.component";
 import {TeacherHomeComponent} from "../teacher-home/teacher-home.component";
 import {StudentHomeComponent} from "../student-home/student-home.component";
 import {AdminHomeComponent} from "../admin-home/admin-home.component";
-import {SchedulerStudentComponent} from "../scheduler-student/scheduler-student.component";
+import {SchedulerStudentComponent} from "../scheduler-container-student/scheduler-student/scheduler-student.component";
+import {SchedulerContainerTeacherComponent} from "../scheduler-container-teacher/scheduler-container-teacher.component";
+import {SchedulerContainerStudentComponent} from "../scheduler-container-student/scheduler-container-student.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -36,12 +38,12 @@ const routes: Routes = [
   { path: 'schoolclass', component: SchoolclassContainerComponent, canActivate:[AuthAdminGuard] },
   { path: 'lesson', component:LessonContainerComponent, canActivate:[AuthTeacherGuard]},
   { path: 'meeting', component: MeetingContainerComponent, canActivate:[AuthTeacherGuard]},
-  { path: 'teacherscheduler', component:SchedulerTeacherComponent, canActivate:[AuthTeacherGuard]},
+  { path: 'teacherscheduler', component:SchedulerContainerTeacherComponent, canActivate:[AuthTeacherGuard]},
   { path: 'note',component : NoteGetComponent, canActivate:[AuthStudentGuard]},
   { path: 'addnote', component: NoteContainerComponent, canActivate:[AuthTeacherGuard]},
   { path: 'addinterro', component: InterroContainerComponent, canActivate:[AuthTeacherGuard]},
   { path: 'addcourse', component: CoursesContainerComponent, canActivate:[AuthTeacherGuard]},
-  { path: 'studentscheduler', component:SchedulerStudentComponent, canActivate:[AuthStudentGuard]},
+  { path: 'studentscheduler', component:SchedulerContainerStudentComponent, canActivate:[AuthStudentGuard]},
   { path: 'loginTeacher', component: LoginTeacherComponent},
   { path: 'loginStudent', component: LoginStudentComponent},
   { path: 'loginAdmin', component: LoginAdminComponent},

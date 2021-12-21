@@ -15,7 +15,7 @@ import {HomeComponent} from "./home/home.component";
 import {RouterModule} from "@angular/router";
 import {AuthGuard, ErrorInterceptor, JwtInterceptor} from "./_helpers";
 import {ScheduleModule,RecurrenceEditorModule,DayService,WeekService,WorkWeekService,MonthService,MonthAgendaService} from "@syncfusion/ej2-angular-schedule";
-import { SchedulerTeacherComponent } from './scheduler-teacher/scheduler-teacher.component';
+import { SchedulerTeacherComponent } from './scheduler-container-teacher/scheduler-teacher/scheduler-teacher.component';
 import { SchoolclassContainerComponent } from './schoolclass-container/schoolclass-container.component';
 import { SchoolclassFormComponent } from './schoolclass-container/schoolclass-form/schoolclass-form.component';
 import { SchoolclassListComponent } from './schoolclass-container/schoolclass-list/schoolclass-list.component';
@@ -62,7 +62,9 @@ import { StudentHomeComponent } from './student-home/student-home.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { InterroListComponent } from './interro-container/interro-list/interro-list.component';
 import { CourseListComponent } from './courses-container/course-list/course-list.component';
-import { SchedulerStudentComponent } from './scheduler-student/scheduler-student.component';
+import { SchedulerStudentComponent } from './scheduler-container-student/scheduler-student/scheduler-student.component';
+import { SchedulerContainerTeacherComponent } from './scheduler-container-teacher/scheduler-container-teacher.component';
+import { SchedulerContainerStudentComponent } from './scheduler-container-student/scheduler-container-student.component';
 
 
 @NgModule({
@@ -105,7 +107,9 @@ import { SchedulerStudentComponent } from './scheduler-student/scheduler-student
     AdminHomeComponent,
     InterroListComponent,
     CourseListComponent,
-    SchedulerStudentComponent
+    SchedulerStudentComponent,
+    SchedulerContainerTeacherComponent,
+    SchedulerContainerStudentComponent
 
 
   ],

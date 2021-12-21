@@ -7,6 +7,9 @@ import {ParticipateMeeting} from "../_model/participateMeeting";
 import {ParticipateMeetingService} from "../_services/_participateMeeting/participate-meeting.service";
 import {Course} from "../_model/course";
 import {CourseService} from "../_services/_course/course.service";
+import {AuthenticationTeacherService} from "../_services/_Authentification/authentificationTeacher.service";
+import {Lesson} from "../_model/lesson";
+import {LessonService} from "../_services/_lesson/lesson.service";
 
 @Component({
   selector: 'app-meeting-container',
@@ -16,18 +19,17 @@ import {CourseService} from "../_services/_course/course.service";
 export class MeetingContainerComponent implements OnInit {
 
   meetings:Meeting[]=[];
-  courses:Course[]=[];
 
   participateMeetings:ParticipateMeeting[]=[];
   public dataSource : Object[]=[];
   public eventSettings: EventSettingsModel = {};
 
   constructor(private meetingService:MeetingService,
-              private participateMeetingService:ParticipateMeetingService,
-              private courseService:CourseService) {}
+              private participateMeetingService:ParticipateMeetingService) {}
 
   ngOnInit(): void {
     this.getAllMeeting();
+
 
   }
 
