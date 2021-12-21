@@ -1,16 +1,16 @@
 <h2>School Class</h2>
 <form [formGroup]="form" (ngSubmit)="createAndEmitSchoolclass()">
   <label>
-    Nom :
+    <b>Name :</b>
     <input type="text" formControlName="name" placeholder="name">
   </label>
   <label>
-    Année :
+    <b>Year :</b>
     <input (keypress)="numberOnly($event)" type="number" formControlName="year" placeholder="(max: 7)">
   </label>
   <label>
-    Nombre d'étudiants :
+    <b>Ammount of student :</b>
     <input (keypress)="numberOnly($event)" type="number" formControlName="nbStudents" placeholder="(max: 30)">
   </label>
-  <input type="submit" [disabled]="form.invalid">
+  <input type="submit" class="btn" [disabled]="form.invalid" value="Validate">
 </form>

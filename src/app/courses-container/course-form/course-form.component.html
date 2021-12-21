@@ -33,12 +33,14 @@
         </td>
       </tr>
       <tr>
+        <td>
+        <button type="button" (click)="addInfo()" class="btn" >Add new course</button>
         <input type="submit"  value="Click Me" [disabled]="form.invalid"/>
-        <button (click)="addInfo()" class="btn" >Add new course</button>
+        </td>
       </tr>
     </table>
-
   </form>
+
 </div>
 <div *ngIf="succeedMessage">
   {{message}}

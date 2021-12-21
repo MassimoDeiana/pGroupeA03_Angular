@@ -5,7 +5,6 @@
   <table>
     <thead>
     <tr>
-      <th>id</th>
       <th>Nom</th>
       <th>Année</th>
       <th>Nbr. d'étudiants</th>
@@ -14,7 +13,6 @@
     </thead>
     <tbody>
     <tr *ngFor="let schoolclass of schoolclasses;let i=index">
-      <td>{{schoolclass.id}}</td>
       <td>{{schoolclass.name}}</td>
       <td>{{schoolclass.year}}</td>
       <td>{{schoolclass.nbStudents}}</td>
