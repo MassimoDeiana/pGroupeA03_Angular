@@ -11,6 +11,7 @@ import {EntityToDelete} from "../_model/entity-to-delete";
 export class LessonContainerComponent implements OnInit {
 
   lessons:Lesson[]=[];
+  pageTitle: string="Lessons";
 
   constructor(private lessonService:LessonService) { }
 

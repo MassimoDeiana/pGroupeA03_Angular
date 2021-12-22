@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {AuthenticationStudentService} from "../_services/_Authentification/authentificationStudent.service";
 import {AuthenticationTeacherService} from "../_services/_Authentification/authentificationTeacher.service";
@@ -9,6 +9,8 @@ import {AuthenticationTeacherService} from "../_services/_Authentification/authe
   styleUrls: ['./navbar-teacher.component.css']
 })
 export class NavbarTeacherComponent implements OnInit {
+
+  @Input() pageTitle='';
 
   constructor(private router: Router,
               private authentificationService:AuthenticationTeacherService) { }

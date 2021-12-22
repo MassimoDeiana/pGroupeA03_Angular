@@ -14,6 +14,7 @@ export class InterroContainerComponent implements OnInit {
 
   interros:Interrogation[]=[];
   message:string="interro(s) added";
+  pageTitle:string="Interrogation";
 
   constructor(private interroService:InterrogationService,
               private authService : AuthenticationTeacherService) { }

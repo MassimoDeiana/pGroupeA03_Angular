@@ -14,6 +14,7 @@ export class CoursesContainerComponent implements OnInit {
 
   courses:Course[]=[];
   message:string="Course(s) added";
+  pageTitle:string="Courses";
 
   constructor(private courseService:CourseService,
               private authService : AuthenticationTeacherService) { }

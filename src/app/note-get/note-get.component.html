@@ -1,6 +1,5 @@
-<app-navbar-student></app-navbar-student>
+<app-navbar-student [pageTitle]="pageTitle"></app-navbar-student>
 <div class="main">
-  <h2>Notes</h2>
 <form [formGroup]="form" (submit)="getResult();moy()">
   <div class="box" >
     <select formControlName="idLesson">
@@ -28,6 +27,6 @@
   </tr>
 </table>
 <label *ngIf="results.length==0">This student doesn't have notes</label><br/>
-<label *ngIf="sum >= 0">Moyenne : {{sum.toFixed(2)}}</label>
+<label *ngIf="sum >= 0">Moyenne : {{sum.toFixed(2)+" %"}}</label>
 </div>
 

@@ -32,7 +32,7 @@ export class StudentFormComponent implements OnInit {
     this.studentCreated.next({
 
       name:this.form.value.name,
-      firstname:this.form.value.firstname,
+      firstName:this.form.value.firstname,
       birthdate:this.form.value.birthdate,
       mail:this.form.value.mail,
       password:this.form.value.password,
