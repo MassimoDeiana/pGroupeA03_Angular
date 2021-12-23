@@ -6,7 +6,9 @@ import {environment} from "../../../environments/environment";
 import {map} from "rxjs/operators";
 import {AbstractAuthentificationService} from "./abstract-authentification.service";
 
-
+/**
+ * Service d'authentification de Teacher
+ */
 @Injectable({ providedIn: 'root' })
 export class AuthenticationTeacherService extends AbstractAuthentificationService<Teacher>{
 

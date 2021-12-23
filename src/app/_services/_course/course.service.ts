@@ -4,8 +4,11 @@ import {Course} from "../../_model/course";
 import {environment} from "../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Interrogation} from "../../_model/interrogation";
 
+/**
+ * Sous classe de EntityService
+ * Permet d'effectuer des requêtes sur les Course
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -16,6 +19,11 @@ export class CourseService extends EntityService<Course>{
     super(httpClient)
   }
 
+  /**
+   * Permet de récupérer les Course lié à un Teacher
+   * @param id
+   *    L'id du teacher
+   */
   getByIdTeacher(id:number) :Observable<Course[]> {
     return this.httpClient.get<Course[]>(this.API_URL+"/Teacher/"+id);
   }

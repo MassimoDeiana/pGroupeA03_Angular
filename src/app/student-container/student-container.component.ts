@@ -3,7 +3,7 @@ import {Student} from "../_model/student";
 import {StudentService} from "../_services/_student/student.service";
 import {Teacher} from "../_model/teacher";
 import {EntityToDelete} from "../_model/entity-to-delete";
-import {SchoolclassService} from "../_services/schoolclass.service";
+import {SchoolclassService} from "../_services/_schoolclass/schoolclass.service";
 import {Schoolclass} from "../_model/schoolclass";
 
 @Component({

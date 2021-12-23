@@ -5,7 +5,11 @@ import {AuthenticationStudentService} from "../_services/_Authentification/authe
 import {AuthGuard} from "./auth.guard";
 import {Student} from "../_model/student";
 
-
+/**
+ * AuthStudentGuard : sous classe de AuthGaurd
+ * Permet de savoir si les utilisateurs de type Student peuvent accéder aux routes ou non
+ * Injecte le service concret AuthentifcationStudent afin de savoir si le student est connecté ou non
+ */
 @Injectable({ providedIn: 'root' })
 export class AuthStudentGuard extends AuthGuard<Student>{
   constructor(router:Router,authenticationService: AuthenticationStudentService) {

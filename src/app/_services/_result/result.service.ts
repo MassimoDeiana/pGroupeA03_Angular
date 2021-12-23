@@ -5,6 +5,10 @@ import {Result} from "../../_model/result";
 import {environment} from "../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 
+/**
+ * Sous classe de EntityService
+ * Permet d'effectuer des requêtes sur les Result
+ */
 @Injectable({
   providedIn: 'root'
 })

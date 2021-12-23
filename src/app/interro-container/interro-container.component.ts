@@ -12,7 +12,7 @@ import {AuthenticationTeacherService} from "../_services/_Authentification/authe
 })
 export class InterroContainerComponent implements OnInit {
 
-  interros:Interrogation[]=[];
+  interros:Interrogation[]=[]; //Liste des interros
   message:string="interro(s) added";
 
   constructor(private interroService:InterrogationService,
@@ -22,6 +22,13 @@ export class InterroContainerComponent implements OnInit {
     this.getByIdTeacher(this.authService.currentUserValue.idTeacher!);
   }
 
+  /**
+   * Permet de créer une interro
+   * On appelle la méthode create du service permettant de faire une requête http (voir entity service)
+   * On ajoute l'interro au flux de donnée via le subscribe
+   *
+   * @param interro L'interro à créer
+   */
   send(interro:Interrogation){
     this.message="interro(s) added";
     this.interroService.create(interro)
@@ -30,6 +37,10 @@ export class InterroContainerComponent implements OnInit {
     console.log(this.interros)
   }
 
+  /**
+   * Permet de supprimer une interro
+   * @param entityToDelete L'interro à supprimer
+   */
   delete(entityToDelete:EntityToDelete<Interrogation>){
     const interro:Interrogation = this.interros[entityToDelete.index];
 
@@ -39,6 +50,10 @@ export class InterroContainerComponent implements OnInit {
       });
   }
 
+  /**
+   * Permet de récuperer les interros lié au teacher
+   * @param id l'id du teacher
+   */
   getByIdTeacher(id:number){
     this.interroService
       .getByIdTeacher(id)

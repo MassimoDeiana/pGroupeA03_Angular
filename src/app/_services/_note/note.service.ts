@@ -4,6 +4,10 @@ import {Note} from "../../_model/note";
 import {environment} from "../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 
+/**
+ * Sous classe de EntityService
+ * Permet d'effectuer des requêtes sur les notes
+ */
 @Injectable({
   providedIn: 'root'
 })

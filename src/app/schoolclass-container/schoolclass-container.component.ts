@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {SchoolclassService} from "../_services/schoolclass.service";
+import {SchoolclassService} from "../_services/_schoolclass/schoolclass.service";
 import {EntityToDelete} from "../_model/entity-to-delete";
 import {ej} from "@syncfusion/ej2-data/dist/global";
 import data = ej.data;

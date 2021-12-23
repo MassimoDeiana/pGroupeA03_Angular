@@ -64,11 +64,15 @@ export class InterroFormComponent implements OnInit {
     this.info.push(lessonForm);
   }
 
+
   deleteInfo(lessonIndex:number){
     this.info.removeAt(lessonIndex);
   }
 
 
+  /**
+   * Emet une interro, l'interro sera créer par InterroContainer via l'event binding
+   */
   createAndEmitInterro()
   {
     console.log(this.form.value);
@@ -87,6 +91,10 @@ export class InterroFormComponent implements OnInit {
       })
     }}
 
+  /**
+   * Permet de limité les entrée clavier aux chiffres uniquement
+   * @param event l'entrée clavier
+   */
   numberOnly(event:any): boolean {
     const charCode = (event.which) ? event.which : event.keyCode;
     if (charCode > 31 && (charCode < 48 || charCode > 57)) {

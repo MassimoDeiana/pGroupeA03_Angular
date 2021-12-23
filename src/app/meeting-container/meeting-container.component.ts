@@ -20,6 +20,8 @@ export class MeetingContainerComponent implements OnInit {
 
   meetings:Meeting[]=[];
 
+  pageTitle:string="Meeting";
+
   participateMeetings:ParticipateMeeting[]=[];
   public dataSource : Object[]=[];
   public eventSettings: EventSettingsModel = {};

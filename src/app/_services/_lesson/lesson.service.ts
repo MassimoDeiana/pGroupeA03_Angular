@@ -5,6 +5,10 @@ import {environment} from "../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {Lesson} from "../../_model/lesson";
 
+/**
+ * Sous classe de EntityService
+ * Permet d'effectuer des requêtes sur les Lesson
+ */
 @Injectable({
   providedIn: 'root'
 })

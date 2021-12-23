@@ -10,7 +10,7 @@ import {Course} from "../../_model/course";
 })
 export class CourseListComponent implements OnInit {
 
-  @Input() courses:Course[]=[];
+  @Input() courses:Course[]=[]; //Liste des cours provenant de CourseContainer
   @Output() courseToDelete:EventEmitter<EntityToDelete<Course>> = new EventEmitter<EntityToDelete<Course>>();
 
   constructor() { }
@@ -18,6 +18,11 @@ export class CourseListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * Emet un EntityToDelete<Course>, Grace à l'event binding, le Course sera supprimé par CourseContainer
+   * @param course la course à supprimer
+   * @param i l'index de la course
+   */
   emitDeleteCourse(course:Course, i: number) {
     this.courseToDelete.next({
       data:course,

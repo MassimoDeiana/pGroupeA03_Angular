@@ -12,6 +12,7 @@ import {Student} from "../_model/student";
 export class NoteContainerComponent implements OnInit {
 
   notes:Note[]=[];
+  pageTitle:string="note"
 
   constructor(private noteService:NoteService) {
   }

@@ -19,6 +19,9 @@ export class HomeComponent implements OnInit{
               private authStudentService:AuthenticationStudentService,
               private authAdminService:AuthenticationAdminService) { }
 
+  /**
+   * Déconnecte l'utilisateur lorsqu'il va sur la page d'accueil
+   */
   ngOnInit() {
     this.loading = true;
     this.authTeacherService.logout();

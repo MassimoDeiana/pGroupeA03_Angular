@@ -12,7 +12,7 @@ import {AuthenticationTeacherService} from "../_services/_Authentification/authe
 })
 export class CoursesContainerComponent implements OnInit {
 
-  courses:Course[]=[];
+  courses:Course[]=[]; //Liste des cours
   message:string="Course(s) added";
 
   constructor(private courseService:CourseService,
@@ -22,14 +22,24 @@ export class CoursesContainerComponent implements OnInit {
     this.getByIdTeacher(this.authService.currentUserValue.idTeacher!);
   }
 
+  /**
+   * Permet de créer un nouveau Course
+   * @param course
+   *    Le course à créer
+   */
   send(course:Course){
     this.message="Course(s) added"
     this.courseService.create(course)
       .subscribe(course=>this.courses.push(course),
-        error => this.message="Fail to add course(s)");
+        error => this.message="Fail to add course(s)"); //Modifie le message à afficher en cas d'erreur
     console.log(this.courses)
   }
 
+  /**
+   * Permet de supprimer un course
+   * @param entityToDelete
+   *    Le course à Delete
+   */
   delete(entityToDelete:EntityToDelete<Course>){
     const course:Course = this.courses[entityToDelete.index];
 
@@ -39,6 +49,11 @@ export class CoursesContainerComponent implements OnInit {
       });
   }
 
+  /**
+   * Permet de récupérer la liste des courses sur base de l'id du Teacher
+   * @param id
+   *    L'id du Teacher
+   */
   getByIdTeacher(id:number){
     this.courseService
       .getByIdTeacher(id)

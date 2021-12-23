@@ -18,6 +18,11 @@ export class SchoolclassListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * Emet un EntityToDelete<SchoolClass>, Grace à l'event binding, le SchoolClass sera supprimé par SchoolClassContainer
+   * @param SchoolClass la schoolClass à supprimer
+   * @param i l'index de la schoolClass
+   */
   emitDeleteSchoolclass(schoolclass: Schoolclass, i: number) {
     this.schoolclassToDelete.next({
       data: schoolclass,

@@ -5,10 +5,13 @@ import {Teacher} from "../../_model/teacher";
 import { Observable } from 'rxjs';
 import {EntityService} from "../entity.service";
 
+/**
+ * Sous classe de EntityService
+ * Permet d'effectuer des requêtes sur les Teacher
+ */
 @Injectable({
   providedIn:'root'
 })
-
 export class TeacherService extends EntityService<Teacher> {
 
   API_URL = environment.apiUrl + "/Teacher";

@@ -18,6 +18,11 @@ export class LessonListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * Emet un EntityToDelete<Lesson>, Grace à l'event binding, la lesson sera supprimé par LessonContainer
+   * @param lesson la lesson à supprimer
+   * @param i l'index de la lesson
+   */
   emitDeleteTeacher(lesson:Lesson, i: number) {
     this.lessonToDelete.next({
       data:lesson,

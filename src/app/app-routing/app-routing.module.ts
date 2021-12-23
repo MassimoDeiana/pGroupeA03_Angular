@@ -28,6 +28,9 @@ import {SchedulerStudentComponent} from "../scheduler-container-student/schedule
 import {SchedulerContainerTeacherComponent} from "../scheduler-container-teacher/scheduler-container-teacher.component";
 import {SchedulerContainerStudentComponent} from "../scheduler-container-student/scheduler-container-student.component";
 
+/**
+ * Liste des routes
+ */
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'teacherhome', component: TeacherHomeComponent, canActivate:[AuthTeacherGuard]},

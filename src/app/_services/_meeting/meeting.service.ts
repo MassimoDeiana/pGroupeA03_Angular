@@ -4,6 +4,10 @@ import {HttpClient} from "@angular/common/http";
 import {EntityService} from "../entity.service";
 import {Meeting} from "../../_model/meeting";
 
+/**
+ * Sous classe de EntityService
+ * Permet d'effectuer des requêtes sur les meeting
+ */
 @Injectable({
   providedIn: 'root'
 })

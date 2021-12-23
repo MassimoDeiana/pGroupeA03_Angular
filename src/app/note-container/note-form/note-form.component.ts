@@ -7,7 +7,7 @@ import {AuthenticationTeacherService} from "../../_services/_Authentification/au
 import {environment} from "../../../environments/environment";
 import {Interrogation} from "../../_model/interrogation";
 import {InterrogationService} from "../../_services/_interrogation/interrogation.service";
-import {SchoolclassService} from "../../_services/schoolclass.service";
+import {SchoolclassService} from "../../_services/_schoolclass/schoolclass.service";
 import {Schoolclass} from "../../_model/schoolclass";
 
 @Component({

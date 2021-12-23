@@ -8,7 +8,9 @@ import {AbstractAuthentificationService} from "./abstract-authentification.servi
 import {Student} from "../../_model/student";
 import {Admin} from "../../_model/admin";
 
-
+/**
+ * Service d'authentification de admin
+ */
 @Injectable({ providedIn: 'root' })
 export class AuthenticationAdminService extends AbstractAuthentificationService<Admin>{
 
