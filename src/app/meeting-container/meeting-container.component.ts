@@ -26,7 +26,6 @@ export class MeetingContainerComponent implements OnInit {
   public dataSource : Object[]=[];
   public eventSettings: EventSettingsModel = {};
 
-  pageTitle:string='Meeting';
 
   constructor(private meetingService:MeetingService,
               private participateMeetingService:ParticipateMeetingService) {}
