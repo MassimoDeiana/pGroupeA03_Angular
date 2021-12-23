@@ -12,7 +12,7 @@
       <td>{{meeting.subject}}</td>
       <td style="width:30%">
 
-          <ng-multiselect-dropdown [settings]="dropdownSettings" [data]="teachers" (onSelect)="addParticipants($event)" (onDeSelect)="removeParticipants($event)" (onSelectAll)="addAll($event)" (onDeSelectAll)="removeAll()"  ></ng-multiselect-dropdown>
+          <ng-multiselect-dropdown [settings]="dropdownSettings" [data]="teachers" [(ngModel)]="teacherPart"></ng-multiselect-dropdown>
       </td>
       <td class="btn_add">
         <button (click)="createAndEmitParticipation(meeting)">Add participants</button>

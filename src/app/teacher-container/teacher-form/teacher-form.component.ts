@@ -2,6 +2,7 @@ import { Output } from '@angular/core';
 import { Component, EventEmitter, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {Teacher} from "../../_model/teacher";
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-teacher-form',
@@ -33,6 +34,19 @@ export class TeacherFormComponent implements OnInit {
       mail:this.form.value.mail,
       password:this.form.value.password
 
+    });
+  }
+
+  autoComplete() {
+    if (environment.production)
+      return;
+
+    this.form.setValue({
+      name:"Doe",
+      firstname:"John",
+      birthdate:"2000-01-01",
+      mail:"JohnDoe@gmail.com",
+      password:"JohnPassword"
     });
   }
 

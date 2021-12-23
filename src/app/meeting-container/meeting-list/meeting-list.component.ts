@@ -22,6 +22,7 @@ export class MeetingListComponent implements OnInit {
 
   dropdownSettings:IDropdownSettings={};
   participants:number[]=[];
+  teacherPart : Teacher[]=[];
 
   constructor(private teacherService:TeacherService) { }
 
@@ -48,10 +49,14 @@ export class MeetingListComponent implements OnInit {
    * @param meeting le meeting auquel il faut ajouter les participations
    */
   createAndEmitParticipation(meeting:Meeting) {
-    this.participants.forEach(participant=>{
+    console.log("ici");
+    this.teacherPart.forEach(teacher=>{
+      console.log(meeting.idMeeting);
+      console.log(teacher.idTeacher);
       this.participateMeetingCreated.next({
         idMeeting:meeting.idMeeting,
-        idTeacher:participant!
+        idTeacher:teacher.idTeacher!
+//        idTeacher:participant!
       })
     })
   }
