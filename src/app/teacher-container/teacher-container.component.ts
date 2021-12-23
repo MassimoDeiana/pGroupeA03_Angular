@@ -16,6 +16,7 @@ import {TeacherListComponent} from "./teacher-list/teacher-list.component";
 export class TeacherContainerComponent implements OnInit {
 
   teachers:Teacher[]=[];
+  pageTitle:string="Teacher management";
 
   constructor(private teacherService:TeacherService) {
   }

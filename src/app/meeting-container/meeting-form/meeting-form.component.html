@@ -1,5 +1,4 @@
 <div>
-  <h2>Meeting</h2>
   <form [formGroup]="form" (submit)="createAndEmitMeeting()">
     <br/>
     <table>
@@ -9,15 +8,11 @@
           <input  type="text" class="text" formControlName="subject" placeholder="subject" />
           <input  type="datetime-local" formControlName="startTime"/>
           <input  type="datetime-local" formControlName="endTime"/>
-
-
-
         </td>
         <button class="btn" (click)="deleteMeeting(i)">delete</button>
       </tr>
       <tr>
         <td>
-
           <button type="button" class="btn" (click)="addMeetings()">Add new meeting</button>
         </td>
         <td>

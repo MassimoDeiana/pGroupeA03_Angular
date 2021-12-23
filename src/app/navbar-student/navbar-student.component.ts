@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {AuthenticationStudentService} from "../_services/_Authentification/authentificationStudent.service";
 
@@ -9,6 +9,7 @@ import {AuthenticationStudentService} from "../_services/_Authentification/authe
 })
 export class NavbarStudentComponent implements OnInit {
 
+  @Input() pageTitle:string="";
   constructor(private router: Router,
               private authentificationService:AuthenticationStudentService) { }
 

@@ -13,6 +13,7 @@ import {Schoolclass} from "../_model/schoolclass";
 export class SchoolclassContainerComponent implements OnInit {
 
   schoolclasses: Schoolclass[] = [];
+  pageTitle: string="Class management";
 
   constructor(private schoolclassService: SchoolclassService) { }
 

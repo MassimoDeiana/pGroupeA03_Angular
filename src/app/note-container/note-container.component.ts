@@ -14,6 +14,8 @@ export class NoteContainerComponent implements OnInit {
   notes:Note[]=[];
   pageTitle:string="note"
 
+  pageTitle:string='Notes'
+
   constructor(private noteService:NoteService) {
   }
 

@@ -1,3 +1,3 @@
-<app-navbar-teacher></app-navbar-teacher>
+<app-navbar-teacher [pageTitle]="pageTitle"></app-navbar-teacher>
 <app-lesson-form (lessonCreated)="send($event);"></app-lesson-form>
 <app-lesson-list [lessons]="lessons" (lessonToDelete)="delete($event)"></app-lesson-list>

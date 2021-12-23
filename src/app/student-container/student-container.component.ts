@@ -15,6 +15,7 @@ export class StudentContainerComponent implements OnInit {
 
   students:Student[]=[];
   schoolClasses:Schoolclass[]=[];
+  pageTitle: string="Student management";
 
   constructor(private studentService:StudentService,private schoolClassService:SchoolclassService) { }
 

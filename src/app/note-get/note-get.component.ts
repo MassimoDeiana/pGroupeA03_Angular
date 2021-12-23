@@ -28,6 +28,7 @@ export class NoteGetComponent implements OnInit {
   form:FormGroup = this.fb.group({
     idLesson:['',Validators.required]
   })
+  pageTitle: string="Notes";
 
   constructor(private fb:FormBuilder,
               private interroService:InterrogationService,
