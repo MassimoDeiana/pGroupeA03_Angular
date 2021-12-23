@@ -25,11 +25,21 @@ export class StudentContainerComponent implements OnInit {
   }
 
 
+  /**
+   * Permet de créer un student
+   * On appelle la méthode create du service permettant de faire une requête http (voir entity service)
+   * On ajoute le student au flux de donnée via le subscribe
+   * @param student
+   */
   send(student:Student){
     this.studentService.create(student)
       .subscribe(student=>this.students.push(student));
   }
 
+  /**
+   * Permet de supprimer un student
+   * @param entityToDelete le student à delete
+   */
   delete(entityToDelete:EntityToDelete<Student>){
     const student:Student = this.students[entityToDelete.index];
 
@@ -41,17 +51,27 @@ export class StudentContainerComponent implements OnInit {
       );
   }
 
+  /**
+   * Permet de récuperer tout les students
+   */
   getAll(){
     this.studentService
       .getAll()
       .subscribe(t=>this.students=t);
   }
 
+  /**
+   * Permet d'update un student
+   * @param e le nouveau student
+   */
   update(e:Student){
     this.studentService.update(e.idStudent || -1,e)
       .subscribe();
   }
 
+  /**
+   * permet de récuperer toutes les schoolclass
+   */
   getAllSchoolClass(){
     this.schoolClassService
       .getAll()

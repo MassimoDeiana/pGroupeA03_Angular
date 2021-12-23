@@ -10,12 +10,12 @@
     <tbody>
     <tr *ngFor="let meeting of meetings;let i=index">
       <td>{{meeting.subject}}</td>
-
       <td style="width:30%">
-        <ng-multiselect-dropdown [settings]="dropdownSettings" [data]="teachers" [(ngModel)]="participants" ></ng-multiselect-dropdown>
+
+          <ng-multiselect-dropdown [settings]="dropdownSettings" [data]="teachers" (onSelect)="addParticipants($event)" (onDeSelect)="removeParticipants($event)" (onSelectAll)="addAll($event)" (onDeSelectAll)="removeAll()"  ></ng-multiselect-dropdown>
       </td>
       <td class="btn_add">
-        <button (click)="createAndEmitParticipation()">Add participants</button>
+        <button (click)="createAndEmitParticipation(meeting)">Add participants</button>
       </td>
     </tr>
     </tbody>

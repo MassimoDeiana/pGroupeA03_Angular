@@ -17,6 +17,9 @@ export class NavbarAdminComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * Déconnecte l'admin et le renvoie à la page d'accueil
+   */
   logout() {
     this.authentificationService.logout();
     this.router.navigate(['/home']);

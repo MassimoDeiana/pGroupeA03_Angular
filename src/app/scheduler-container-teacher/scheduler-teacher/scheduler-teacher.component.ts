@@ -43,12 +43,18 @@ export class SchedulerTeacherComponent implements OnInit{
     this.setup();
   }
 
+  /**
+   * Set up le scheduler avec les données
+   */
   setup()
   {
     this.eventSettings={dataSource:this.toDatasource(this.participates,this.courses)}
-    console.log(this.eventSettings.dataSource);
   }
 
+  /**
+   * Permet de récuperer les meeting avec leur id
+   * @param id l'id du meeting
+   */
   getMeetingById(id:number){
     this.meetingService
       .get(id).subscribe(m=>{
@@ -63,6 +69,11 @@ export class SchedulerTeacherComponent implements OnInit{
     })
   }
 
+  /**
+   * Convertis participates et courses en datasource pour bind les données dans le scheduler
+   * @param participates
+   * @param courses
+   */
   toDatasource(participates:ParticipateMeeting[],courses:Course[])
   {
     this.obj=[];

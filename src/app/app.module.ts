@@ -108,7 +108,7 @@ import { SchedulerContainerStudentComponent } from './scheduler-container-studen
     CourseListComponent,
     SchedulerStudentComponent,
     SchedulerContainerTeacherComponent,
-    SchedulerContainerStudentComponent
+    SchedulerContainerStudentComponent,
 
 
   ],

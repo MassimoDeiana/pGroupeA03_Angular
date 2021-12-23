@@ -11,13 +11,17 @@ export class TeacherListComponent implements OnInit {
 
   @Input() teachers:Teacher[]=[];
   @Output() teacherToDelete:EventEmitter<EntityToDelete<Teacher>> = new EventEmitter<EntityToDelete<Teacher>>();
-  @Output() teacherChanged:EventEmitter<Teacher> = new EventEmitter<Teacher>();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  /**
+   * Emet un EntityToDelete<Teacher>, Grace à l'event binding, le Teacher sera supprimé par Teachercontainer
+   * @param teacher le teacher à supprimer
+   * @param i l'index du teacher
+   */
   emitDeleteTeacher(teacher:Teacher, i: number) {
     this.teacherToDelete.next({
       data:teacher,

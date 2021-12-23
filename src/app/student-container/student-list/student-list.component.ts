@@ -19,6 +19,11 @@ export class StudentListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * Emet un EntityToDelete<Student>, Grace à l'event binding, le Student sera supprimé par StudentContainer
+   * @param student le student à delete
+   * @param i l'index du student
+   */
   emitDeleteStudent(student:Student, i: number) {
     this.studentToDelete.next({
       data:student,

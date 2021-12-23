@@ -11,7 +11,6 @@ export class SchoolclassListComponent implements OnInit {
 
   @Input() schoolclasses: Schoolclass[] = [];
   @Output() schoolclassToDelete:EventEmitter<EntityToDelete<Schoolclass>> = new EventEmitter<EntityToDelete<Schoolclass>>();
-  @Output() schoolclassChanged:EventEmitter<Schoolclass> = new EventEmitter<Schoolclass>();
 
   constructor() { }
 

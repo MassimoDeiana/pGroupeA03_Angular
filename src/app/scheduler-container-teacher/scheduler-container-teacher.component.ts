@@ -32,20 +32,28 @@ export class SchedulerContainerTeacherComponent implements OnInit {
     this.getAllLesson();
   }
 
-
-
+  /**
+   * Permet de récuperer toutes les participations aux meetings
+   */
   getAllParticipate(){
     this.participateService
       .getList(this.authService.currentUserValue.idTeacher!)
       .subscribe(pm=>this.participates=pm);
   }
 
+  /**
+   * Permet de récupérer tous les courses donnée par un teacher
+   * @param id l'id du teacher
+   */
   getAllCourse(id:number){
     this.courseService
       .getByIdTeacher(id)
       .subscribe(c=>this.courses=c);
   }
 
+  /**
+   * Permet de récuperer toutes les lessons
+   */
   getAllLesson(){
     this.lessonService
       .getAll()

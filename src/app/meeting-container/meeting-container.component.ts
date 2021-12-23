@@ -36,17 +36,35 @@ export class MeetingContainerComponent implements OnInit {
 
   }
 
+  /**
+   * Permet de récupérer tout les meeting.
+   * On ajoute chaque meeting au flux de donnée via le subscribe
+   */
   getAllMeeting(){
     this.meetingService
       .getAll()
       .subscribe(m=>this.meetings=m);
   }
 
+  /**
+   * Permet de créer un Meeting
+   * On appelle la méthode create du service permettant de faire une requête http (voir entity service)
+   * On ajoute le meeting au flux de donnée via le subscribe
+   *
+   * @param meeting Le meeting à créer
+   */
   sendMeeting(meeting:Meeting){
     this.meetingService.create(meeting)
       .subscribe(meeting=>this.meetings.push(meeting));
   }
 
+  /**
+   * Permet de créer une participation
+   * On appelle la méthode create du service permettant de faire une requête http (voir entity service)
+   * On ajoute la participation au flux de donnée via le subscribe
+   *
+   * @param participateMeeting La participation à créer
+   */
   sendParticipate(participateMeeting : ParticipateMeeting){
     this.participateMeetingService
       .create(participateMeeting)
@@ -54,3 +72,4 @@ export class MeetingContainerComponent implements OnInit {
   }
 
 }
+

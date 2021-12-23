@@ -40,6 +40,9 @@ export class NoteGetComponent implements OnInit {
     this.getLessons()
   }
 
+  /**
+   * Permet de récuperer tout les resultats lié à une lesson
+   */
   getResult(){
     this.results=[];
     this.interros=[];
@@ -57,23 +60,28 @@ export class NoteGetComponent implements OnInit {
     this.moy()
   }
 
+  /**
+   * Permet de récupérer une interro avec son id
+   * @param id l'id de l'interro
+   */
   getInterroById(id:number){
     this.interroService.get(id).subscribe(i=>this.interros.push(i));
   }
 
+  /**
+   * Permet de récupérer toutes les lessons
+   */
   getLessons(){
     this.lessonService.getAll().subscribe(l=>this.lessons=l);
   }
 
-
-
+  /**
+   * Calcul la moyenne des notes lié à la lesson choisis
+   */
   public moy(){
     this.sum=0;
     this.results.forEach(result=>{
-      console.log(result.result);
-      console.log(result.total);
       this.sum+=((result.result)/(result.total))*100;
-      console.log(this.sum);
     })
     this.sum/=this.results.length;
 

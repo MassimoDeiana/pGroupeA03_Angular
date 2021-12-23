@@ -18,6 +18,9 @@ export class NavbarTeacherComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * Déconnecte le teacher et le renvoie à la page d'accueil
+   */
   logout() {
     this.authentificationService.logout();
     this.router.navigate(['/home']);

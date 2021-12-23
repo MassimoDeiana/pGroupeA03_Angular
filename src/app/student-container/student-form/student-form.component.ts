@@ -28,6 +28,9 @@ export class StudentFormComponent implements OnInit {
 
   }
 
+  /**
+   * Emet un student, le student sera crée par StudentContainer (event binding)
+   */
   createAndEmitStudent(){
     this.studentCreated.next({
 

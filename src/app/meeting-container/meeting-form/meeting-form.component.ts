@@ -1,14 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {Interrogation} from "../../_model/interrogation";
-import {Course} from "../../_model/course";
 import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {InterrogationService} from "../../_services/_interrogation/interrogation.service";
-import {CourseService} from "../../_services/_course/course.service";
 import {Meeting} from "../../_model/meeting";
-import {Teacher} from "../../_model/teacher";
-import {TeacherService} from "../../_services/_teacher/teacher.service";
-import {IDropdownSettings} from "ng-multiselect-dropdown";
-import {ParticipateMeeting} from "../../_model/participateMeeting";
 
 @Component({
   selector: 'app-meeting-form',
@@ -30,16 +22,23 @@ export class MeetingFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
-
+  /**
+   * Permet de récupérer le FormArray
+   */
   get meetings() {
     return (this.form.get('meetings') as FormArray);
   }
 
+  /**
+   * Permet de récupérer les controls du FormArray
+   */
   get meetingsControls() {
     return this.meetings.controls;
   }
 
+  /**
+   * Permet d'ajouter dynamiquement un formulaire
+   */
   addMeetings() {
     const meetingForm = this.fb.group({
       subject: ['', [Validators.required, Validators.maxLength(50),Validators.pattern('^[A-Za-z0-9ñÑáéíóúÁÉÍÓÚ ]+$')]],
@@ -49,11 +48,18 @@ export class MeetingFormComponent implements OnInit {
     this.meetings.push(meetingForm);
   }
 
+  /**
+   * Permet de supprimer dynamiquement un formulaire
+   * @param meetingIndex
+   */
   deleteMeeting(meetingIndex: number) {
     this.meetings.removeAt(meetingIndex);
   }
 
 
+  /**
+   * Emet un meeting, le meeting sera créer par MeetingContainer (event binding)
+   */
   createAndEmitMeeting() {
     console.log(this.form.value);
     console.log(this.meetings.length);

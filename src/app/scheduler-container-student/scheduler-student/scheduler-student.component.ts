@@ -29,19 +29,22 @@ export class SchedulerStudentComponent implements OnChanges {
     this.setup();
   }
 
+  /**
+   * Set up le scheduler avec les données
+   */
   setup()
   {
     this.eventSettings={dataSource:this.toDatasource(this.courses)}
   }
 
-
-
+  /**
+   * Convertis courses en dataSource pour bind les données dans le scheduler
+   * @param courses
+   */
   toDatasource(courses:Course[])
   {
     this.obj=[];
     courses.forEach(course=>{
-      console.log("id class : " + course.idClass);
-      console.log("id class du student : " + this.student.idClass);
       if(course.idClass==this.student.idClass) {
         this.obj.push({
           Id: course.idCourse,
@@ -51,7 +54,6 @@ export class SchedulerStudentComponent implements OnChanges {
         })
       }
     })
-    console.log(this.obj)
     return this.obj;
   }
 

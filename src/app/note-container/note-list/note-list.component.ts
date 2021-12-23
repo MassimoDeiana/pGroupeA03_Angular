@@ -17,6 +17,9 @@ export class NoteListComponent implements OnInit {
     this.getAllInterro();
   }
 
+  /**
+   * Permet de récupérer toutes les interros
+   */
   getAllInterro(){
     this.interroService
       .getAll()

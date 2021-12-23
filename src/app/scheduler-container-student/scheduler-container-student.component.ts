@@ -34,16 +34,26 @@ export class SchedulerContainerStudentComponent implements OnInit {
     this.getStudent(this.authService.currentUserValue.idStudent!);
   }
 
+  /**
+   * Permet de récuperer un student avec son id
+   * @param id l'id du student
+   */
   getStudent(id:number){
     this.studentService.get(id).subscribe(s=>this.student=s);
   }
 
+  /**
+   * Permet de récuperer tous les courses
+   */
   getAllCourse(){
     this.courseService
       .getAll()
       .subscribe(c=>this.courses=c);
   }
 
+  /**
+   * Permet de récupérer toutes les lessons
+   */
   getAllLesson(){
     this.lessonService
       .getAll()

@@ -15,6 +15,7 @@ import {Lesson} from "../../_model/lesson";
   templateUrl: './course-form.component.html',
   styleUrls: ['./course-form.component.css']
 })
+
 export class CourseFormComponent implements OnInit {
 
   succeedMessage:boolean=false;
@@ -73,7 +74,7 @@ export class CourseFormComponent implements OnInit {
   }
 
   /**
-   * Permet d'ajouter dynamiquement un formulaire à info
+   * Permet d'ajouter dynamiquement un formulaire
    */
   addInfo() {
     const lessonForm = this.fb.group({
@@ -95,9 +96,9 @@ export class CourseFormComponent implements OnInit {
 
 
   /**
-   * Permet de créer de nouvelles interros
+   * Emet un Course, le Course sera créer par CourseContainer via (event binding)
    */
-  createAndEmitInterro()
+  createAndEmitCourse()
   {
     for(let i=0; i<this.info.length; i++) //Boucle sur le nombre de formulaire
     {

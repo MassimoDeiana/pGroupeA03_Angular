@@ -20,6 +20,10 @@ export class LessonFormComponent implements OnInit {
   ngOnInit(): void {
 
   }
+
+  /**
+   * Emet une interro, l'interro sera créer par InterroContainer (event binding)
+   */
   createAndEmitTeacher(){
     this.lessonCreated.next({
       subject:this.form.value.subject,

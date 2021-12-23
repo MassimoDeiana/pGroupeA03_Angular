@@ -8,6 +8,7 @@ import {Course} from "../../_model/course";
   templateUrl: './course-list.component.html',
   styleUrls: ['./course-list.component.css']
 })
+
 export class CourseListComponent implements OnInit {
 
   @Input() courses:Course[]=[]; //Liste des cours provenant de CourseContainer

@@ -25,12 +25,22 @@ export class TeacherContainerComponent implements OnInit {
     this.getAll();
   }
 
-
+  /**
+   * Permet de créer une teacher
+   * On appelle la méthode create du service permettant de faire une requête http (voir entity service)
+   * On ajoute la teacher au flux de donnée via le subscribe
+   *
+   * @param teacher le teacher à créer
+   */
   send(teacher:Teacher){
     this.teacherService.create(teacher)
       .subscribe(teacher=>this.teachers.push(teacher));
   }
 
+  /**
+   * permet de supprimer un teacher
+   * @param entityToDelete le teacher à supprimer
+   */
   delete(entityToDelete:EntityToDelete<Teacher>){
     const teacher:Teacher = this.teachers[entityToDelete.index];
 
@@ -42,6 +52,9 @@ export class TeacherContainerComponent implements OnInit {
       );
   }
 
+  /**
+   * Permet de récuperer tout les teachers
+   */
   getAll(){
     this.teacherService
       .getAll()
@@ -49,10 +62,6 @@ export class TeacherContainerComponent implements OnInit {
   }
 
 
-  update(e:Teacher){
-    this.teacherService.update(e.idTeacher || -1,e)
-      .subscribe();
-  }
 
 
 }

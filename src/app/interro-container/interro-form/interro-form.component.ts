@@ -1,10 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {InterrogationService} from "../../_services/_interrogation/interrogation.service";
-import {Teacher} from "../../_model/teacher";
 import {Interrogation} from "../../_model/interrogation";
-import {CourseService} from "../../_services/_course/course.service";
-import {Course} from "../../_model/course";
 import {Lesson} from "../../_model/lesson";
 import {LessonService} from "../../_services/_lesson/lesson.service";
 import {AuthenticationTeacherService} from "../../_services/_Authentification/authentificationTeacher.service";
@@ -39,23 +36,32 @@ export class InterroFormComponent implements OnInit {
   }
 
 
-
+  /**
+   * Permet de récupérer toutes les lessons
+   */
   getAllLesson() {
     this.lessonService.getAll().subscribe(c=>this.lessons=c);
   }
 
+  /**
+   * Permet de récupérer le FormArray
+   */
   get info()
   {
     return (this.form.get('info') as FormArray);
   }
 
+  /**
+   * Permet de récupérer les controls du formArray
+   */
   get infoControls()
   {
     return this.info.controls;
   }
 
-
-
+  /**
+   * Permet d'ajouter dynamiquement un formulaire
+   */
   addInfo() {
     const lessonForm = this.fb.group({
       subject:['',[Validators.required, Validators.maxLength(50),Validators.pattern('^[A-Za-z0-9ñÑáéíóúÁÉÍÓÚ ]+$')]],
@@ -64,25 +70,23 @@ export class InterroFormComponent implements OnInit {
     this.info.push(lessonForm);
   }
 
-
+  /**
+   * Permet de supprimer dynamiquement un formulaire
+   * @param lessonIndex
+   *    L'index du formulaire que l'on souhaite supprimer
+   */
   deleteInfo(lessonIndex:number){
     this.info.removeAt(lessonIndex);
   }
 
 
   /**
-   * Emet une interro, l'interro sera créer par InterroContainer via l'event binding
+   * Emet une interro, l'interro sera créer par InterroContainer (event binding)
    */
   createAndEmitInterro()
   {
-    console.log(this.form.value);
-    console.log(this.info.length);
-
     for(let i=0; i<this.info.length; i++)
     {
-      console.log(this.form.value.idLesson);
-      console.log(this.form.value.info[i].subject);
-      console.log(this.form.value.info[i].total);
       this.interroCreated.next({
         idLesson:this.form.value.idLesson,
         idTeacher:this.authService.currentUserValue.idTeacher!,
@@ -101,7 +105,5 @@ export class InterroFormComponent implements OnInit {
       return false;
     }
     return true;
-
   }
-
 }

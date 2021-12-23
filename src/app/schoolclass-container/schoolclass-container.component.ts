@@ -21,11 +21,22 @@ export class SchoolclassContainerComponent implements OnInit {
     this.getAll();
   }
 
+  /**
+   * Permet de créer une schoolClass
+   * On appelle la méthode create du service permettant de faire une requête http (voir entity service)
+   * On ajoute la schoolClass au flux de donnée via le subscribe
+   *
+   * @param schoolclass La schoolClass à créer
+   */
   send(schoolclass: Schoolclass){
     this.schoolclassService.create(schoolclass)
       .subscribe(schoolclass=>this.schoolclasses.push(schoolclass));
   }
 
+  /**
+   * permet de supprimer une schoolClass
+   * @param entityToDelete la schoolClass à supprimer
+   */
   delete(entityToDelete: EntityToDelete<Schoolclass>){
     const schoolclass: Schoolclass = this.schoolclasses[entityToDelete.index];
 
@@ -36,15 +47,13 @@ export class SchoolclassContainerComponent implements OnInit {
       );
   }
 
+  /**
+   * Permet de récuperer toutes les schoolClass
+   */
   getAll(){
     this.schoolclassService
       .getAll()
       .subscribe(s => this.schoolclasses = s);
   }
 
-
-  update(schoolclass: Schoolclass){
-    this.schoolclassService.update(schoolclass.id || -1, schoolclass)
-      .subscribe();
-  }
 }

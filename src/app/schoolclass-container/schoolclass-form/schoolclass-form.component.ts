@@ -22,6 +22,9 @@ export class SchoolclassFormComponent implements OnInit {
 
   }
 
+  /**
+   * Emet une schoolclass
+   */
   createAndEmitSchoolclass(){
     this.schoolclassCreated.next({
       name: this.form.value.name,
@@ -30,6 +33,10 @@ export class SchoolclassFormComponent implements OnInit {
     });
   }
 
+  /**
+   * Permet de limité les entrée clavier aux chiffres uniquement
+   * @param event l'entrée clavier
+   */
   numberOnly(event:any): boolean {
     const charCode = (event.which) ? event.which : event.keyCode;
     if (charCode > 31 && (charCode < 48 || charCode > 57)) {

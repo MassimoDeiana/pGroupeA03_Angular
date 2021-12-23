@@ -22,12 +22,21 @@ export class NoteContainerComponent implements OnInit {
     this.getAllNote();
   }
 
-
+  /**
+   * Permet de créer une note
+   * On appelle la méthode create du service permettant de faire une requête http (voir entity service)
+   * On ajoute la note au flux de donnée via le subscribe
+   * @param note la note à créer
+   */
   send(note:Note){
     this.noteService.create(note)
       .subscribe(note=>this.notes.push(note));
   }
 
+  /**
+   * Permet de supprimer une note
+   * @param entityToDelete la note à supprimer
+   */
   delete(entityToDelete:EntityToDelete<Note>){
     const note:Note = this.notes[entityToDelete.index];
 
@@ -37,18 +46,13 @@ export class NoteContainerComponent implements OnInit {
       });
   }
 
+  /**
+   * Permet de récupérer toutes les notes
+   */
   getAllNote(){
     this.noteService
       .getAll()
       .subscribe(t=>this.notes=t);
   }
 
-
-
-/*
-  update(e:Note){
-    this.noteService.update(e.idNote || -1,e)
-      .subscribe();
-  }
-*/
 }

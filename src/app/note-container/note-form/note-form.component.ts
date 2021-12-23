@@ -45,24 +45,30 @@ export class NoteFormComponent implements OnInit {
     this.getAllSchoolClass()
   }
 
-  get controlsMachin() {
+  /**
+   * Permet de récupérer les controls du formArray
+   */
+  get controls() {
     return (this.form.get('ClassDetails') as FormArray).controls;
   }
 
+  /**
+   * Permet de récupérer toutes les schoolClass
+   */
   getAllSchoolClass(){
     this.schoolClassService.getAll().subscribe(sc=>this.schoolClasses=sc);
   }
 
+  /**
+   * Crée le formulaire de manière dynamique selon le nombre d'étudiants dans la classe choisie
+   */
   createform()
   {
     let arr=[];
     this.studentToDisplay = [];
     for(let i=0;i< this.students.length;i++)
     {
-
       if(this.students[i].idClass == this.filter.value.idClass){
-        console.log("ici");
-        console.log(this.students[i].name)
         arr.push(this.BuildFormDynamic(this.students[i]))
         this.studentToDisplay.push(this.students[i]);
       }
@@ -74,6 +80,10 @@ export class NoteFormComponent implements OnInit {
     })
   }
 
+  /**
+   * Crée un formulaire dynamiquement
+   * @param student l'étudiant à ajouter au formulaire
+   */
   BuildFormDynamic(student:Student):FormGroup{
     console.log(student.idStudent);
     return this.fb.group({
@@ -83,24 +93,14 @@ export class NoteFormComponent implements OnInit {
     })
   }
 
-  SaveData()
-  {
-    console.log(this.form.value);
-    //pass this data to service and api node/webapi
 
-  }
-
+  /**
+   * Emet une note pour chaque étudiant, la note sera créer par noteContainer (event binding)
+   */
   createAndEmitNote()
   {
     for(let i=0;i< this.studentToDisplay.length;i++)
     {
-      console.log(this.form.value)
-      console.log("id teacher : " + this.authService.currentUserValue.idTeacher);
-      console.log("id idInterro : " +this.form.value.idInterro);
-      console.log("date note : " +this.form.value.dateNote);
-      console.log("resultat : " +this.form.value.ClassDetails[i].result);
-      console.log("message : " +this.form.value.ClassDetails[i].message);
-
     this.noteCreated.next({
       idTeacher:this.authService.currentUserValue.idTeacher,
       idStudent:this.form.value.ClassDetails[i].idStudent,
@@ -112,6 +112,9 @@ export class NoteFormComponent implements OnInit {
 
   }}
 
+  /**
+   * Permet de récupérer tout les étudiants
+   */
   getAllStudent()
   {
     this.studentService
@@ -119,6 +122,9 @@ export class NoteFormComponent implements OnInit {
       .subscribe(s=>this.students=s);
   }
 
+  /**
+   * Permet de récupérer toutes les interros
+   */
   getAllInterros()
   {
     this.interroService
@@ -139,6 +145,10 @@ export class NoteFormComponent implements OnInit {
     });
   }
 
+  /**
+   * Permet de limité les entrée clavier aux chiffres uniquement
+   * @param event l'entrée clavier
+   */
   numberOnly(event:any): boolean {
     const charCode = (event.which) ? event.which : event.keyCode;
     if (charCode > 31 && (charCode < 48 || charCode > 57)) {
