@@ -3,6 +3,7 @@ import {Teacher} from "../../_model/teacher";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Student} from "../../_model/student";
 import {Schoolclass} from "../../_model/schoolclass";
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-student-form',
@@ -21,6 +22,8 @@ export class StudentFormComponent implements OnInit {
     password:['',[Validators.required,Validators.maxLength(50)]],
     idClass:['',Validators.required]
   })
+  currentDate = new Date().toISOString().split("T")[0];
+
 
   constructor(private fb:FormBuilder){ }
 
@@ -43,6 +46,20 @@ export class StudentFormComponent implements OnInit {
     });
   }
 
+
+  autoComplete() {
+    if (environment.production)
+      return;
+
+    this.form.setValue({
+      name:"Doe",
+      firstname:"John",
+      birthdate:"2000-01-01",
+      mail:"JohnDoe@gmail.com",
+      password:"JohnPassword",
+      idClass:1
+    });
+  }
 
 
 }

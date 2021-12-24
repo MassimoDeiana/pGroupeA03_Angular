@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Teacher} from "../../_model/teacher";
 import {EntityToDelete} from "../../_model/entity-to-delete";
 import {Student} from "../../_model/student";
+import {Schoolclass} from "../../_model/schoolclass";
 
 @Component({
   selector: 'app-student-list',

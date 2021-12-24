@@ -49,15 +49,13 @@ export class NoteGetComponent implements OnInit {
     this.resultService.getList(this.authService.currentUserValue.idStudent!).subscribe(r=>{
       r.forEach(result=>{
         if(result.idLesson==this.form.value.idLesson) {
-          console.log(result.idInterro)
           this.results.push(result);
           this.getInterroById(result.idInterro!);
 
         }
       })
     });
-    console.log("dans result " + this.results)
-    this.moy()
+    this.average()
   }
 
   /**
@@ -78,7 +76,7 @@ export class NoteGetComponent implements OnInit {
   /**
    * Calcul la moyenne des notes lié à la lesson choisis
    */
-  public moy(){
+  public average(){
     this.sum=0;
     this.results.forEach(result=>{
       this.sum+=((result.result)/(result.total))*100;

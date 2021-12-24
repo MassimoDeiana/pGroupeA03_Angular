@@ -3,7 +3,7 @@
     <table>
       <tr>
         <td>
-          <b>Course : </b>
+          <b id="lessonid">Lesson : </b>
         </td>
         <td>
           <select formControlName="idLesson">
@@ -22,7 +22,7 @@
         <td formGroupName={{i}}>
 
           <input [maxlength]="50" type="text" class="text" formControlName="subject" placeholder="subject" />
-          <input  (keypress)="numberOnly($event)" class="text" type="text" formControlName="total" placeholder="total (max: 100)" />
+          <input  (keypress)="numberOnly($event)" [maxlength]="3" class="text" type="text" formControlName="total" placeholder="total (max: 100)" />
         </td><button (click)="deleteInfo(i);succeedMessage=false">delete</button>
       </tr>
       <tr>

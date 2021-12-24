@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output, ViewEncapsulation} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Note} from "../../_model/note";
 import {Student} from "../../_model/student";
@@ -9,6 +9,7 @@ import {Interrogation} from "../../_model/interrogation";
 import {InterrogationService} from "../../_services/_interrogation/interrogation.service";
 import {SchoolclassService} from "../../_services/_schoolclass/schoolclass.service";
 import {Schoolclass} from "../../_model/schoolclass";
+import {DatePipe, formatDate} from "@angular/common";
 
 @Component({
   selector: 'app-note-form',
@@ -17,11 +18,16 @@ import {Schoolclass} from "../../_model/schoolclass";
 })
 export class NoteFormComponent implements OnInit {
 
+  @Input() notes:Note[]=[];
   @Output() noteCreated:EventEmitter<Note> = new EventEmitter<Note>()
   students : Student[] = [];
   interros : Interrogation[] = [];
   schoolClasses : Schoolclass[]=[];
   studentToDisplay: Student[]=[];
+
+  currentDate = new Date();
+
+
 
   alertMessage:String='';
 
@@ -43,6 +49,10 @@ export class NoteFormComponent implements OnInit {
     this.getAllInterros();
     this.createform();
     this.getAllSchoolClass()
+  }
+
+  get ClassDetails() {
+    return (this.form.get('ClassDetails') as FormArray);
   }
 
   /**
@@ -75,7 +85,6 @@ export class NoteFormComponent implements OnInit {
     }
     this.form =  this.fb.group({
       idInterro : ['',Validators.required],
-      dateNote : ['',Validators.required],
       ClassDetails:this.fb.array(arr)
     })
   }
@@ -85,7 +94,6 @@ export class NoteFormComponent implements OnInit {
    * @param student l'étudiant à ajouter au formulaire
    */
   BuildFormDynamic(student:Student):FormGroup{
-    console.log(student.idStudent);
     return this.fb.group({
       idStudent:[student.idStudent],
       result:['',[Validators.required,Validators.max(100),Validators.pattern("^[0-9]*$")]],
@@ -99,17 +107,26 @@ export class NoteFormComponent implements OnInit {
    */
   createAndEmitNote()
   {
+
+    let flag = false;
     for(let i=0;i< this.studentToDisplay.length;i++)
     {
-    this.noteCreated.next({
-      idTeacher:this.authService.currentUserValue.idTeacher,
-      idStudent:this.form.value.ClassDetails[i].idStudent,
-      idInterro:this.form.value.idInterro,
-      dateNote:this.form.value.dateNote,
-      result:this.form.value.ClassDetails[i].result,
-      message:this.form.value.ClassDetails[i].message
-    })
-
+      flag=false;
+      for(let note of this.notes) {
+        if (note.idInterro === this.form.value.idInterro && note.idStudent === this.form.value.ClassDetails[i].idStudent) {
+          flag = true;
+          break;
+        }
+      }
+      if(flag===false)
+      this.noteCreated.next({
+        idTeacher:this.authService.currentUserValue.idTeacher,
+        idStudent:this.form.value.ClassDetails[i].idStudent,
+        idInterro:this.form.value.idInterro,
+        dateNote:this.currentDate,
+        result:this.form.value.ClassDetails[i].result,
+        message:this.form.value.ClassDetails[i].message
+      })
   }}
 
   /**
@@ -132,18 +149,27 @@ export class NoteFormComponent implements OnInit {
       .subscribe(i=>this.interros=i);
   }
 
-  autoComplete() {
+  autoCompleteFilter() {
     if (environment.production)
       return;
 
-    this.form.setValue({
-      idStudent: 1,
-      idInterro:1,
-      dateNote: "2021-12-10",
-      result:0,
-      message:"nul"
+    this.filter.setValue({
+      idClass:1
     });
+
   }
+
+  autoComplete() {
+    const cValue = formatDate(this.currentDate, 'yyyy-MM-dd', 'en-US');
+
+    if (environment.production)
+      return;
+    this.form.patchValue({
+      idInterro:1,
+      dateNote:cValue
+    })
+  }
+
 
   /**
    * Permet de limité les entrée clavier aux chiffres uniquement

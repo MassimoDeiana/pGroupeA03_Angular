@@ -16,6 +16,8 @@ export class MeetingFormComponent implements OnInit {
     meetings: this.fb.array([])
   })
 
+  currentDate = new Date().toISOString();
+
   constructor(private fb: FormBuilder) {
   }
 
@@ -61,8 +63,6 @@ export class MeetingFormComponent implements OnInit {
    * Emet un meeting, le meeting sera créer par MeetingContainer (event binding)
    */
   createAndEmitMeeting() {
-    console.log(this.form.value);
-    console.log(this.meetings.length);
 
     for (let i = 0; i < this.meetings.length; i++) {
       this.meetingCreated.next({

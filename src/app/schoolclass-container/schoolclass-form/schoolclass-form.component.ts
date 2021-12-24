@@ -1,6 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Schoolclass} from "../../_model/schoolclass";
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-schoolclass-form',
@@ -43,6 +44,19 @@ export class SchoolclassFormComponent implements OnInit {
       return false;
     }
     return true;
-
   }
+
+
+  autoComplete() {
+    if (environment.production)
+      return;
+
+    this.form.setValue({
+      name:"3A",
+      year:"3",
+      nbStudents:"10",
+    });
+  }
+
+
 }

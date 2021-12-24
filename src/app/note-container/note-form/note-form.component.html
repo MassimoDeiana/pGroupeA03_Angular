@@ -1,7 +1,7 @@
 <div>
-  <form [formGroup]="filter" (submit)="createform()">
+  <form [formGroup]="filter" (submit)="createform()" (dblclick)="autoCompleteFilter()">
     <div class="box">
-
+      <b id="classid">Class</b>
       <select formControlName="idClass">
         <option *ngFor="let schoolclass of schoolClasses" [value]="schoolclass.id">
           {{schoolclass.name}}
@@ -11,7 +11,7 @@
     </div>
   </form>
 
-  <form [formGroup]="form" (submit)="createAndEmitNote()">
+  <form [formGroup]="form" (submit)="createAndEmitNote()" (dblclick)="autoComplete()">
     <div class="box">
       <table>
         <tr>
@@ -26,14 +26,7 @@
             </select>
           </td>
         </tr>
-        <tr>
-          <td>
-            <b>Date</b>
-          </td>
-          <td>
-            <input  type="date" class="input_date styled" formControlName="dateNote" />
-          </td>
-        </tr>
+
       </table>
     </div>
       <br/>

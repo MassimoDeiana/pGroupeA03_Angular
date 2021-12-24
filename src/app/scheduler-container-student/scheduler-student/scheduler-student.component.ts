@@ -16,6 +16,7 @@ import {AuthenticationStudentService} from "../../_services/_Authentification/au
 })
 export class SchedulerStudentComponent implements OnChanges {
 
+  pageTitle="Schedule";
   obj:Object[]=[];
   @Input() courses:Course[]=[];
   @Input() lessons:Lesson[]=[];

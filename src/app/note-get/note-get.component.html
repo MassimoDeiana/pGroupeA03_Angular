@@ -1,6 +1,6 @@
 <app-navbar-student [pageTitle]="pageTitle"></app-navbar-student>
 <div class="main">
-<form [formGroup]="form" (submit)="getResult();moy()">
+<form [formGroup]="form" (submit)="getResult();average()">
   <div class="box" >
     <select formControlName="idLesson">
       <option *ngFor="let lesson of lessons" [value]="lesson.idLesson">
@@ -10,14 +10,14 @@
     <input type="submit" class="inline" value="Search result" [disabled]="form.invalid" />
   </div>
 </form>
-  <button (click)="moy()" class="inline">Moyenne</button><br/><br/>
+  <button (click)="average()"  class="inline">Average</button><br/><br/>
 
 <table *ngIf="results.length!=0">
   <tr>
     <th>interro</th>
     <th>result</th>
     <th>total</th>
-    <th>message</th>
+    <th>Message</th>
   </tr>
   <tr *ngFor="let result of results;let i=index">
     <td>{{interros[i].subject}}</td>
@@ -27,6 +27,6 @@
   </tr>
 </table>
 <label *ngIf="results.length==0">This student doesn't have notes</label><br/>
-<label *ngIf="sum >= 0">Moyenne : {{sum.toFixed(2)+" %"}}</label>
+<label *ngIf="sum >= 0">Average : {{sum.toFixed(2)+" %"}}</label>
 </div>
 

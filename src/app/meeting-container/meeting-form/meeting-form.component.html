@@ -5,9 +5,12 @@
       <tr formArrayName="meetings" *ngFor="let cd of meetingsControls ;let i=index;">
         <td formGroupName={{i}}>
 
+          <b>Subject</b>
           <input  type="text" class="text" formControlName="subject" placeholder="subject" />
-          <input  type="datetime-local" formControlName="startTime"/>
-          <input  type="datetime-local" formControlName="endTime"/>
+          <b>Start time</b>
+          <input  type="datetime-local" formControlName="startTime" min="{{currentDate}}"/>
+          <b>End time</b>
+          <input  type="datetime-local" formControlName="endTime" min="{{currentDate}}"/>
         </td>
         <button class="btn" (click)="deleteMeeting(i)">delete</button>
       </tr>

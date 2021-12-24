@@ -10,7 +10,7 @@
     <tbody>
     <tr *ngFor="let meeting of meetings;let i=index">
       <td>{{meeting.subject}}</td>
-      <td style="width:30%">
+      <td style="width:45%;">
 
           <ng-multiselect-dropdown [settings]="dropdownSettings" [data]="teachers" [(ngModel)]="teacherPart"></ng-multiselect-dropdown>
       </td>

@@ -4,6 +4,8 @@ import {CourseService} from "../_services/_course/course.service";
 import {EntityToDelete} from "../_model/entity-to-delete";
 import {Note} from "../_model/note";
 import {AuthenticationTeacherService} from "../_services/_Authentification/authentificationTeacher.service";
+import {Lesson} from "../_model/lesson";
+import {LessonService} from "../_services/_lesson/lesson.service";
 
 @Component({
   selector: 'app-courses-container',
@@ -33,7 +35,6 @@ export class CoursesContainerComponent implements OnInit {
     this.courseService.create(course)
       .subscribe(course=>this.courses.push(course),
         error => this.message="Fail to add course(s)"); //Modifie le message à afficher en cas d'erreur
-    console.log(this.courses)
   }
 
   /**
@@ -60,5 +61,7 @@ export class CoursesContainerComponent implements OnInit {
       .getByIdTeacher(id)
       .subscribe(t=>this.courses=t);
   }
+
+
 
 }

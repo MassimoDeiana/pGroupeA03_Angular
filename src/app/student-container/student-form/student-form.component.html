@@ -1,4 +1,4 @@
-<form [formGroup]="form" (ngSubmit)="createAndEmitStudent()">
+<form [formGroup]="form" (ngSubmit)="createAndEmitStudent()" (dblclick)="autoComplete()">
   <table>
     <tr>
       <td>
@@ -21,7 +21,7 @@
         Birthdate:
       </td>
       <td>
-        <input type="date" class="date" formControlName="birthdate">
+        <input type="date" class="date" formControlName="birthdate" max="{{currentDate}}">
       </td>
     </tr>
     <tr>

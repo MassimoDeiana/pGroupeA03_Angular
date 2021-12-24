@@ -18,13 +18,15 @@
     <table>
       <tr formArrayName="info" *ngFor="let cd of infoControls ;let i=index;">
         <td formGroupName={{i}}>
+          <b>Lesson</b>
           <select formControlName="idLesson">
             <option *ngFor="let lesson of lessons" [value]="lesson.idLesson">
               {{lesson.subject}}
             </option>
           </select>
-
+          <b>Start time</b>
           <input  type="datetime-local" class="date" formControlName="startTime" placeholder="starTime" />
+          <b>  End time</b>
           <input  type="datetime-local" class="date" formControlName="endTime" placeholder="endTime" />
           <button (click)="deleteInfo(i)">delete</button>
         </td>

@@ -16,7 +16,7 @@ export class InterroFormComponent implements OnInit {
   succeedMessage:boolean=false;
 
   @Input() message:string='';
-
+  @Input() interrogations:Interrogation[]=[];
   @Output() interroCreated:EventEmitter<Interrogation> = new EventEmitter<Interrogation>()
 
   lessons:Lesson[]=[];
@@ -85,15 +85,26 @@ export class InterroFormComponent implements OnInit {
    */
   createAndEmitInterro()
   {
+    var flag = false;
     for(let i=0; i<this.info.length; i++)
     {
-      this.interroCreated.next({
-        idLesson:this.form.value.idLesson,
-        idTeacher:this.authService.currentUserValue.idTeacher!,
-        subject:this.form.value.info[i].subject,
-        total:this.form.value.info[i].total
-      })
-    }}
+      flag=false;
+      for(let interro of this.interrogations) {
+        if (interro.subject === this.form.value.info[i].subject) {
+          flag = true;
+          break;
+        }
+      }
+      if(flag===false)
+        this.interroCreated.next({
+          idLesson:this.form.value.idLesson,
+          idTeacher:this.authService.currentUserValue.idTeacher!,
+          subject:this.form.value.info[i].subject,
+          total:this.form.value.info[i].total
+        })
+      }
+
+    }
 
   /**
    * Permet de limité les entrée clavier aux chiffres uniquement

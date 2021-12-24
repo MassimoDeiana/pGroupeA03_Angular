@@ -19,6 +19,7 @@ export class TeacherFormComponent implements OnInit {
     mail:['',[Validators.required,Validators.maxLength(50)]],
     password:['',[Validators.required,Validators.maxLength(50)]]
   })
+  currentDate = new Date().toISOString().split("T")[0];
 
   constructor(private fb:FormBuilder){ }
 

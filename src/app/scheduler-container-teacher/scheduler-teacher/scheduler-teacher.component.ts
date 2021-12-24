@@ -28,6 +28,7 @@ import {MeetingService} from "../../_services/_meeting/meeting.service";
 })
 export class SchedulerTeacherComponent implements OnInit{
 
+  pageTitle="Schedule";
   obj:Object[]=[];
   meetings:Meeting[]=[];
   @Input() courses:Course[]=[];
@@ -58,7 +59,6 @@ export class SchedulerTeacherComponent implements OnInit{
   getMeetingById(id:number){
     this.meetingService
       .get(id).subscribe(m=>{
-      console.log("ici");
       this.obj.push({
         Id: m.idMeeting,
         Subject: m.subject,

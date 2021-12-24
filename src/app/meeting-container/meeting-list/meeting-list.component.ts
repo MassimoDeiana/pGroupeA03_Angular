@@ -49,10 +49,7 @@ export class MeetingListComponent implements OnInit {
    * @param meeting le meeting auquel il faut ajouter les participations
    */
   createAndEmitParticipation(meeting:Meeting) {
-    console.log("ici");
     this.teacherPart.forEach(teacher=>{
-      console.log(meeting.idMeeting);
-      console.log(teacher.idTeacher);
       this.participateMeetingCreated.next({
         idMeeting:meeting.idMeeting,
         idTeacher:teacher.idTeacher!
